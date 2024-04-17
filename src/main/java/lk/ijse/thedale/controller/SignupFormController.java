@@ -1,4 +1,4 @@
 package lk.ijse.thedale.controller;
 
-public class RegisterFormController {
+public class SignupFormController {
 }
