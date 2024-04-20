@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.thedale.controller.SignupFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="697.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.SignupFormController">
+   <children>
+      <ImageView fitHeight="697.0" fitWidth="484.0">
+         <image>
+            <Image url="@../assets/images/pexels-ollivves-1078981.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="607.0" layoutX="46.0" layoutY="42.0" opacity="0.33" stroke="#f2f2f2" strokeType="INSIDE" width="393.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="158.0" layoutY="117.0" prefHeight="47.0" prefWidth="144.0" text="Sign Up">
+         <font>
+            <Font name="Georgia Bold" size="33.0" />
+         </font>
+      </Label>
+      <TextField layoutX="121.0" layoutY="225.0" prefHeight="32.0" prefWidth="250.0" promptText="User Name" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.topAnchor="224.0" />
+      <TextField layoutX="122.0" layoutY="298.0" prefHeight="32.0" prefWidth="250.0" promptText="Email" style="-fx-background-radius: 30;" />
+      <Text layoutX="80.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName" />
+      <Text layoutX="83.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <Text layoutX="83.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+      <JFXButton buttonType="RAISED" layoutX="169.0" layoutY="514.0" prefHeight="47.0" prefWidth="122.0" style="-fx-background-color: black; -fx-background-radius: 30;" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <PasswordField layoutX="126.0" layoutY="378.0" prefHeight="32.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 30;" />
+   </children>
 </AnchorPane>

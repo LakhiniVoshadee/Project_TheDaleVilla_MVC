@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.LoginFormController">
+<AnchorPane fx:id="rootLogin" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.LoginFormController">
    <children>
       <ImageView fitHeight="824.0" fitWidth="1325.0" layoutX="-6.0" layoutY="-8.0">
          <image>
@@ -55,7 +55,7 @@
             <Font name="Georgia" size="14.0" />
          </font>
       </Label>
-      <TextField alignment="CENTER" layoutX="108.0" layoutY="416.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.7" prefHeight="54.0" prefWidth="274.0" style="-fx-background-radius: 30; -fx-background-color: #3dc1d3;" text="Name">
+      <TextField fx:id="txtUserId" alignment="CENTER" layoutX="108.0" layoutY="416.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.7" prefHeight="54.0" prefWidth="274.0" style="-fx-background-radius: 30; -fx-background-color: #3dc1d3;" text="Name">
          <font>
             <Font name="Georgia" size="14.0" />
          </font>
@@ -63,22 +63,22 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <JFXButton layoutX="159.0" layoutY="576.0" opacity="0.69" prefHeight="54.0" prefWidth="160.0" style="-fx-background-color: #3dc1d3; -fx-background-radius: 30;" text="Log In">
+      <JFXButton layoutX="159.0" layoutY="576.0" onAction="#btnLoginOnAction" opacity="0.69" prefHeight="54.0" prefWidth="160.0" style="-fx-background-color: #3dc1d3; -fx-background-radius: 30;" text="Log In">
          <font>
             <Font name="Georgia" size="14.0" />
          </font>
       </JFXButton>
-      <Hyperlink id="txtforgot" layoutX="62.0" layoutY="668.0" prefHeight="22.0" prefWidth="117.0" styleClass="txtforgot" stylesheets="@../values/style.css" text="Forgot Password">
+      <Hyperlink id="txtforgot" layoutX="62.0" layoutY="668.0" onAction="#linkForgotPwOnAction" prefHeight="22.0" prefWidth="117.0" styleClass="txtforgot" stylesheets="@../values/style.css" text="Forgot Password">
          <font>
             <Font name="Georgia" size="14.0" />
          </font>
       </Hyperlink>
-      <Hyperlink id="txtsignup" layoutX="335.0" layoutY="668.0" styleClass="txtsignup" stylesheets="@../values/style.css" text="Sign Up">
+      <Hyperlink id="txtsignup" layoutX="335.0" layoutY="668.0" onAction="#linkSignUpOnAction" styleClass="txtsignup" stylesheets="@../values/style.css" text="Sign Up">
          <font>
             <Font name="Georgia" size="14.0" />
          </font>
       </Hyperlink>
-      <PasswordField alignment="CENTER" layoutX="106.0" layoutY="496.0" opacity="0.7" prefHeight="54.0" prefWidth="274.0" style="-fx-background-color: #3dc1d3; -fx-background-radius: 30;" text="Password">
+      <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="106.0" layoutY="496.0" opacity="0.7" prefHeight="54.0" prefWidth="274.0" style="-fx-background-color: #3dc1d3; -fx-background-radius: 30;" text="Password">
          <font>
             <Font size="14.0" />
          </font>

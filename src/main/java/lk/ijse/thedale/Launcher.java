@@ -16,6 +16,7 @@ public class Launcher extends Application {
                                 .getResource("/view/login_form.fxml"))));
         stage.setTitle("Login Form");
         stage.centerOnScreen();
+        stage.setResizable(false);
         stage.show();
 
 
