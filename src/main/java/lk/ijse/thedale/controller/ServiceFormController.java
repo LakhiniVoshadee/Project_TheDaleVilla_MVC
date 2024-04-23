@@ -3,9 +3,9 @@ package lk.ijse.thedale.controller;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
 
-public class CustomerFormController {
+public class ServiceFormController {
 
     @FXML
-    private Pane pagingPane;
+    private Pane pageInPane;
 
 }

@@ -15,13 +15,13 @@
    <children>
       <ImageView fitHeight="697.0" fitWidth="484.0">
          <image>
-            <Image url="@../assets/pexels-ollivves-1078981.png" />
+            <Image url="@../assets/images/pexels-ollivves-1078981.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="607.0" layoutX="46.0" layoutY="42.0" opacity="0.33" stroke="#f2f2f2" strokeType="INSIDE" width="393.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="158.0" layoutY="117.0" prefHeight="47.0" prefWidth="144.0" text="Sign Up">
          <font>
-            <Font name="Georgia Bold" size="20.0" />
+            <Font name="Georgia Bold" size="33.0" />
          </font>
       </Label>
       <TextField layoutX="121.0" layoutY="225.0" prefHeight="32.0" prefWidth="250.0" promptText="User Name" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.topAnchor="224.0" />
@@ -29,9 +29,9 @@
       <Text layoutX="80.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName" />
       <Text layoutX="83.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
       <Text layoutX="83.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-      <JFXButton layoutX="174.0" layoutY="502.0" style="-fx-background-color: #3dc1d3; -fx-background-radius: 30;" text="Sign Up">
+      <JFXButton buttonType="RAISED" layoutX="169.0" layoutY="514.0" prefHeight="47.0" prefWidth="122.0" style="-fx-background-color: black; -fx-background-radius: 30;" text="Sign Up" textFill="WHITE">
          <font>
-            <Font name="Georgia" size="23.0" />
+            <Font name="Arial Bold" size="20.0" />
          </font>
       </JFXButton>
       <PasswordField layoutX="126.0" layoutY="378.0" prefHeight="32.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 30;" />

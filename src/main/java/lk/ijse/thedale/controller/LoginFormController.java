@@ -1,59 +1,57 @@
 package lk.ijse.thedale.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
+import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.thedale.db.Dbconnection;
+import lk.ijse.thedale.model.UserModel;
+import lk.ijse.thedale.util.Navigation;
 
-import java.awt.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class LoginFormController {
-     public TextField txtUserId;
-     public PasswordField txtPassword;
-     public AnchorPane rootLogin;
 
-public void btnLoginOnAction(ActionEvent actionEvent) throws IOException  {
-    String userId = txtUserId.getText();
-    String password = txtPassword.getText();
+    @FXML
+    private JFXButton btnLogin;
 
-    try{
-        checkCredential(userId,password);
-    }catch (SQLException e){
-        new Alert(Alert.AlertType.ERROR,"OOPS! something went wrong").show();
-    }
-}
+    @FXML
+    private Hyperlink hyperForgotPassword;
 
-    private void checkCredential(String userId, String password) throws SQLException {
-     String sql = "select * from users where username = ?";
+    @FXML
+    private Hyperlink hyperSignUp;
 
-        Connection connection = Dbconnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setObject(1,userId);
-        
-        ResultSet resultSet = pstm.executeQuery();
-        if (resultSet.next()){
-            String dbPw = resultSet.getNString(2);
-            
-            if (dbPw.equals(password)){
-                navigateToTheDashboard();
-                
-            }else {
-                new Alert(Alert.AlertType.ERROR,"Password is incorrect").show();
+    @FXML
+    private AnchorPane rootNode;
+
+    @FXML
+    private PasswordField txtPassword;
+
+    @FXML
+    private TextField txtUserName;
+
+    @FXML
+    void btnLoginOnAction(ActionEvent event) {
+        if(UserModel.verifyCredentials(txtUserName.getText(), txtPassword.getText())) {
+            try {
+                Navigation.switchNavigation("dashboard_form.fxml",event);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-        }else {
-            new Alert(Alert.AlertType.INFORMATION,"User id not found").show();
         }
-    }
-
-    private void navigateToTheDashboard() {
 
     }
+
+    @FXML
+    void linkForgotPwOnAction(ActionEvent event) {
+
     }
 
+    @FXML
+    void linkSignUpOnAction(ActionEvent event) {
 
+    }
+
+}
