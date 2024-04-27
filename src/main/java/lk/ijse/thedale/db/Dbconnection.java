@@ -10,7 +10,7 @@ public class Dbconnection {
 
     private Dbconnection() throws SQLException {
         connection = DriverManager.getConnection(
-                "jbbc:mysql://localhost:3306/theDaleVilla",
+                "jdbc:mysql://localhost:3306/theDaleVilla",
                 "root",
                 "IJSE@123"
         );
@@ -19,8 +19,9 @@ public class Dbconnection {
 
 
     public static Dbconnection  getInstance() throws SQLException {
-        return (dbconnection==null)?dbconnection=new Dbconnection():dbconnection;
+        return (dbconnection==null)?dbconnection = new Dbconnection():dbconnection;
     }
-    public Connection getConnection() {return connection;
+    public Connection getConnection() {
+        return connection;
     }
 }

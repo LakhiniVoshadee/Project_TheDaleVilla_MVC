@@ -8,9 +8,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: #f7f1e3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.DashBoardFormController">
+<AnchorPane prefHeight="880.0" prefWidth="1506.0" style="-fx-background-color: #f7f1e3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.DashBoardFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#079992" height="817.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="331.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#079992" height="889.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="330.0" />
       <ImageView fitHeight="199.0" fitWidth="200.0" layoutX="55.0" layoutY="14.0">
          <image>
             <Image url="@../assets/images/the-dale-villa-high-resolution-logo-black-transparent.png" />
@@ -91,6 +91,16 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </JFXButton>
-      <Pane fx:id="pagingPane" layoutX="330.0" layoutY="-2.0" prefHeight="818.0" prefWidth="986.0" style="-fx-background-color: black;" />
+      <Pane fx:id="pagingPane" layoutX="326.0" layoutY="-2.0" prefHeight="890.0" prefWidth="1180.0" style="-fx-background-color: black;" />
+      <JFXButton fx:id="btnServices1" buttonType="RAISED" layoutX="72.0" layoutY="533.0" onAction="#btnServicesOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Payment" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="85.0" layoutY="545.0">
+         <image>
+            <Image url="@../assets/icons/credit-card.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

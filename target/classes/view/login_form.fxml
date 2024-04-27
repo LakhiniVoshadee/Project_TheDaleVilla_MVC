@@ -17,9 +17,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="890.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.LoginFormController">
    <children>
-      <ImageView fitHeight="824.0" fitWidth="1325.0" layoutX="-6.0" layoutY="-8.0">
+      <ImageView fitHeight="898.0" fitWidth="1325.0" layoutX="-6.0" layoutY="-8.0">
          <image>
             <Image url="@../assets/images/pexels-asad-photo-maldives-3155666.jpg" />
          </image>

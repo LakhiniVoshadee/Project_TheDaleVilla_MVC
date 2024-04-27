@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="986.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.HomeFormController"/>
+<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1176.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.HomeFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a0a0a" height="890.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
+      <Text fill="WHITE" layoutX="70.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="163.13671875">
+         <font>
+            <Font name="Arial Bold" size="33.0" />
+         </font>
+      </Text>
+      <Pane layoutX="40.0" layoutY="165.0" prefHeight="97.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="66.0" layoutX="22.0" layoutY="14.0">
+               <image>
+                  <Image url="@../assets/icons/reputation.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="115.0" layoutY="35.0" text="Customer Count">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="357.0" layoutY="165.0" prefHeight="97.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="84.0" layoutX="14.0" layoutY="15.0">
+               <image>
+                  <Image url="@../assets/icons/rental.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane layoutX="670.0" layoutY="165.0" prefHeight="97.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+      <Pane layoutX="40.0" layoutY="347.0" prefHeight="383.0" prefWidth="431.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <Label layoutX="49.0" layoutY="36.0" prefHeight="30.0" prefWidth="184.0" text="Available Stock">
+               <font>
+                  <Font name="Arial Bold" size="22.0" />
+               </font>
+            </Label>
+            <PieChart layoutX="29.0" layoutY="98.0" prefHeight="256.0" prefWidth="349.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="497.0" layoutY="347.0" prefHeight="373.0" prefWidth="461.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+   </children>
+</Pane>

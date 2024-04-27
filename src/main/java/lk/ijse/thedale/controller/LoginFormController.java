@@ -34,7 +34,7 @@ public class LoginFormController {
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
-        if(UserModel.verifyCredentials(txtUserName.getText(), txtPassword.getText())) {
+        if(UserModel.verifyCredentials(txtUserName.getText(),txtPassword.getText())) {
             try {
                 Navigation.switchNavigation("dashboard_form.fxml",event);
             } catch (IOException e) {

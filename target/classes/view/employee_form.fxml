@@ -1,6 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="986.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.EmployeeFormController"/>
+<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1176.0" style="-fx-background-color: #079992;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.EmployeeFormController">
+   <children>
+      <ImageView fitHeight="898.0" fitWidth="1183.0" layoutX="-7.0" layoutY="-2.0">
+         <image>
+            <Image url="@../assets/images/bcgrd.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="890.0" layoutX="-1.0" layoutY="-1.0" opacity="0.16" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
+      <Text fill="WHITE" layoutX="56.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
+         <font>
+            <Font name="Arial Bold" size="33.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="46.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Manage" wrappingWidth="217.13671875">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#fffefe" layoutX="56.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID" wrappingWidth="120.13671875">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Text>
+      <TextField layoutX="56.0" layoutY="241.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
+      <TableView layoutX="18.0" layoutY="555.0" prefHeight="246.0" prefWidth="948.0">
+        <columns>
+          <TableColumn prefWidth="119.0" text="ID" />
+          <TableColumn prefWidth="186.0" text="Name" />
+            <TableColumn minWidth="0.0" prefWidth="172.0" text="Type" />
+            <TableColumn minWidth="0.0" prefWidth="277.0" text="Email" />
+            <TableColumn prefWidth="193.0" text="Date Of Birth" />
+        </columns>
+      </TableView>
+      <Text fill="#fffefe" layoutX="554.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Name" wrappingWidth="135.13671875">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="56.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="556.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="57.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DOB">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Text>
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="380.0" layoutY="476.0" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: gray; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="494.0" layoutY="476.0" prefHeight="30.0" prefWidth="113.0" style="-fx-background-color: red; -fx-background-radius: 30;" text="Delete" textFill="#ffe9e9">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="622.0" layoutY="478.0" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: orange; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="750.0" layoutY="477.0" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: blue; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="23.0" fitWidth="21.0" layoutX="815.0" layoutY="481.0">
+         <image>
+            <Image url="@../assets/icons/save.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="38.0" layoutX="688.0" layoutY="480.0">
+         <image>
+            <Image url="@../assets/icons/update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="565.0" layoutY="477.0">
+         <image>
+            <Image url="@../assets/icons/trash.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="19.0" fitWidth="38.0" layoutX="432.0" layoutY="481.0">
+         <image>
+            <Image url="@../assets/icons/broom.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="56.0" layoutY="342.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
+      <TextField layoutX="56.0" layoutY="425.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
+      <TextField layoutX="557.0" layoutY="342.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
+      <TextField layoutX="557.0" layoutY="241.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
+      <Line endX="838.0" layoutX="147.0" layoutY="90.0" startX="-148.0" stroke="#079992" strokeWidth="2.0" />
+   </children>
+</Pane>
