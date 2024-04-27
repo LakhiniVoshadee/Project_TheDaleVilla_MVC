@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -37,7 +38,7 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Text>
-      <TableView layoutX="56.0" layoutY="566.0" prefHeight="287.0" prefWidth="1069.0">
+      <TableView layoutX="72.0" layoutY="566.0" prefHeight="287.0" prefWidth="992.0">
         <columns>
           <TableColumn prefWidth="174.0" text="ID" />
           <TableColumn prefWidth="313.0" text="Date" />
@@ -84,5 +85,6 @@
             <Image url="@../assets/icons/save.png" />
          </image>
       </ImageView>
+      <Line endX="1179.0" endY="11.0" layoutY="96.0" startX="2.0" startY="11.0" stroke="#079992" strokeWidth="2.0" />
    </children>
 </Pane>

@@ -13,7 +13,7 @@ public class Launcher extends Application {
         stage
                 .setScene(new Scene(FXMLLoader
                         .load(this.getClass()
-                                .getResource("/view/dashboard_form.fxml"))));
+                                .getResource("/view/login_form.fxml"))));
         stage.setTitle("Login Form");
         stage.centerOnScreen();
         stage.setResizable(false);

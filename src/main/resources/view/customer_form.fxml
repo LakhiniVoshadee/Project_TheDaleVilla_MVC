@@ -7,14 +7,15 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1176.0" style="-fx-background-color: #079992;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.CustomerFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="761.0" layoutX="-1.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
-      <Text layoutX="46.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="890.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
+      <Text fill="WHITE" layoutX="54.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
          <font>
             <Font name="Arial Bold" size="33.0" />
          </font>
@@ -55,7 +56,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TableView layoutX="29.0" layoutY="572.0" prefHeight="246.0" prefWidth="1096.0">
+      <TableView layoutX="90.0" layoutY="572.0" prefHeight="246.0" prefWidth="979.0">
         <columns>
           <TableColumn prefWidth="107.0" text="ID" />
           <TableColumn prefWidth="121.0" text="Name" />
@@ -110,5 +111,6 @@
       <TextField layoutX="66.0" layoutY="420.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <TextField layoutX="66.0" layoutY="339.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <TextField layoutX="620.0" layoutY="420.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <Line endX="1075.0" endY="14.0" layoutX="101.0" layoutY="89.0" startX="-102.0" startY="14.0" stroke="#079992" strokeWidth="2.0" />
    </children>
 </Pane>

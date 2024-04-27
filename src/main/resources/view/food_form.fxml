@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -83,5 +84,6 @@
             <Image url="@../assets/icons/save.png" />
          </image>
       </ImageView>
+      <Line endX="1072.0" endY="4.0" layoutX="103.0" layoutY="93.0" startX="-102.0" startY="4.0" stroke="#079992" strokeWidth="2.0" />
    </children>
 </Pane>
