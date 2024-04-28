@@ -57,7 +57,7 @@
             <Font name="Georgia" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserName" alignment="CENTER" layoutX="108.0" layoutY="416.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.7" prefHeight="54.0" prefWidth="274.0" promptText="Username" style="-fx-background-radius: 30; -fx-background-color: white;">
+      <TextField fx:id="txtUserId" alignment="CENTER" layoutX="108.0" layoutY="416.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.7" prefHeight="54.0" prefWidth="274.0" promptText="Username" style="-fx-background-radius: 30; -fx-background-color: white;">
          <font>
             <Font name="Arial" size="14.0" />
          </font>

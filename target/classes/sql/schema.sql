@@ -16,9 +16,7 @@ create table Employee(
      Name varchar(20)not null,
      Type varchar(20)not null,
      Email varchar(30)not null,
-     DOB date,
-     UserID varchar(20),
-     FOREIGN KEY (UserID) REFERENCES Admin(UserID)on update cascade on delete cascade
+     DOB date
 );
 
 create table Salary(

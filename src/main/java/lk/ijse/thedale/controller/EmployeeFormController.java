@@ -70,55 +70,78 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
+        String id = txtEmpId.getText();
+
+
 
     }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String id = txtEmpId.getText();
-        String name = txtEmpName.getText();
-        String type = txtType.getText();
-        String dob = txtDob.getText();
-        String email = txtEmail.getText();
-        String userid = LoginFormController.getInstance().userid;
+       String id = txtEmpId.getText();
+       String name = txtEmpName.getText();
+       String type = txtType.getText();
+       String email = txtEmail.getText();
+       String dob = txtDob.getText();
+
+       //Employee employee = new Employee(id, name, type, dob, email);
+       // Employee employee = new Employee(id,name,type,email,dob);
+        Employee employee = new Employee(id,name,type,email,dob);
+
+       try {
+           boolean isSaved = EmployeeRepo.save(employee);
+
+               new Alert(Alert.AlertType.CONFIRMATION,"Employee has been saved successfully").show();
 
 
-
-        Employee employee = new Employee(id, name, type, dob, email,userid);
-
-      /*  try {
-            boolean isSaved = EmployeeRepo.save(employee);
-            if(isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Employee has been saved successfully").show();
-
-            } catch (Exception e){
-                new Alert(Alert.AlertType.ERROR, e.getmessage()).show();
-            }
-        }*/
-
-          try {
-
-              boolean isSaved = EmployeeRepo.save(employee);
-              if(isSaved) {
-                  new Alert(Alert.AlertType.CONFIRMATION, "Employee has been saved successfully").show();
-              }
-          }catch (Exception e){
-              new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-
-          }
-
+       }catch (SQLException e){
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+       }
 
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        String id = txtEmpId.getText();
+        String name = txtEmpName.getText();
+        String type = txtType.getText();
+        String email = txtEmail.getText();
+        String dob = txtDob.getText();
+
+        Employee employee = new Employee(id,name,type,email,dob);
+
+        try {
+            boolean isUpdated = EmployeeRepo.update(employee);
+            if(isUpdated){
+                new Alert(Alert.AlertType.CONFIRMATION,"Employee has been updated successfully").show();
+            }
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
 
     }
 
     @FXML
     void txtSearchOnAction(ActionEvent event) {
+        String id = txtEmpId.getText();
+
+        try {
+            Employee employee = EmployeeRepo.searchById(id);
+
+            if (employee != null) {
+                txtEmpId.setText(employee.getEmpID());
+                txtEmpName.setText(employee.getName());
+                txtType.setText(employee.getType());
+                txtEmail.setText(employee.getEmail());
+                txtDob.setText(employee.getDOB());
+            }
+        } catch (SQLException e) {
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
 
     }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

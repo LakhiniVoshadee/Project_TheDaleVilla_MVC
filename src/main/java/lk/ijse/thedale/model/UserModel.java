@@ -1,7 +1,11 @@
 package lk.ijse.thedale.model;
 
+import javafx.scene.control.Alert;
+import javafx.scene.layout.AnchorPane;
+import lk.ijse.thedale.controller.LoginFormController;
 import lk.ijse.thedale.db.Dbconnection;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,27 +13,33 @@ import java.sql.SQLException;
 
 
 public class UserModel {
-    public static boolean verifyCredentials(String UserId,String UserName, String Password,String Mobile) {
-        try {
-          Dbconnection instance = Dbconnection.getInstance();
-            Connection connection = instance.getConnection();
+    public static void verifyCredentials(String UserId, String Password, AnchorPane rootNode) throws SQLException, IOException {
 
-            String sql = "select UserName,Password,Mob_num from admin where UserId=?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        String sql = "select UserId,Password from admin where UserId=?";
 
-            preparedStatement.setString(1, UserId);
-            preparedStatement.setString(2, UserName);
+        Dbconnection instance = Dbconnection.getInstance();
+        Connection connection = instance.getConnection();
 
+       // String sql = "select Password from admin where UserId=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                if (Password.equals(resultSet.getString(1))) {
-                    return true;
-                }
+        preparedStatement.setObject(1, UserId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        if (resultSet.next()) {
+            String psw = resultSet.getString(2);
+            if (psw.equals(Password)) {
+                rootNode.getScene().getWindow().hide();
+                new LoginFormController().gotodashboard();
+
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Wrong Password").show();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } else {
+            new Alert(Alert.AlertType.ERROR, " Password").show();
         }
-        return false;
+
     }
+
 }
+

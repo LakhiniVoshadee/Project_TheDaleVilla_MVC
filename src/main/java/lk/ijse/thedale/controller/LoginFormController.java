@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,6 +17,7 @@ import lk.ijse.thedale.model.UserModel;
 import lk.ijse.thedale.util.Navigation;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginFormController {
 
@@ -35,9 +37,9 @@ public class LoginFormController {
     private PasswordField txtPassword;
 
     @FXML
-    public TextField txtUserName;
+    public TextField txtUserId;
 
-    public String userid;
+   /* public String userName;
 
     public String tel;
 
@@ -51,22 +53,20 @@ public class LoginFormController {
 
     public static LoginFormController getInstance(){
         return controller;
-    }
+    }*/
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
-        String uId = LoginFormController.getInstance().userid;
-        String userName = txtUserName.getText();
+        String uId = txtUserId.getText();
         String password = txtPassword.getText();
-        String mobile = LoginFormController.getInstance().tel;
 
-        if(UserModel.verifyCredentials(uId,userName,password,mobile)) {
-            try {
-                Navigation.switchNavigation("dashboard_form.fxml",event);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+         try {
+             UserModel.verifyCredentials(uId, password, rootNode);
+         }catch (SQLException e){
+             new Alert(Alert.AlertType.ERROR,"Try again").show();
+         }catch (IOException e){
+             throw new RuntimeException(e);
+         }
 
     }
 
@@ -95,4 +95,14 @@ public class LoginFormController {
 
     }
 
+    public void gotodashboard() throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("DashBoard Form");
+        stage.show();
+    }
 }
