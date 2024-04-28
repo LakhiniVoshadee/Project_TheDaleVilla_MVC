@@ -30,8 +30,8 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtEmpId" layoutX="56.0" layoutY="241.0" onAction="#txtSearchOnAction" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
-      <TableView fx:id="tblEmployee" layoutX="18.0" layoutY="555.0" prefHeight="246.0" prefWidth="948.0">
+      <TextField fx:id="txtEmpId" layoutX="56.0" layoutY="241.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
+      <TableView fx:id="tblEmployee" layoutX="57.0" layoutY="556.0" prefHeight="246.0" prefWidth="948.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="119.0" text="ID" />
           <TableColumn fx:id="colName" prefWidth="186.0" text="Name" />

@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeRepo {
     public static String generateNextId() throws SQLException {
@@ -33,15 +35,15 @@ public class EmployeeRepo {
     }
 
     public static boolean save(Employee employee) throws SQLException {
-        String sql = "INSERT INTO Employee VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO employee VALUES (?,?,?,?,?,?)";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1, employee.getEmpID());
         pstm.setObject(2, employee.getName());
         pstm.setObject(3, employee.getType());
-        pstm.setObject(4, employee.getDOB());
-        pstm.setObject(5, employee.getEmail());
-       // pstm.setObject(6, employee.getUserID());
+        pstm.setObject(4, employee.getEmail());
+        pstm.setObject(5, employee.getDOB());
+        pstm.setObject(6, employee.getUserID());
 
         return pstm.executeUpdate() > 0;
 
@@ -61,26 +63,29 @@ public class EmployeeRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public static Employee searchById(String id) throws SQLException {
-        String sql = "SELECT * FROM Employee WHERE EmpId = ?";
+    public static boolean delete(String id) throws SQLException {
+        String sql = "DELETE FROM employee WHERE EmpId = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
-        pstm.setObject(1,id);
-        ResultSet resultSet = pstm.executeQuery();
+        return pstm.executeUpdate() > 0;
+    }
 
-        Employee employee = null;
 
-        if (resultSet.next()){
-            String empId = resultSet.getString(1);
-            String name = resultSet.getString(2);
-            String type = resultSet.getString(3);
-            String dob = resultSet.getString(4);
-            String email = resultSet.getString(5);
-           // String userID = resultSet.getString(6);
+    public List<Employee> getEmployee() throws SQLException {
+      String sql = "SELECT * FROM employee";
+      ResultSet resultSet = Dbconnection.getInstance().getConnection().prepareStatement(sql).executeQuery();
+      List<Employee> employeeList = new ArrayList<>();
+      while (resultSet.next()) {
+          employeeList.add(new Employee(
+                  resultSet.getString(1),
+                  resultSet.getString(2),
+                  resultSet.getString(3),
+                  resultSet.getString(4),
+                  resultSet.getString(5),
+                  resultSet.getString(6)
 
-            //employee = new Employee(empId,name,type,dob,email,userID);
-
-        }
-        return employee;
+          ));
+      }
+      return employeeList;
     }
 }

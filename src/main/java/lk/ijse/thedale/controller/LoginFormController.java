@@ -39,13 +39,14 @@ public class LoginFormController {
     @FXML
     public TextField txtUserId;
 
-   /* public String userName;
+    public String userId;
 
     public String tel;
 
     Admin admin = new Admin();
 
     private static LoginFormController controller;
+
     public LoginFormController(){
         controller = this;
 
@@ -53,7 +54,7 @@ public class LoginFormController {
 
     public static LoginFormController getInstance(){
         return controller;
-    }*/
+    }
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
