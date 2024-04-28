@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.thedale.model.Admin;
 import lk.ijse.thedale.model.UserModel;
 import lk.ijse.thedale.util.Navigation;
 
@@ -34,11 +35,32 @@ public class LoginFormController {
     private PasswordField txtPassword;
 
     @FXML
-    private TextField txtUserName;
+    public TextField txtUserName;
+
+    public String userid;
+
+    public String tel;
+
+    Admin admin = new Admin();
+
+    private static LoginFormController controller;
+    public LoginFormController(){
+        controller = this;
+
+    }
+
+    public static LoginFormController getInstance(){
+        return controller;
+    }
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
-        if(UserModel.verifyCredentials(txtUserName.getText(),txtPassword.getText())) {
+        String uId = LoginFormController.getInstance().userid;
+        String userName = txtUserName.getText();
+        String password = txtPassword.getText();
+        String mobile = LoginFormController.getInstance().tel;
+
+        if(UserModel.verifyCredentials(uId,userName,password,mobile)) {
             try {
                 Navigation.switchNavigation("dashboard_form.fxml",event);
             } catch (IOException e) {

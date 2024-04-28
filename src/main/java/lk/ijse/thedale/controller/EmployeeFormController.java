@@ -3,10 +3,12 @@ package lk.ijse.thedale.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import lk.ijse.thedale.model.Employee;
 import lk.ijse.thedale.repository.EmployeeRepo;
 
 import java.net.URL;
@@ -54,9 +56,17 @@ public class EmployeeFormController implements Initializable {
 
 
     @FXML
-    void btnClearOnAction(ActionEvent event) {
+    void btnClearOnAction(ActionEvent event) { clearFields();}
+
+    private void clearFields(){
+        txtEmpId.setText("");
+        txtEmpName.setText("");
+        txtType.setText("");
+        txtDob.setText("");
 
     }
+
+
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
@@ -65,6 +75,38 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        String id = txtEmpId.getText();
+        String name = txtEmpName.getText();
+        String type = txtType.getText();
+        String dob = txtDob.getText();
+        String email = txtEmail.getText();
+        String userid = LoginFormController.getInstance().userid;
+
+
+
+        Employee employee = new Employee(id, name, type, dob, email,userid);
+
+      /*  try {
+            boolean isSaved = EmployeeRepo.save(employee);
+            if(isSaved){
+                new Alert(Alert.AlertType.CONFIRMATION,"Employee has been saved successfully").show();
+
+            } catch (Exception e){
+                new Alert(Alert.AlertType.ERROR, e.getmessage()).show();
+            }
+        }*/
+
+          try {
+
+              boolean isSaved = EmployeeRepo.save(employee);
+              if(isSaved) {
+                  new Alert(Alert.AlertType.CONFIRMATION, "Employee has been saved successfully").show();
+              }
+          }catch (Exception e){
+              new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+
+          }
+
 
     }
 
