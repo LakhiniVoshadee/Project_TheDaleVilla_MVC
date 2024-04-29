@@ -1,4 +1,4 @@
-package lk.ijse.thedale.model;
+package lk.ijse.thedale.tm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 
-public class Food {
+public class FoodTm {
     private String FoodID;
     private String Description;
-
 }

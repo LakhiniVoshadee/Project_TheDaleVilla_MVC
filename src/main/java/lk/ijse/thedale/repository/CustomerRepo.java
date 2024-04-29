@@ -65,7 +65,7 @@ public class CustomerRepo {
     }
 
     private static String splitId(String id) {
-        if ((id != null){
+        if (id != null){
             String[] ids = id.split("CUS");
             int CusId = Integer.parseInt(ids[1]);
             CusId++;

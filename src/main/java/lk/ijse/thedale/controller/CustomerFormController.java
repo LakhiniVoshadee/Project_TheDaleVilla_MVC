@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Customer;
-import lk.ijse.thedale.model.Employee;
 import lk.ijse.thedale.repository.CustomerRepo;
 import lk.ijse.thedale.tm.CustomerTm;
 
@@ -46,7 +45,7 @@ public class CustomerFormController implements Initializable {
     private Pane pagingPane;
 
     @FXML
-    private TableView<?> tblCustomer;
+    private TableView<CustomerTm> tblCustomer;
 
     @FXML
     private TextField txtContact;
@@ -111,7 +110,7 @@ public class CustomerFormController implements Initializable {
 
     private void loadCustomerTable() {
         CustomerRepo customerRepo = new CustomerRepo();
-        ObservableList<CustomerTm>tmList = FXCollections.singletonObservableList();
+        ObservableList<CustomerTm>tmList = FXCollections.observableArrayList();
         try {
             List<Customer> customerList = customerRepo.getCustomer();
             for (Customer customer : customerList) {
@@ -185,7 +184,7 @@ public class CustomerFormController implements Initializable {
         String email = txtEmail.getText();
         String userId = LoginFormController.getInstance().userId;
 
-        Customer customer = new Customer(id,name,sex,nic,contact,email,userId);
+        Customer customer = new Customer(id, name, sex, nic, contact, email, userId);
 
         try {
             boolean isUpdated = CustomerRepo.update(customer);
@@ -193,10 +192,9 @@ public class CustomerFormController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer updated successfully").show();
             }
             new Alert(Alert.AlertType.CONFIRMATION, "Customer updated successfully").show();
+
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-
-    }catch(SQLException e){
-        new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
     }
-
 }

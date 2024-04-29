@@ -12,7 +12,7 @@ import java.util.List;
 
 public class EmployeeRepo {
     public static String generateNextId() throws SQLException {
-        String sql = "Select EmpId from Employee order by EmpId desc limit 1 ";
+        String sql = "Select EmpId from employee order by EmpId desc limit 1 ";
         Connection connection = Dbconnection.getInstance().getConnection();
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 
@@ -24,7 +24,7 @@ public class EmployeeRepo {
         return splitId(null);
     }
 
-    private static String splitId(String id) {
+    private  String splitId(String id) {
         if (id != null) {
             String[] split = id.split("EMP ");
             int EmpId = Integer.parseInt(split[1]);
