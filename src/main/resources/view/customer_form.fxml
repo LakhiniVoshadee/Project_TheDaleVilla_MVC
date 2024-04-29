@@ -30,7 +30,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField layoutX="66.0" layoutY="251.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtCusId" layoutX="66.0" layoutY="251.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <Text fill="#fffefe" layoutX="619.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="135.13671875">
          <font>
             <Font name="Arial Bold" size="17.0" />
@@ -56,32 +56,32 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TableView layoutX="90.0" layoutY="572.0" prefHeight="246.0" prefWidth="979.0">
+      <TableView fx:id="tblCustomer" layoutX="90.0" layoutY="572.0" prefHeight="246.0" prefWidth="979.0">
         <columns>
-          <TableColumn prefWidth="107.0" text="ID" />
-          <TableColumn prefWidth="121.0" text="Name" />
-            <TableColumn prefWidth="93.0" text="SEX" />
-            <TableColumn minWidth="0.0" prefWidth="195.0" text="NIC" />
-            <TableColumn minWidth="0.0" prefWidth="170.0" text="Contact" />
-            <TableColumn prefWidth="245.0" text="Email" />
+          <TableColumn fx:id="colId" prefWidth="107.0" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="121.0" text="Name" />
+            <TableColumn fx:id="colSex" prefWidth="110.0" text="SEX" />
+            <TableColumn fx:id="colNic" minWidth="0.0" prefWidth="188.0" text="NIC" />
+            <TableColumn fx:id="colContact" minWidth="0.0" prefWidth="182.0" text="Contact" />
+            <TableColumn fx:id="colEmail" prefWidth="270.0" text="Email" />
         </columns>
       </TableView>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="428.0" layoutY="487.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: gray; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="428.0" layoutY="487.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: gray; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="552.0" layoutY="487.0" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: red; -fx-background-radius: 30;" text="Delete" textFill="#fffbfb">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="552.0" layoutY="487.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: red; -fx-background-radius: 30;" text="Delete" textFill="#fffbfb">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="677.0" layoutY="487.0" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: Orange; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="677.0" layoutY="487.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: Orange; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="805.0" layoutY="487.0" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: blue; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="805.0" layoutY="487.0" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: blue; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -106,11 +106,11 @@
             <Image url="@../assets/icons/save.png" />
          </image>
       </ImageView>
-      <TextField layoutX="620.0" layoutY="339.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField layoutX="620.0" layoutY="251.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField layoutX="66.0" layoutY="420.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField layoutX="66.0" layoutY="339.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField layoutX="620.0" layoutY="420.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtNic" layoutX="620.0" layoutY="339.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtCusName" layoutX="620.0" layoutY="251.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtContact" layoutX="66.0" layoutY="420.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtSex" layoutX="66.0" layoutY="339.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtEmail" layoutX="620.0" layoutY="420.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <Line endX="1075.0" endY="14.0" layoutX="101.0" layoutY="89.0" startX="-102.0" startY="14.0" stroke="#079992" strokeWidth="2.0" />
    </children>
 </Pane>

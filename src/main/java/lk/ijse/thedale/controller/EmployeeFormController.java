@@ -62,7 +62,7 @@ public class EmployeeFormController implements Initializable {
 
     EmployeeRepo employeeRepo = new EmployeeRepo();
 
-    private List<Employee> employeeList=new ArrayList<>();
+    private List<Employee> employeeList = new ArrayList<>();
 
 
     @FXML
