@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class CustomerTm {
-    private String cusId;
+    private String cusID;
     private String cusName;
     private String sex;
     private String nic;
     private String contact;
     private String email;
-   // private String UserID;
+    private String UserID;
 
 }

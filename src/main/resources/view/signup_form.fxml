@@ -24,16 +24,16 @@
             <Font name="Georgia Bold" size="33.0" />
          </font>
       </Label>
-      <TextField layoutX="121.0" layoutY="225.0" prefHeight="32.0" prefWidth="250.0" promptText="User Name" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.topAnchor="224.0" />
-      <TextField layoutX="122.0" layoutY="298.0" prefHeight="32.0" prefWidth="250.0" promptText="Email" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtUserNme" layoutX="121.0" layoutY="225.0" prefHeight="32.0" prefWidth="250.0" promptText="User Name" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.topAnchor="224.0" />
+      <TextField fx:id="txtEmail" layoutX="122.0" layoutY="298.0" prefHeight="32.0" prefWidth="250.0" promptText="Email" style="-fx-background-radius: 30;" />
       <Text layoutX="80.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName" />
       <Text layoutX="83.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
       <Text layoutX="83.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-      <JFXButton buttonType="RAISED" layoutX="169.0" layoutY="514.0" prefHeight="47.0" prefWidth="122.0" style="-fx-background-color: black; -fx-background-radius: 30;" text="Sign Up" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="169.0" layoutY="514.0" onAction="#btnSignUpOnAction" prefHeight="47.0" prefWidth="122.0" style="-fx-background-color: black; -fx-background-radius: 30;" text="Sign Up" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </JFXButton>
-      <PasswordField layoutX="126.0" layoutY="378.0" prefHeight="32.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 30;" />
+      <PasswordField fx:id="txtPassword" layoutX="126.0" layoutY="378.0" prefHeight="32.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 30;" />
    </children>
 </AnchorPane>

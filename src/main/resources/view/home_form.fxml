@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -31,26 +34,58 @@
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="357.0" layoutY="165.0" prefHeight="97.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+      <Pane layoutX="407.0" layoutY="165.0" prefHeight="97.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 30;">
          <children>
             <ImageView fitHeight="67.0" fitWidth="84.0" layoutX="14.0" layoutY="15.0">
                <image>
                   <Image url="@../assets/icons/rental.png" />
                </image>
             </ImageView>
+            <Label layoutX="128.0" layoutY="36.0" prefHeight="25.0" prefWidth="107.0" text="Rental Count">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children></Pane>
-      <Pane layoutX="670.0" layoutY="165.0" prefHeight="97.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
-      <Pane layoutX="40.0" layoutY="347.0" prefHeight="383.0" prefWidth="431.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+      <Pane layoutX="783.0" layoutY="165.0" prefHeight="97.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="66.0" layoutX="25.0" layoutY="12.0">
+               <image>
+                  <Image url="@../assets/icons/bed.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="137.0" layoutY="37.0" text="Room Count">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="40.0" layoutY="343.0" prefHeight="437.0" prefWidth="508.0" style="-fx-background-color: white; -fx-background-radius: 30;">
          <children>
             <Label layoutX="49.0" layoutY="36.0" prefHeight="30.0" prefWidth="184.0" text="Available Stock">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </Label>
-            <PieChart layoutX="29.0" layoutY="98.0" prefHeight="256.0" prefWidth="349.0" />
+            <PieChart layoutX="215.0" layoutY="105.0" prefHeight="271.0" prefWidth="259.0" />
          </children>
       </Pane>
-      <Pane layoutX="497.0" layoutY="347.0" prefHeight="373.0" prefWidth="461.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+      <Pane layoutX="595.0" layoutY="347.0" prefHeight="429.0" prefWidth="508.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <Label layoutX="82.0" layoutY="34.0" prefHeight="30.0" prefWidth="184.0" text="Monthly Profit">
+               <font>
+                  <Font name="Arial Bold" size="22.0" />
+               </font>
+            </Label>
+            <BarChart layoutX="40.0" layoutY="80.0" prefHeight="335.0" prefWidth="428.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children></Pane>
       <Line endX="1075.0" layoutX="101.0" layoutY="105.0" startX="-100.0" stroke="#079992" strokeWidth="2.0" />
    </children>
 </Pane>

@@ -19,17 +19,17 @@ public class EmployeeRepo {
         String id = null;
         if (resultSet.next()) {
             id = resultSet.getString(1);
-            return splitId(null);
+            return splitId(id);
         }
         return splitId(null);
     }
 
-    private  String splitId(String id) {
+    private static String splitId(String id) {
         if (id != null) {
-            String[] split = id.split("EMP ");
+            String[] split = id.split("Emp ");
             int EmpId = Integer.parseInt(split[1]);
             EmpId++;
-            return "EMP " + EmpId;
+            return "Emp " + EmpId;
         }
         return "Emp 1";
     }

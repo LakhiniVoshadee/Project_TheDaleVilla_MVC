@@ -115,12 +115,13 @@ public class CustomerFormController implements Initializable {
             List<Customer> customerList = customerRepo.getCustomer();
             for (Customer customer : customerList) {
                 CustomerTm customerTm = new CustomerTm(
-                        customer.getCusId(),
+                        customer.getCusID(),
                         customer.getCusName(),
                         customer.getSex(),
                         customer.getNic(),
                         customer.getContact(),
-                        customer.getEmail()
+                        customer.getEmail(),
+                        customer.getUserID()
 
                 );
                 tmList.add(customerTm);
@@ -154,24 +155,24 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String id = txtCusId.getText();
-        String name = txtCusName.getText();
-        String sex = txtSex.getText();
-        String nic = txtNic.getText();
-        String contact = txtContact.getText();
-        String email = txtEmail.getText();
-        String userId = LoginFormController.getInstance().userId;
+       String id = txtCusId.getText();
+       String name = txtCusName.getText();
+       String sex = txtSex.getText();
+       String nic = txtNic.getText();
+       String contact = txtContact.getText();
+       String email = txtEmail.getText();
+       String userId = LoginFormController.getInstance().userId;
 
-        Customer customer = new Customer(id,name,sex,nic,contact,email,userId);
+       Customer customer = new Customer(id,name,sex,nic,contact,email,userId);
 
-        try {
-            boolean isSaved = CustomerRepo.save(customer);
-
-            new Alert(Alert.AlertType.CONFIRMATION, "Customer saved successfully").show();
-        }catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-
+       try {
+           boolean isSaved = CustomerRepo.save(customer);
+           if (isSaved) {
+               new Alert(Alert.AlertType.CONFIRMATION, "Customer saved successfully").show();
+           }
+       }catch (SQLException e){
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+       }
     }
 
     @FXML

@@ -21,31 +21,18 @@ public class CustomerRepo {
         return pstm.executeUpdate()>0;
     }
 
-    public static boolean save(Customer customer) throws SQLException {
-       String sql = "insert into customer values(?,?,?,?,?,?,?)";
-       PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
-       pstm.setObject(1,customer.getCusId());
-       pstm.setObject(2,customer.getCusName());
-       pstm.setObject(3,customer.getSex());
-       pstm.setObject(4,customer.getNic());
-       pstm.setObject(5,customer.getContact());
-       pstm.setObject(6,customer.getEmail());
-       pstm.setObject(7,customer.getUserID());
-
-       return pstm.executeUpdate() > 0;
-    }
 
     public static boolean update(Customer customer) throws SQLException {
         String sql = "UPDATE customer SET Name = ?, Sex = ?, Nic =?, Contact =?, Email =? WHERE CusId=? ";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
-        pstm.setObject(1,customer.getCusName());
-        pstm.setObject(2,customer.getSex());
-        pstm.setObject(3,customer.getNic());
-        pstm.setObject(4,customer.getContact());
-        pstm.setObject(5,customer.getEmail());
-        pstm.setObject(6,customer.getUserID());
+        pstm.setString(1,customer.getCusName());
+        pstm.setString(2,customer.getSex());
+        pstm.setString(3,customer.getNic());
+        pstm.setString(4,customer.getContact());
+        pstm.setString(5,customer.getEmail());
+        pstm.setString(6,customer.getUserID());
 
         return pstm.executeUpdate()>0;
     }
@@ -72,6 +59,22 @@ public class CustomerRepo {
             return "CUS" + CusId;
         }
         return "Cus 1";
+
+    }
+
+    public static boolean save(Customer customer) throws SQLException {
+        String sql = "insert into customer values(?,?,?,?,?,?,?)";
+        PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+
+        pstm.setObject(1,customer.getCusID());
+        pstm.setObject(2,customer.getCusName());
+        pstm.setObject(3,customer.getSex());
+        pstm.setObject(4,customer.getNic());
+        pstm.setObject(5,customer.getContact());
+        pstm.setObject(6,customer.getEmail());
+        pstm.setObject(7,customer.getUserID());
+
+        return pstm.executeUpdate()>0;
 
     }
 

@@ -73,7 +73,7 @@ public class LoginFormController {
 
     @FXML
     void linkForgotPwOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("view/forgetPassword_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/forgetPassword_form.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -85,7 +85,7 @@ public class LoginFormController {
 
     @FXML
     void linkSignUpOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("view/signup_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/signup_form.fxml"));
 
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();

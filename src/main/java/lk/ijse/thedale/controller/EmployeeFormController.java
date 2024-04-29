@@ -66,7 +66,9 @@ public class EmployeeFormController implements Initializable {
 
 
     @FXML
-    void btnClearOnAction(ActionEvent event) { clearFields();}
+    void btnClearOnAction(ActionEvent event) {
+        clearFields();
+    }
 
     private void clearFields(){
         txtEmpId.setText("");
@@ -75,8 +77,6 @@ public class EmployeeFormController implements Initializable {
         txtDob.setText("");
 
     }
-
-
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
@@ -125,19 +125,15 @@ public class EmployeeFormController implements Initializable {
        String dob = txtDob.getText();
        String userId = LoginFormController.getInstance().userId;
 
-        Employee employee = new Employee(id,name,type,email,dob,userId);
-
+       Employee employee = new Employee(id,name,type,email,dob,userId);
 
        try {
            boolean isSaved = EmployeeRepo.save(employee);
-
-               new Alert(Alert.AlertType.CONFIRMATION,"Employee has been saved successfully").show();
-
-
+           new Alert(Alert.AlertType.CONFIRMATION,"Employee has been saved successfully").show();
        }catch (SQLException e){
            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+           loadEmployeeTable();
        }
-
     }
 
     @FXML
@@ -147,7 +143,8 @@ public class EmployeeFormController implements Initializable {
         String type = txtType.getText();
         String email = txtEmail.getText();
         String dob = txtDob.getText();
-        String userId = LoginFormController.getInstance().userId;
+        String userId = "U001";
+        //String userId = LoginFormController.getInstance().userId;
 
         Employee employee = new Employee(id,name,type,email,dob,userId);
 
@@ -158,6 +155,7 @@ public class EmployeeFormController implements Initializable {
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            loadEmployeeTable();
         }
 
     }
@@ -188,7 +186,6 @@ public class EmployeeFormController implements Initializable {
                         employee.getType(),
                         employee.getEmail(),
                         employee.getDOB()
-                        //employee.getUserID()
                 );
                 tmList.add(employeeTm);
             }
@@ -201,11 +198,11 @@ public class EmployeeFormController implements Initializable {
 
     private void setCellValueFactory() {
 
-            colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-            colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-            colType.setCellValueFactory(new PropertyValueFactory<>("type"));
-            colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-            colDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
+            colId.setCellValueFactory(new PropertyValueFactory<>("EmpID"));
+            colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+            colType.setCellValueFactory(new PropertyValueFactory<>("Type"));
+            colEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+            colDob.setCellValueFactory(new PropertyValueFactory<>("DOB"));
         }
     }
 

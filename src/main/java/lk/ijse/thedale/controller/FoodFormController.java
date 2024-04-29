@@ -33,7 +33,7 @@ public class FoodFormController implements Initializable {
     private Pane pagingPane;
 
     @FXML
-    private TableView<?> tblFood;
+    private TableView<FoodTm> tblFood;
 
 
     @FXML
