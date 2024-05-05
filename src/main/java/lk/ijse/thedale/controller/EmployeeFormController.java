@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Employee;
@@ -46,7 +43,8 @@ public class EmployeeFormController implements Initializable {
     private TableView<EmployeeTm> tblEmployee;
 
     @FXML
-    private TextField txtDob;
+    private DatePicker pickerDate;
+
 
     @FXML
     private TextField txtEmail;
@@ -74,7 +72,7 @@ public class EmployeeFormController implements Initializable {
         txtEmpId.setText("");
         txtEmpName.setText("");
         txtType.setText("");
-        txtDob.setText("");
+        pickerDate.setValue(null);
 
     }
 
@@ -99,7 +97,7 @@ public class EmployeeFormController implements Initializable {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
-       employeeList =getAllEmployee();
+       this.employeeList =getAllEmployee();
         setCellValueFactory();
         loadEmployeeTable();
 
@@ -122,7 +120,7 @@ public class EmployeeFormController implements Initializable {
        String name = txtEmpName.getText();
        String type = txtType.getText();
        String email = txtEmail.getText();
-       String dob = txtDob.getText();
+       String dob = String.valueOf(pickerDate.getValue());
        String userId = LoginFormController.getInstance().userId;
 
        Employee employee = new Employee(id,name,type,email,dob,userId);
@@ -142,7 +140,7 @@ public class EmployeeFormController implements Initializable {
         String name = txtEmpName.getText();
         String type = txtType.getText();
         String email = txtEmail.getText();
-        String dob = txtDob.getText();
+        String dob = String.valueOf(pickerDate.getValue());
         String userId = "U001";
         //String userId = LoginFormController.getInstance().userId;
 
@@ -157,22 +155,8 @@ public class EmployeeFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             loadEmployeeTable();
         }
-
     }
 
-
-
-
-   /* @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            txtEmpId.setText(EmployeeRepo.generateNextId());
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        setCellValueFactory();
-        loadEmployeeTable();
-    }*/
 
     private void loadEmployeeTable() {
         EmployeeRepo employeeRepo = new EmployeeRepo();
@@ -193,7 +177,6 @@ public class EmployeeFormController implements Initializable {
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,"Something went wrong").show();
         }
-
     }
 
     private void setCellValueFactory() {

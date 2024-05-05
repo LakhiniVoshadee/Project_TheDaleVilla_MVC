@@ -65,25 +65,40 @@ public class CustomerFormController implements Initializable {
     @FXML
     private TextField txtSex;
 
+    public String cusID;
+
+    private static CustomerFormController controller;
+
+    public CustomerFormController (){
+        controller = this;
+    }
+
+    public static CustomerFormController getInstance(){
+        return controller;
+    }
+
     CustomerRepo customerRepo = new CustomerRepo();
 
     private List<Customer> customerList = new ArrayList<>();
 
     @FXML
-    void btnClearOnAction(ActionEvent event) { clearFields();}
+    void btnClearOnAction(ActionEvent event) {
+        clearFields();
+    }
 
         private void clearFields(){
         txtCusId.setText("");
         txtCusName.setText("");
-        txtEmail.setText("");
-        txtNic.setText("");
         txtSex.setText("");
+        txtNic.setText("");
+        txtEmail.setText("");
 
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         String id = txtCusId.getText();
+        CustomerRepo customerRepo = new CustomerRepo();
 
         try {
             boolean isDeleted = CustomerRepo.delete(id);
@@ -103,7 +118,7 @@ public class CustomerFormController implements Initializable {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
-        customerList=getAllCustomer();
+        this.customerList=getAllCustomer();
         setCellValueFactory();
         loadCustomerTable();
     }
@@ -167,11 +182,9 @@ public class CustomerFormController implements Initializable {
 
        try {
            boolean isSaved = CustomerRepo.save(customer);
-           if (isSaved) {
-               new Alert(Alert.AlertType.CONFIRMATION, "Customer saved successfully").show();
-           }
        }catch (SQLException e){
-           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        new Alert(Alert.AlertType.CONFIRMATION, "Customer saved successfully").show();
+        loadCustomerTable();
        }
     }
 
@@ -191,9 +204,9 @@ public class CustomerFormController implements Initializable {
             boolean isUpdated = CustomerRepo.update(customer);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer updated successfully").show();
+                loadCustomerTable();
             }
             new Alert(Alert.AlertType.CONFIRMATION, "Customer updated successfully").show();
-
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }

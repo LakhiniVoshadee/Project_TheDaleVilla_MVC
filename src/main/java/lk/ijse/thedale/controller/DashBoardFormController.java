@@ -41,6 +41,9 @@ public class DashBoardFormController implements Initializable {
     private JFXButton btnServices;
 
     @FXML
+    private JFXButton btnRoom;
+
+    @FXML
     private Pane pagingPane;
 
     @FXML
@@ -76,7 +79,13 @@ public class DashBoardFormController implements Initializable {
 
     @FXML
     void btnServicesOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane,"service_form.fxml");
+        Navigation.switchPaging(pagingPane,"rent_form.fxml");
+
+    }
+
+    @FXML
+    void btnRoomOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(pagingPane,"room_form.fxml");
 
     }
 

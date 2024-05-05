@@ -54,10 +54,10 @@ public class FoodRepo {
 
     private static String splitId(String id) {
         if (id != null){
-            String[] split = id.split("FOOD");
+            String[] split = id.split("Food ");
             int FoodId = Integer.parseInt(split[1]);
             FoodId++;
-            return "FOOD"+FoodId;
+            return "Food "+FoodId;
         }
         return "Food 1";
 

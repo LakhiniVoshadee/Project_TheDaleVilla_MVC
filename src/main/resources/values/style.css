@@ -6,3 +6,13 @@
 .txtsignup{
     -fx-text-fill: black;
 }
+
+.txtUserName{
+    -fx-text-fill: black;
+    -fx-prompt-text-fill: #485255;
+
+}
+
+.txtPassword{
+    -fx-prompt-text-fill: #485255;
+}

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class EmployeeRepo {
     public static String generateNextId() throws SQLException {
-        String sql = "Select EmpId from employee order by EmpId desc limit 1 ";
+        String sql = "Select EmpID from employee order by EmpID desc limit 1 ";
         Connection connection = Dbconnection.getInstance().getConnection();
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 

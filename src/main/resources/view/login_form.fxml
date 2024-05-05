@@ -10,54 +10,34 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="rootNode" prefHeight="890.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.LoginFormController">
    <children>
-      <ImageView fitHeight="898.0" fitWidth="1325.0" layoutX="-6.0" layoutY="-8.0">
+      <ImageView fitHeight="892.0" fitWidth="1176.0">
          <image>
             <Image url="@../assets/images/pexels-asad-photo-maldives-3155666.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" focusTraversable="true" height="720.0" layoutX="23.0" layoutY="95.0" opacity="0.33" stroke="#eeeeee" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" style="-fx-background-radius: 15;" width="441.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <Label layoutX="549.0" layoutY="45.0" text=" Welcome to The Dale Villa Mirissa">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" focusTraversable="true" height="730.0" layoutX="18.0" layoutY="84.0" opacity="0.5" stroke="#fff9f9" strokeLineCap="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-radius: 15;" width="441.0" />
+      <Label layoutX="585.0" layoutY="42.0" prefHeight="65.0" prefWidth="563.0" text="Welcome to The Dale Villa">
          <font>
-            <Font name="Georgia Bold" size="36.0" />
+            <Font name="Georgia Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="185.0" layoutY="276.0" prefHeight="23.0" prefWidth="108.0" text="Login">
+      <Label layoutX="152.0" layoutY="161.0" prefHeight="61.0" prefWidth="183.0" text="Login">
          <font>
-            <Font name="Georgia Bold" size="35.0" />
+            <Font name="Georgia Bold" size="56.0" />
          </font>
       </Label>
-      <Label layoutX="179.0" layoutY="325.0" prefHeight="29.0" prefWidth="142.0" text="Sign in to continue">
+      <Label layoutX="134.0" layoutY="271.0" prefHeight="30.0" prefWidth="247.0" text="Sign in to continue">
          <font>
-            <Font name="Georgia" size="14.0" />
+            <Font name="Georgia" size="26.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserId" alignment="CENTER" layoutX="108.0" layoutY="416.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.7" prefHeight="54.0" prefWidth="274.0" promptText="Username" style="-fx-background-radius: 30; -fx-background-color: white;">
+      <TextField id="txtUserName" fx:id="txtUserId" layoutX="107.0" layoutY="391.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="54.0" prefWidth="274.0" promptText="Enter Username" style="-fx-background-radius: 30; -fx-background-color: #a0c7cc;" styleClass="txtUserName" stylesheets="@../values/style.css">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
@@ -65,34 +45,39 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="159.0" layoutY="585.0" onAction="#btnLoginOnAction" opacity="0.69" prefHeight="54.0" prefWidth="160.0" style="-fx-background-color: black; -fx-background-radius: 30;" text="Log In" textFill="WHITE">
+      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="159.0" layoutY="585.0" onAction="#btnLoginOnAction" prefHeight="54.0" prefWidth="160.0" ripplerFill="BLACK" style="-fx-background-color: #b65a30; -fx-background-radius: 30;" text="Log In" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </JFXButton>
-      <Hyperlink id="txtforgot" fx:id="hyperForgotPassword" layoutX="62.0" layoutY="668.0" onAction="#linkForgotPwOnAction" prefHeight="22.0" prefWidth="117.0" styleClass="txtforgot" stylesheets="@../values/style.css" text="Forgot Password">
+      <Hyperlink id="txtforgot" fx:id="hyperForgotPassword" layoutX="59.0" layoutY="690.0" onAction="#linkForgotPwOnAction" prefHeight="22.0" prefWidth="160.0" styleClass="txtforgot" stylesheets="@../values/style.css" text="Forgot Password" textFill="#0d5e6e">
          <font>
-            <Font name="Georgia" size="14.0" />
+            <Font name="Georgia Bold" size="15.0" />
          </font>
       </Hyperlink>
-      <Hyperlink id="txtsignup" fx:id="hyperSignUp" layoutX="335.0" layoutY="668.0" onAction="#linkSignUpOnAction" styleClass="txtsignup" stylesheets="@../values/style.css" text="Sign Up">
+      <Hyperlink id="txtsignup" fx:id="hyperSignUp" layoutX="319.0" layoutY="690.0" onAction="#linkSignUpOnAction" prefHeight="27.0" prefWidth="79.0" styleClass="txtsignup" stylesheets="@../values/style.css" text="Sign Up">
          <font>
-            <Font name="Georgia" size="14.0" />
+            <Font name="Georgia Bold" size="15.0" />
          </font>
       </Hyperlink>
-      <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="106.0" layoutY="496.0" opacity="0.7" prefHeight="54.0" prefWidth="274.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 30;">
+      <PasswordField id="txtPassword" fx:id="txtPassword" layoutX="107.0" layoutY="485.0" prefHeight="54.0" prefWidth="274.0" promptText="Enter Password" style="-fx-background-color: #a0c7cc; -fx-background-radius: 30;" styleClass="txtPassword" stylesheets="@../values/style.css">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font>
       </PasswordField>
       <Pane layoutX="492.0" layoutY="248.0" opacity="0.5" prefHeight="254.0" prefWidth="551.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
-            <Text layoutX="33.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our villa! Our place is like a peaceful paradise surrounded by beautiful scenery. You can relax and enjoy luxury here. We have cozy rooms, amazing facilities, and friendly service. Whether you want a quiet break, a family holiday, or a special event, our villa has everything you need for a wonderful stay. Come and experience the comfort and beauty of our villa!" textAlignment="JUSTIFY" wrappingWidth="484.85546875">
+            <Text layoutX="20.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our villa! Our place is like a peaceful paradise surrounded by beautiful scenery. You can relax and enjoy luxury here. We have cozy rooms, amazing facilities, and friendly service. Whether you want a quiet break, a family holiday, or a special event, our villa has everything you need for a wonderful stay. Come and experience the comfort and beauty of our villa!" textAlignment="JUSTIFY" wrappingWidth="510.85546875">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
          </children>
       </Pane>
+      <Label layoutX="743.0" layoutY="128.0" text="Mirissa">
+         <font>
+            <Font name="Georgia Bold" size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

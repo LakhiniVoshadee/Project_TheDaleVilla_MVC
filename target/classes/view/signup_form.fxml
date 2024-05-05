@@ -19,21 +19,30 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="607.0" layoutX="46.0" layoutY="42.0" opacity="0.33" stroke="#f2f2f2" strokeType="INSIDE" width="393.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="158.0" layoutY="117.0" prefHeight="47.0" prefWidth="144.0" text="Sign Up">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="89.0" prefHeight="49.0" prefWidth="194.0" text="Sign Up">
          <font>
-            <Font name="Georgia Bold" size="33.0" />
+            <Font name="Georgia Bold" size="42.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserNme" layoutX="121.0" layoutY="225.0" prefHeight="32.0" prefWidth="250.0" promptText="User Name" style="-fx-background-color: white; -fx-background-radius: 30;" AnchorPane.topAnchor="224.0" />
-      <TextField fx:id="txtEmail" layoutX="122.0" layoutY="298.0" prefHeight="32.0" prefWidth="250.0" promptText="Email" style="-fx-background-radius: 30;" />
-      <Text layoutX="80.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName" />
-      <Text layoutX="83.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-      <Text layoutX="83.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-      <JFXButton buttonType="RAISED" layoutX="169.0" layoutY="514.0" onAction="#btnSignUpOnAction" prefHeight="47.0" prefWidth="122.0" style="-fx-background-color: black; -fx-background-radius: 30;" text="Sign Up" textFill="WHITE">
+      <TextField fx:id="txtUserNme" layoutX="121.0" layoutY="225.0" prefHeight="49.0" prefWidth="250.0" promptText="User Name" style="-fx-background-color: #a0c7cc; -fx-background-radius: 30;" AnchorPane.topAnchor="224.0" />
+      <TextField fx:id="txtEmail" layoutX="121.0" layoutY="308.0" prefHeight="49.0" prefWidth="250.0" promptText="Email" style="-fx-background-radius: 30; -fx-background-color: #a0c7cc;" />
+      <Text layoutX="84.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+      <Text layoutX="83.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+      <Text layoutX="79.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+      <JFXButton buttonType="RAISED" layoutX="169.0" layoutY="514.0" onAction="#btnSignUpOnAction" prefHeight="47.0" prefWidth="122.0" style="-fx-background-color: #b65a30; -fx-background-radius: 30;" text="Sign Up" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </JFXButton>
-      <PasswordField fx:id="txtPassword" layoutX="126.0" layoutY="378.0" prefHeight="32.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 30;" />
+      <PasswordField fx:id="txtPassword" layoutX="121.0" layoutY="415.0" prefHeight="49.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 30; -fx-background-color: #a0c7cc;" />
    </children>
 </AnchorPane>

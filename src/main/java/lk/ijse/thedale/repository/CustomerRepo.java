@@ -17,6 +17,7 @@ public class CustomerRepo {
     public static boolean delete(String id) throws SQLException {
         String sql = "delete from customer where CusId=?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+        pstm.setObject(1,id);
 
         return pstm.executeUpdate()>0;
     }
@@ -24,7 +25,7 @@ public class CustomerRepo {
 
 
     public static boolean update(Customer customer) throws SQLException {
-        String sql = "UPDATE customer SET Name = ?, Sex = ?, Nic =?, Contact =?, Email =? WHERE CusId=? ";
+        String sql = "UPDATE customer SET Name = ?, sex = ?, Nic =?, Contact =?, Email =? WHERE CusId=? ";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setString(1,customer.getCusName());
@@ -38,7 +39,7 @@ public class CustomerRepo {
     }
 
     public static String generateNextId() throws SQLException {
-        String sql = "SELECT CusId FROM customer ORDER BY CusId DESC LIMIT 1";
+        String sql = "SELECT CusID FROM customer ORDER BY CusID DESC LIMIT 1";
         Connection connection = Dbconnection.getInstance().getConnection();
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 
@@ -53,10 +54,10 @@ public class CustomerRepo {
 
     private static String splitId(String id) {
         if (id != null){
-            String[] ids = id.split("CUS");
+            String[] ids = id.split("Cus ");
             int CusId = Integer.parseInt(ids[1]);
             CusId++;
-            return "CUS" + CusId;
+            return "Cus " + CusId;
         }
         return "Cus 1";
 
@@ -80,19 +81,23 @@ public class CustomerRepo {
 
     public List<Customer> getCustomer() throws SQLException {
         String sql = "select * from customer";
+
+        PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+
         ResultSet resultSet = Dbconnection.getInstance().getConnection().prepareStatement(sql).executeQuery();
+
         List<Customer> customerList = new ArrayList<>();
         while (resultSet.next()){
-            customerList.add(new Customer(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4),
-                    resultSet.getString(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7)
+            String cusId = resultSet.getString(1);
+            String cusName = resultSet.getString(2);
+            String sex = resultSet.getString(3);
+            String nic = resultSet.getString(4);
+            String contact = resultSet.getString(5);
+            String email = resultSet.getString(6);
+            String userID = resultSet.getString(7);
 
-            ));
+            Customer customer = new Customer(cusId,cusName,sex,nic,contact,email,userID);
+            customerList.add(customer);
         }
         return customerList;
     }

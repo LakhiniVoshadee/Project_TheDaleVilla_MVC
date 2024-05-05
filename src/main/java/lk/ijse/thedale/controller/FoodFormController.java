@@ -71,8 +71,8 @@ public class FoodFormController implements Initializable {
     }
 
     private void setCellValueFactory() {
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colDes.setCellValueFactory(new PropertyValueFactory<>("des"));
+        colId.setCellValueFactory(new PropertyValueFactory<>("FoodID"));
+        colDes.setCellValueFactory(new PropertyValueFactory<>("Description"));
 
     }
 
@@ -116,6 +116,7 @@ public class FoodFormController implements Initializable {
                new Alert(Alert.AlertType.CONFIRMATION,"Food saved successfully.").show();
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            loadFoodTable();
         }
 
     }
@@ -134,6 +135,7 @@ public class FoodFormController implements Initializable {
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            loadFoodTable();
         }
 
     }
@@ -145,7 +147,7 @@ public class FoodFormController implements Initializable {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
-        foodList = getAllFood();
+        this.foodList = getAllFood();
         setCellValueFactory();
         loadFoodTable();
     }

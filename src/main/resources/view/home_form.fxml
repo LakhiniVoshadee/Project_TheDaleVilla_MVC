@@ -28,7 +28,7 @@
                   <Image url="@../assets/icons/reputation.png" />
                </image>
             </ImageView>
-            <Label layoutX="115.0" layoutY="35.0" text="Customer Count">
+            <Label fx:id="lblCusCount" layoutX="114.0" layoutY="24.0" text="Customer Count">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -41,7 +41,7 @@
                   <Image url="@../assets/icons/rental.png" />
                </image>
             </ImageView>
-            <Label layoutX="128.0" layoutY="36.0" prefHeight="25.0" prefWidth="107.0" text="Rental Count">
+            <Label fx:id="lblRenCount" layoutX="128.0" layoutY="24.0" prefHeight="25.0" prefWidth="107.0" text="Rental Count">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -54,7 +54,7 @@
                   <Image url="@../assets/icons/bed.png" />
                </image>
             </ImageView>
-            <Label layoutX="137.0" layoutY="37.0" text="Room Count">
+            <Label fx:id="lblRoomCount" layoutX="137.0" layoutY="24.0" text="Room Count">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -67,7 +67,7 @@
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </Label>
-            <PieChart layoutX="215.0" layoutY="105.0" prefHeight="271.0" prefWidth="259.0" />
+            <PieChart fx:id="pieChart" layoutX="215.0" layoutY="105.0" prefHeight="271.0" prefWidth="259.0" />
          </children>
       </Pane>
       <Pane layoutX="595.0" layoutY="347.0" prefHeight="429.0" prefWidth="508.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -77,7 +77,7 @@
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </Label>
-            <BarChart layoutX="40.0" layoutY="80.0" prefHeight="335.0" prefWidth="428.0">
+            <BarChart fx:id="barChart" layoutX="40.0" layoutY="80.0" prefHeight="335.0" prefWidth="428.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>

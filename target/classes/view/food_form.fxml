@@ -14,7 +14,7 @@
 
 <Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1176.0" style="-fx-background-color: #079992;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.FoodFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="890.0" layoutX="-5.0" stroke="BLACK" strokeType="INSIDE" width="1187.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#20635e" height="890.0" layoutX="-5.0" stroke="BLACK" strokeType="INSIDE" width="1187.0" />
       <Text fill="WHITE" layoutX="51.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="162.13671875">
          <font>
             <Font name="Arial Bold" size="33.0" />
@@ -38,8 +38,7 @@
           <TableColumn fx:id="colDes" prefWidth="608.0" text="Description" />
         </columns>
       </TableView>
-      <Text layoutX="578.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fill="WHITE" layoutX="541.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+      <Text fill="WHITE" layoutX="542.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

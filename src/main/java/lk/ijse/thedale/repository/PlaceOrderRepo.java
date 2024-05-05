@@ -1,4 +1,4 @@
 package lk.ijse.thedale.repository;
 
-public class PaymentRepo {
+public class PlaceOrderRepo {
 }

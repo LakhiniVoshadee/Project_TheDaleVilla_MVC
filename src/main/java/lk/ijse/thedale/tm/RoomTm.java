@@ -1,4 +1,4 @@
-package lk.ijse.thedale.model;
+package lk.ijse.thedale.tm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 
-public class Rent {
-    private String RentID;
-    private int Qty;
-    private String Description;
+public class RoomTm {
+    private String RoomID;
     private String Type;
+    private String Date;
+    private String CusID;
 
 }

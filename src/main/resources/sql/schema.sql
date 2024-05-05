@@ -44,7 +44,7 @@ create table Customer(
                          Name varchar(20)not null,
                          sex varchar(20),
                          NIC varchar(30)not null,
-                         Mob_num int(20),
+                         Contact int(20),
                          Email varchar(30)not null,
                          UserID varchar(20)not null,
                          foreign key(UserID) references Admin(UserID)on update cascade on delete cascade
@@ -108,8 +108,7 @@ create table Rent(
                      RentID varchar(20)primary key,
                      Qty int(20)not null,
                      Description varchar(30),
-                     Bycicle varchar(30),
-                     Surfing_Boards varchar(30)
+                     Type varchar(30)
 );
 
 
