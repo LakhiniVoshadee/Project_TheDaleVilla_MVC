@@ -7,8 +7,7 @@ use theDaleVilla;
 create table Admin(
                       UserId varchar(20)primary key,
                       UserName varchar(20)not null,
-                      Password varchar(20)not null,
-                      Mob_num varchar(20)
+                      Password varchar(20)not null
 );
 
 create table Employee(
@@ -19,24 +18,6 @@ create table Employee(
                          DOB date,
                          UserID varchar(20),
                          FOREIGN KEY (UserID) REFERENCES Admin(UserID)on update cascade on delete cascade
-);
-
-create table Salary(
-                       SalaryID varchar(20)primary key,
-                       Date date,
-                       Amount varchar(25),
-                       EmpID varchar(20)not null,
-                       foreign key(EmpID) references Employee(EmpID)on update cascade on delete cascade
-);
-
-
-create table Supplier(
-                         SupID varchar(20)primary key,
-                         Name varchar(20)not null,
-                         Mob_num int(20),
-                         Address varchar(30),
-                         UserID varchar(20)not null,
-                         foreign key(UserID) references Admin(UserID)on update cascade on delete cascade
 );
 
 create table Customer(
@@ -71,8 +52,7 @@ create table FoodStock(
                           SupID varchar(20)not null,
                           Date date,
                           QtyOnHand int(30)not null,
-                          foreign key(FoodID) references Food(FoodID)on update cascade on delete cascade,
-                          foreign key(SupID) references Supplier(SupID)on update cascade on delete cascade
+                          foreign key(FoodID) references Food(FoodID)on update cascade on delete cascade
 );
 
 
@@ -84,25 +64,6 @@ create table Room(
                      CusID varchar(20)not null,
                      foreign key(CusID) references Customer(CusID)on update cascade on delete cascade
 );
-
-
-
-create table Event(
-                      EventID varchar(20)primary key,
-                      Type varchar(30),
-                      Description varchar(30)
-);
-
-
-create table EventDetail(
-                            CusID varchar(20)not null,
-                            EventID varchar(20)not null,
-                            Date date,
-                            Description varchar(30),
-                            foreign key(CusID) references Customer(CusID)on update cascade on delete cascade,
-                            foreign key(EventID) references Event(EventID)on update cascade on delete cascade
-);
-
 
 create table Rent(
                      RentID varchar(20)primary key,
@@ -122,6 +83,15 @@ create table RentDetails(
                             foreign key(CusID) references Customer(CusID)on update cascade on delete cascade
 );
 
+create table RoomDetails(
+                            RoomID varchar(20)not null,
+                            CusID varchar(20)not null,
+                            Date date,
+                            Type varchar(30),
+                            foreign key(RoomID) references Room(RoomID)on update cascade on delete cascade,
+                            foreign key(CusID) references Customer(CusID)on update cascade on delete cascade
+);
+insert into admin values ('u001','admin','1234');
 
 
 

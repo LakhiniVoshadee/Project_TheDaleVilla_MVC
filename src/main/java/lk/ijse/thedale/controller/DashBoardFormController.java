@@ -88,5 +88,9 @@ public class DashBoardFormController implements Initializable {
         Navigation.switchPaging(pagingPane,"room_form.fxml");
 
     }
+    @FXML
+    void btnBookingOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(pagingPane,"room_booking_form.fxml");
+    }
 
 }

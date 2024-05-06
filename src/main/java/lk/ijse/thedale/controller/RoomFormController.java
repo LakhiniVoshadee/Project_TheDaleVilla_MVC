@@ -92,13 +92,12 @@ public class RoomFormController implements Initializable {
         String type = txtType.getText();
         String date = String.valueOf(txtDate.getValue());
 
-        String cusID = CustomerFormController.getInstance().cusID;
+        String cusID = cmbId.getValue();
 
         Room room = new Room(id,type,date,cusID);
 
         try{
             boolean isSaved = RoomRepo.save(room);
-           // new Alert(Alert.AlertType.CONFIRMATION,"Room Saved").show();
         }catch (SQLException e){
             new Alert(Alert.AlertType.CONFIRMATION,"Room Saved").show();
             loadRoomTable();
@@ -110,7 +109,7 @@ public class RoomFormController implements Initializable {
         String id = txtRoomId.getText();
         String type = txtType.getText();
         String date = txtDate.getValue().toString();
-        String cusID = CustomerFormController.getInstance().cusID;
+        String cusID = cmbId.getValue();
 
         Room room = new Room(id,type,date,cusID);
 

@@ -20,12 +20,13 @@ public class RoomRepo {
     }
 
     public static boolean save(Room room) throws SQLException {
-        String sql = "Insert into room values(?,?,?)";
+        String sql = "Insert into room values(?,?,?,?)";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1, room.getRoomID());
         pstm.setObject(2, room.getType());
         pstm.setObject(3, room.getDate());
+        pstm.setObject(4,room.getCusID());
 
         return pstm.executeUpdate() > 0;
     }
@@ -37,7 +38,8 @@ public class RoomRepo {
 
         pstm.setObject(1, room.getType());
         pstm.setObject(2, room.getDate());
-        pstm.setObject(3, room.getRoomID());
+        pstm.setObject(3, room.getCusID());
+        pstm.setObject(4, room.getRoomID());
 
 
         return pstm.executeUpdate() > 0;
@@ -59,7 +61,7 @@ public class RoomRepo {
     private static String splitId(String id) {
         if (id != null) {
             String[] split = id.split("Room ");
-            int RoomID = Integer.parseInt(split[0]);
+            int RoomID = Integer.parseInt(split[1]);
             RoomID++;
             return "Room " + RoomID;
         }
@@ -76,11 +78,9 @@ public class RoomRepo {
                     resultSet.getString(2),
                     resultSet.getString(3),
                     resultSet.getString(4)
-
-
             ));
 
     }
         return roomList;
-}
+    }
 }

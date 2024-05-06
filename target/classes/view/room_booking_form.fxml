@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.RoomBookingFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="890.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="902.0" layoutX="-7.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1185.0" />
       <Text fill="WHITE" layoutX="66.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
          <font>
             <Font name="Arial Bold" size="33.0" />
@@ -28,13 +28,13 @@
       </Text>
       <TableView layoutX="20.0" layoutY="545.0" prefHeight="239.0" prefWidth="1136.0">
         <columns>
-          <TableColumn prefWidth="166.0" text="Room ID" />
-          <TableColumn prefWidth="175.0" text="Type" />
-            <TableColumn prefWidth="175.0" text="Unit Price" />
-            <TableColumn prefWidth="175.0" text="Qty On Hand" />
-            <TableColumn prefWidth="147.0" text="Qty" />
-            <TableColumn prefWidth="147.0" text="Total" />
-            <TableColumn prefWidth="147.0" text="Action" />
+          <TableColumn fx:id="colRmId" prefWidth="166.0" text="Room ID" />
+          <TableColumn fx:id="colType" prefWidth="175.0" text="Type" />
+            <TableColumn fx:id="colUnPrice" prefWidth="175.0" text="Unit Price" />
+            <TableColumn fx:id="colQtOnHand" prefWidth="175.0" text="Qty On Hand" />
+            <TableColumn fx:id="colQty" prefWidth="147.0" text="Qty" />
+            <TableColumn fx:id="colTotal" prefWidth="147.0" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="147.0" text="Action" />
         </columns>
       </TableView>
       <Text fill="#fffefe" layoutX="53.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking ID:" wrappingWidth="120.13671875">
@@ -55,7 +55,7 @@
          </font>
       </Text>
       <JFXComboBox fx:id="cmbCId" layoutX="195.0" layoutY="252.0" prefHeight="37.0" prefWidth="202.0" />
-      <JFXButton buttonType="RAISED" layoutX="426.0" layoutY="262.0" prefHeight="37.0" prefWidth="74.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="+ New" textFill="WHITE">
+      <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="426.0" layoutY="262.0" prefHeight="37.0" prefWidth="74.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="+ New" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>

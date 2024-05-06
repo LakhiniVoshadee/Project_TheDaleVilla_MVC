@@ -106,5 +106,19 @@
             </ImageView>
          </children>
       </Pane>
+      <Pane layoutX="70.0" layoutY="638.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #079992; -fx-background-radius: 30;">
+         <children>
+            <JFXButton fx:id="btnBooking" buttonType="RAISED" layoutY="-2.0" onAction="#btnBookingOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Booking" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="34.0" fitWidth="25.0" layoutX="14.0" layoutY="8.0">
+               <image>
+                  <Image url="@../assets/icons/bed.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
