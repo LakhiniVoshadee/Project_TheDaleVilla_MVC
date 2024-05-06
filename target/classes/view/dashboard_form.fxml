@@ -58,7 +58,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="70.0" layoutY="456.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #079992; -fx-background-radius: 30;">
+      <Pane layoutX="70.0" layoutY="419.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #079992; -fx-background-radius: 30;">
          <children>
             <JFXButton fx:id="btnFood" buttonType="RAISED" onAction="#btnFoodOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Food" textFill="WHITE">
                <font>
@@ -72,38 +72,38 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="70.0" layoutY="534.0" prefHeight="94.0" prefWidth="166.0" style="-fx-background-color: #079992; -fx-background-radius: 30;">
+      <Pane layoutX="70.0" layoutY="493.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #079992; -fx-background-radius: 30;">
          <children>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="36.0">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="12.0">
                <image>
                   <Image url="@../assets/icons/Service.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="btnServices" buttonType="RAISED" layoutY="-2.0" onAction="#btnServicesOnAction" prefHeight="102.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Rent" textFill="WHITE">
+            <JFXButton fx:id="btnServices" buttonType="RAISED" layoutY="-2.0" onAction="#btnServicesOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Rent" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="20.0" />
+                  <Font name="Arial Bold" size="15.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
-      <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="89.0" layoutY="776.0" onAction="#btnLogOutOnAction" prefHeight="49.0" prefWidth="111.0" style="-fx-background-radius: 30; -fx-background-color: #b65a30;" text="Log Out" textFill="WHITE">
+      <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="98.0" layoutY="817.0" onAction="#btnLogOutOnAction" prefHeight="49.0" prefWidth="111.0" style="-fx-background-radius: 30; -fx-background-color: #b65a30;" text="Log Out" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </JFXButton>
       <Pane fx:id="pagingPane" layoutX="326.0" layoutY="-2.0" prefHeight="890.0" prefWidth="1180.0" style="-fx-background-color: black;" />
-      <Pane layoutX="72.0" layoutY="653.0" prefHeight="94.0" prefWidth="166.0" style="-fx-background-color: #079992; -fx-background-radius: 30;">
+      <Pane layoutX="70.0" layoutY="563.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #079992; -fx-background-radius: 30;">
          <children>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="36.0">
-               <image>
-                  <Image url="@../assets/icons/Service.png" />
-               </image>
-            </ImageView>
-            <JFXButton fx:id="btnRoom" buttonType="RAISED" layoutY="-2.0" onAction="#btnRoomOnAction" prefHeight="102.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Room" textFill="WHITE">
+            <JFXButton fx:id="btnRoom" buttonType="RAISED" layoutY="-2.0" onAction="#btnRoomOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Room" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="20.0" />
+                  <Font name="Arial Bold" size="15.0" />
                </font>
             </JFXButton>
+            <ImageView fitHeight="34.0" fitWidth="25.0" layoutX="14.0" layoutY="8.0">
+               <image>
+                  <Image url="@../assets/icons/bed.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

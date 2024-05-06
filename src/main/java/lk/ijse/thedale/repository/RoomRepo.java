@@ -13,7 +13,7 @@ import java.util.List;
 public class RoomRepo {
     public static boolean delete(String id) throws SQLException {
 
-        String sql = "DELETE FROM rooms WHERE RoomID = ?";
+        String sql = "DELETE FROM room WHERE RoomID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         return pstm.executeUpdate() > 0;
@@ -67,7 +67,7 @@ public class RoomRepo {
     }
 
     public List<Room> getRoom() throws SQLException {
-        String sql = "SELECT * FROM rooms";
+        String sql = "SELECT * FROM room";
         ResultSet resultSet = Dbconnection.getInstance().getConnection().prepareStatement(sql).executeQuery();
         List<Room> roomList = new ArrayList<>();
         while (resultSet.next()) {

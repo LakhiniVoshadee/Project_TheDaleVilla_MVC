@@ -92,6 +92,7 @@ public class CustomerFormController implements Initializable {
         txtSex.setText("");
         txtNic.setText("");
         txtEmail.setText("");
+        txtContact.setText("");
 
     }
 
@@ -149,9 +150,9 @@ public class CustomerFormController implements Initializable {
     }
 
     private void setCellValueFactory() {
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colSex.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        colId.setCellValueFactory(new PropertyValueFactory<>("cusID"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("cusName"));
+        colSex.setCellValueFactory(new PropertyValueFactory<>("sex"));
         colNic.setCellValueFactory(new PropertyValueFactory<>("nic"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -163,7 +164,7 @@ public class CustomerFormController implements Initializable {
         try {
             customerList = customerRepo.getCustomer();
         }catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            throw new RuntimeException(e);
         }
         return customerList;
     }
@@ -176,15 +177,19 @@ public class CustomerFormController implements Initializable {
        String nic = txtNic.getText();
        String contact = txtContact.getText();
        String email = txtEmail.getText();
-       String userId = LoginFormController.getInstance().userId;
+       LoginFormController userId = LoginFormController.getInstance();
 
-       Customer customer = new Customer(id,name,sex,nic,contact,email,userId);
+       Customer customer = new Customer(id,name,sex,nic,contact,email,userId.userId);
 
        try {
+           System.out.println(customer);
            boolean isSaved = CustomerRepo.save(customer);
+           if (isSaved){
+               new Alert(Alert.AlertType.CONFIRMATION, "Customer saved successfully").show();
+               loadCustomerTable();
+           }
        }catch (SQLException e){
-        new Alert(Alert.AlertType.CONFIRMATION, "Customer saved successfully").show();
-        loadCustomerTable();
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
        }
     }
 
@@ -206,7 +211,6 @@ public class CustomerFormController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer updated successfully").show();
                 loadCustomerTable();
             }
-            new Alert(Alert.AlertType.CONFIRMATION, "Customer updated successfully").show();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }

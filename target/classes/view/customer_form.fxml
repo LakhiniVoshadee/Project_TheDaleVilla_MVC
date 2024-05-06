@@ -14,7 +14,7 @@
 
 <Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1176.0" style="-fx-background-color: #079992;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.CustomerFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="890.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="890.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
       <Text fill="WHITE" layoutX="54.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
          <font>
             <Font name="Arial Bold" size="33.0" />
@@ -66,22 +66,29 @@
             <TableColumn fx:id="colEmail" prefWidth="270.0" text="Email" />
         </columns>
       </TableView>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="428.0" layoutY="487.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: gray; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="428.0" layoutY="487.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="552.0" layoutY="487.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: red; -fx-background-radius: 30;" text="Delete" textFill="#fffbfb">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="660.0" layoutY="488.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Delete" textFill="#fffbfb">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="677.0" layoutY="487.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: Orange; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
+      <JFXButton contentDisplay="RIGHT" layoutX="997.0" layoutY="148.0" onAction="#btnUpdateOnAction" prefHeight="61.0" prefWidth="161.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Refresh" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="28.0">
+               <image>
+                  <Image url="@../assets/icons/update.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="805.0" layoutY="487.0" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: blue; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="884.0" layoutY="488.0" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -91,17 +98,12 @@
             <Image url="@../assets/icons/broom.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="619.0" layoutY="487.0">
+      <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="723.0" layoutY="487.0">
          <image>
             <Image url="@../assets/icons/trash.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="751.0" layoutY="490.0">
-         <image>
-            <Image url="@../assets/icons/update.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="867.0" layoutY="491.0">
+      <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="947.0" layoutY="491.0">
          <image>
             <Image url="@../assets/icons/save.png" />
          </image>

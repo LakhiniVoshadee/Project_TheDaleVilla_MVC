@@ -13,8 +13,9 @@ import java.sql.SQLException;
 
 
 public class UserModel {
+    public static String Uid;
     public static void verifyCredentials(String UserId, String Password, AnchorPane rootNode) throws SQLException, IOException {
-
+        Uid = UserId;
         String sql = "select UserId,Password from admin where UserId=?";
 
         Dbconnection instance = Dbconnection.getInstance();

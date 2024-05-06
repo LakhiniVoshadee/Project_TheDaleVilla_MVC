@@ -58,11 +58,11 @@ public class LoginFormController {
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
-        String uId = txtUserId.getText();
+         userId = txtUserId.getText();
         String password = txtPassword.getText();
 
          try {
-             UserModel.verifyCredentials(uId, password, rootNode);
+             UserModel.verifyCredentials(userId, password, rootNode);
          }catch (SQLException e){
              new Alert(Alert.AlertType.ERROR,"Try again").show();
          }catch (IOException e){

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -92,13 +93,20 @@
          </graphic>
       </JFXButton>
       <TextField fx:id="txtType" layoutX="644.0" layoutY="287.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TableView fx:id="tblRoom" layoutX="186.0" layoutY="591.0" prefHeight="271.0" prefWidth="779.0">
+      <TableView fx:id="tblRoom" layoutX="46.0" layoutY="591.0" prefHeight="271.0" prefWidth="939.0">
          <columns>
             <TableColumn fx:id="colId" prefWidth="155.0" text="ID" />
-            <TableColumn fx:id="colType" prefWidth="406.0" text="Type" />
-            <TableColumn fx:id="colDate" prefWidth="217.0" text="Date" />
+            <TableColumn fx:id="colType" prefWidth="290.0" text="Type" />
+            <TableColumn fx:id="colDate" prefWidth="254.0" text="Date" />
+            <TableColumn fx:id="colCusId" prefWidth="254.0" text="Customer ID" />
          </columns>
       </TableView>
       <DatePicker fx:id="txtDate" layoutX="62.0" layoutY="387.0" prefHeight="33.0" prefWidth="318.0" />
+      <ComboBox fx:id="cmbId" layoutX="644.0" layoutY="394.0" prefHeight="37.0" prefWidth="318.0" />
+      <Text fill="#fffefe" layoutX="639.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID" wrappingWidth="120.13671875">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

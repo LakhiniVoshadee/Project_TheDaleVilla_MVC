@@ -9,8 +9,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Room;
+import lk.ijse.thedale.repository.CustomerRepo;
 import lk.ijse.thedale.repository.RoomRepo;
 import lk.ijse.thedale.tm.RoomTm;
+import lombok.SneakyThrows;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -43,6 +45,13 @@ public class RoomFormController implements Initializable {
 
     @FXML
     private TextField txtType;
+
+    @FXML
+    private ComboBox<String> cmbId;
+
+    @FXML
+    private TableColumn<?, ?> colCusId;
+
 
     RoomRepo roomRepo = new RoomRepo();
 
@@ -82,6 +91,7 @@ public class RoomFormController implements Initializable {
         String id = txtRoomId.getText();
         String type = txtType.getText();
         String date = String.valueOf(txtDate.getValue());
+
         String cusID = CustomerFormController.getInstance().cusID;
 
         Room room = new Room(id,type,date,cusID);
@@ -135,6 +145,7 @@ public class RoomFormController implements Initializable {
         }
     }
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -145,6 +156,18 @@ public class RoomFormController implements Initializable {
          this.roomList = getAllRoom();
         setCellValueFactory();
         loadRoomTable();
+        getCustomerId();
+    }
+
+    private void getCustomerId() throws SQLException {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        List<String> idList = CustomerRepo.getIds();
+
+        for (String id : idList) {
+            obList.add(id);
+        }
+        cmbId.setItems(obList);
     }
 
     private void setCellValueFactory() {
@@ -152,6 +175,7 @@ public class RoomFormController implements Initializable {
         colId.setCellValueFactory(new PropertyValueFactory<>("RoomID"));
         colType.setCellValueFactory(new PropertyValueFactory<>("Type"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
+        colCusId.setCellValueFactory(new PropertyValueFactory<>("CusID"));
     }
 
     private List<Room> getAllRoom() {

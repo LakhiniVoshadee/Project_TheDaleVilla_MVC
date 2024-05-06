@@ -1,8 +1,10 @@
 package lk.ijse.thedale.repository;
 
+import lk.ijse.thedale.controller.LoginFormController;
 import lk.ijse.thedale.db.Dbconnection;
 import lk.ijse.thedale.model.Customer;
 import lk.ijse.thedale.model.Employee;
+import lk.ijse.thedale.model.UserModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,7 +35,7 @@ public class CustomerRepo {
         pstm.setString(3,customer.getNic());
         pstm.setString(4,customer.getContact());
         pstm.setString(5,customer.getEmail());
-        pstm.setString(6,customer.getUserID());
+        pstm.setString(6,customer.getCusID());
 
         return pstm.executeUpdate()>0;
     }
@@ -73,10 +75,25 @@ public class CustomerRepo {
         pstm.setObject(4,customer.getNic());
         pstm.setObject(5,customer.getContact());
         pstm.setObject(6,customer.getEmail());
-        pstm.setObject(7,customer.getUserID());
+        pstm.setObject(7, UserModel.Uid);
 
         return pstm.executeUpdate()>0;
 
+    }
+
+    public static List<String> getIds() throws SQLException {
+        String sql = "SELECT CusID FROM customer";
+
+        Connection connection = Dbconnection.getInstance().getConnection();
+        ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
+
+        List<String> idList = new ArrayList<>();
+
+        while (resultSet.next()) {
+            idList.add(resultSet.getString(1));
+
+        }
+        return idList;
     }
 
     public List<Customer> getCustomer() throws SQLException {
