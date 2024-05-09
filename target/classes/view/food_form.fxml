@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1176.0" style="-fx-background-color: #079992;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.FoodFormController">
+<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1242.0" style="-fx-background-color: #079992;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.FoodFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#20635e" height="890.0" layoutX="-5.0" stroke="BLACK" strokeType="INSIDE" width="1187.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="899.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="1253.0" />
       <Text fill="WHITE" layoutX="51.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="162.13671875">
          <font>
             <Font name="Arial Bold" size="33.0" />
@@ -43,22 +43,22 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="382.0" layoutY="415.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: gray; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="382.0" layoutY="415.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="509.0" layoutY="415.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="113.0" style="-fx-background-color: red; -fx-background-radius: 30;" text="Delete" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="509.0" layoutY="415.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="113.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Delete" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="644.0" layoutY="415.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: orange; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="644.0" layoutY="415.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="787.0" layoutY="415.0" onAction="#btnSaveOnACtion" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: blue; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="787.0" layoutY="415.0" onAction="#btnSaveOnACtion" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>

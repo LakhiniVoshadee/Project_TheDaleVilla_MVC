@@ -20,26 +20,32 @@ public class RoomRepo {
     }
 
     public static boolean save(Room room) throws SQLException {
-        String sql = "Insert into room values(?,?,?,?)";
+        String sql = "Insert into room values(?,?,?,?,?,?,?)";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1, room.getRoomID());
         pstm.setObject(2, room.getType());
         pstm.setObject(3, room.getDate());
-        pstm.setObject(4,room.getCusID());
+        pstm.setObject(4, room.getQtyOnHand());
+        pstm.setObject(5, room.getUnitPrice());
+        pstm.setObject(6, room.getQty());
+        pstm.setObject(7,room.getCusID());
 
         return pstm.executeUpdate() > 0;
     }
 
     public static boolean update(Room room) throws SQLException {
 
-        String sql = "Update room Set Type = ?, Date = ? , CusID = ? where RoomID = ?";
+        String sql = "Update room Set Type = ?, Date = ? , QtyOnHand = ? , UnitPrice = ?, Qty = ? , CusID = ? where RoomID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1, room.getType());
         pstm.setObject(2, room.getDate());
-        pstm.setObject(3, room.getCusID());
-        pstm.setObject(4, room.getRoomID());
+        pstm.setObject(3, room.getQtyOnHand());
+        pstm.setObject(4, room.getUnitPrice());
+        pstm.setObject(5, room.getQty());
+        pstm.setObject(6, room.getCusID());
+        pstm.setObject(7, room.getRoomID());
 
 
         return pstm.executeUpdate() > 0;
@@ -68,17 +74,47 @@ public class RoomRepo {
         return "Room 1";
     }
 
+    public static Room searchRoom(String roomId) throws SQLException {
+        String sql = "select * from room where RoomID = ?";
+
+        PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+
+        pstm.setObject(1, roomId);
+        ResultSet resultSet = pstm.executeQuery();
+        Room room = null;
+
+        if (resultSet.next()) {
+            String id = resultSet.getString(1);
+            String type = resultSet.getString(2);
+            String date = resultSet.getString(3);
+            String qtyOnHand = resultSet.getString(4);
+            double unitPrice = resultSet.getDouble(5);
+            String qty = resultSet.getString(6);
+            String cusID = resultSet.getString(7);
+
+            room = new Room(id, type, date, qtyOnHand, unitPrice, qty, cusID);
+
+        }
+        return room;
+    }
+
     public List<Room> getRoom() throws SQLException {
         String sql = "SELECT * FROM room";
-        ResultSet resultSet = Dbconnection.getInstance().getConnection().prepareStatement(sql).executeQuery();
+        PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
         List<Room> roomList = new ArrayList<>();
+
         while (resultSet.next()) {
-            roomList.add(new Room(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4)
-            ));
+            String id = resultSet.getString(1);
+            String type = resultSet.getString(2);
+            String date = resultSet.getString(3);
+            String qtyOnHand = resultSet.getString(4);
+            double unitPrice = resultSet.getDouble(5);
+            String qty = resultSet.getString(6);
+            String cusID = resultSet.getString(7);
+
+            Room room = new Room(id,type,date, qtyOnHand, unitPrice, qty,cusID);
+            roomList.add(room);
 
     }
         return roomList;

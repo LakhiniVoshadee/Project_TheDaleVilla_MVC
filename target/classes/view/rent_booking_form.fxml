@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.RentBookingFormController">
+<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1242.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.RentBookingFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="890.0" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="890.0" stroke="BLACK" strokeType="INSIDE" width="1250.0" />
       <Text fill="WHITE" layoutX="66.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
          <font>
             <Font name="Arial Bold" size="33.0" />
@@ -96,7 +96,7 @@
          </font>
       </Text>
       <TextField fx:id="txtQty" layoutX="185.0" layoutY="477.0" prefHeight="37.0" prefWidth="149.0" />
-      <JFXButton fx:id="btnAdToCart" buttonType="RAISED" layoutX="948.0" layoutY="467.0" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="Add To Cart" textFill="WHITE">
+      <JFXButton fx:id="btnAdToCart" buttonType="RAISED" layoutX="948.0" layoutY="467.0" onAction="#addToCartOnAction" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="Add To Cart" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

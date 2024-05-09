@@ -1,5 +1,6 @@
 package lk.ijse.thedale.tm;
 
+import com.jfoenix.controls.JFXButton;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,12 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 
-public class RoomTm {
+public class RoomBookingTm {
     private String RoomID;
     private String Type;
-    private String Date;
-    private String customerId;
-    private String QtyOnHand;
     private double UnitPrice;
-    private String Qty;
+    private String QtyOnHand;
+    private int Qty;
+    private double Total;
+    private JFXButton btnRemove;
 }

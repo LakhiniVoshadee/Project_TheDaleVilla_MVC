@@ -61,9 +61,21 @@ create table Room(
                      RoomID varchar(20)primary key,
                      Type varchar(30)not null,
                      Date date,
+                     QtyOnHand int not null ,
+                     UnitPrice decimal(10,2),
+                     Qty int not null ,
                      CusID varchar(20)not null,
                      foreign key(CusID) references Customer(CusID)on update cascade on delete cascade
 );
+
+create table RoomBooking(
+       RoomBookingID varchar(20)primary key ,
+       CusID varchar(20) not null ,
+       date date not null ,
+       foreign key (CusID)references customer(CusID)on update cascade on delete cascade
+
+);
+
 
 create table Rent(
                      RentID varchar(20)primary key,
@@ -84,12 +96,13 @@ create table RentDetails(
 );
 
 create table RoomDetails(
+                            RoomBookingID varchar(20)not null,
                             RoomID varchar(20)not null,
-                            CusID varchar(20)not null,
-                            Date date,
+                            Qty int not null ,
+                            UnitPrice double not null ,
                             Type varchar(30),
-                            foreign key(RoomID) references Room(RoomID)on update cascade on delete cascade,
-                            foreign key(CusID) references Customer(CusID)on update cascade on delete cascade
+                            foreign key(RoomBookingID) references RoomBooking(RoomBookingID)on update cascade on delete cascade,
+                            foreign key(RoomID) references Room(RoomID)on update cascade on delete cascade
 );
 insert into admin values ('u001','admin','1234');
 
