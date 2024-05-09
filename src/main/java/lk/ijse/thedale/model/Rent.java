@@ -10,8 +10,10 @@ import lombok.NoArgsConstructor;
 
 public class Rent {
     private String RentID;
+    private String Type;
     private int Qty;
     private String Description;
-    private String Type;
+    private String QtyOnHand;
+    private double UnitPrice;
 
 }

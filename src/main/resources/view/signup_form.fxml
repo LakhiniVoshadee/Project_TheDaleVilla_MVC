@@ -4,41 +4,34 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="697.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.SignupFormController">
+<AnchorPane prefHeight="697.0" prefWidth="484.0" style="-fx-background-color: #84aeaa;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.SignupFormController">
    <children>
-      <ImageView fitHeight="697.0" fitWidth="484.0">
-         <image>
-            <Image url="@../assets/images/pexels-ollivves-1078981.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="607.0" layoutX="46.0" layoutY="42.0" opacity="0.33" stroke="#f2f2f2" strokeType="INSIDE" width="393.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="607.0" layoutX="46.0" layoutY="42.0" opacity="0.25" stroke="#f2f2f2" strokeType="INSIDE" width="393.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="89.0" prefHeight="49.0" prefWidth="194.0" text="Sign Up">
          <font>
-            <Font name="Georgia Bold" size="42.0" />
+            <Font name="Cambria Bold" size="50.0" />
          </font>
       </Label>
       <TextField fx:id="txtUserNme" layoutX="121.0" layoutY="225.0" prefHeight="49.0" prefWidth="250.0" promptText="User Name" style="-fx-background-color: #a0c7cc; -fx-background-radius: 30;" AnchorPane.topAnchor="224.0" />
       <TextField fx:id="txtEmail" layoutX="121.0" layoutY="308.0" prefHeight="49.0" prefWidth="250.0" promptText="Email" style="-fx-background-radius: 30; -fx-background-color: #a0c7cc;" />
-      <Text layoutX="84.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName">
+      <Text layoutX="84.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
          <font>
-            <Font size="20.0" />
+            <Font name="Cambria" size="20.0" />
          </font></Text>
-      <Text layoutX="83.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+      <Text layoutX="83.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
          <font>
-            <Font size="20.0" />
+            <Font name="Cambria" size="20.0" />
          </font></Text>
-      <Text layoutX="79.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+      <Text layoutX="79.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
          <font>
-            <Font size="20.0" />
+            <Font name="Cambria" size="20.0" />
          </font></Text>
-      <JFXButton buttonType="RAISED" layoutX="169.0" layoutY="514.0" onAction="#btnSignUpOnAction" prefHeight="47.0" prefWidth="122.0" style="-fx-background-color: #b65a30; -fx-background-radius: 30;" text="Sign Up" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="169.0" layoutY="514.0" onAction="#btnSignUpOnAction" prefHeight="47.0" prefWidth="122.0" style="-fx-background-color: #006863; -fx-background-radius: 30;" text="Sign Up" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>

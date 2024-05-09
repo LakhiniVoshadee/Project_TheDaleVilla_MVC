@@ -36,6 +36,13 @@ public class RentFormController implements Initializable {
     private TableColumn<?, ?> colType;
 
     @FXML
+    private TableColumn<?, ?> colQtyOnHand;
+
+    @FXML
+    private TableColumn<?, ?> colUnitPrice;
+
+
+    @FXML
     private Pane pageInPane;
 
 
@@ -55,6 +62,12 @@ public class RentFormController implements Initializable {
     @FXML
     private TextField txtType;
 
+    @FXML
+    private TextField txtQtyOnHand;
+
+    @FXML
+    private TextField txtUnitPrice;
+
     RentRepo rentRepo = new RentRepo();
 
     private List<Rent> rentList = new ArrayList<>();
@@ -64,9 +77,11 @@ public class RentFormController implements Initializable {
 
     private void clearFields() {
         txtRentId.setText("");
+        txtType.setText("");
         txtQty.setText("");
         txtDescription.setText("");
-        txtType.setText("");
+        txtQtyOnHand.setText("");
+        txtUnitPrice.setText("");
 
     }
 
@@ -92,9 +107,11 @@ public class RentFormController implements Initializable {
             for (Rent rent : rentList) {
                 RentTm rentTm = new RentTm(
                         rent.getRentID(),
+                        rent.getType(),
                         rent.getQty(),
                         rent.getDescription(),
-                        rent.getType()
+                        rent.getQtyOnHand(),
+                        rent.getUnitPrice()
                 );
                 tmList.add(rentTm);
             }
@@ -107,9 +124,11 @@ public class RentFormController implements Initializable {
     private void setCellValueFactory() {
 
         colId.setCellValueFactory(new PropertyValueFactory<>("RentID"));
+        colType.setCellValueFactory(new PropertyValueFactory<>("Type"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
-        colType.setCellValueFactory(new PropertyValueFactory<>("Type"));
+        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("UnitPrice"));
 
     }
 
@@ -140,19 +159,25 @@ public class RentFormController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String id = txtRentId.getText();
-        int Qty = Integer.parseInt(txtQty.getText());
-        String description = txtDescription.getText();
-        String type = txtType.getText();
 
-        Rent rent = new Rent(id, Qty, description, type);
+        String RentID = txtRentId.getText();
+        String Type = txtType.getText();
+        int Qty = Integer.parseInt(txtQty.getText());
+        String Description = txtDescription.getText();
+        String QtyOnHand = txtQtyOnHand.getText();
+        double UnitPrice = Double.parseDouble(txtUnitPrice.getText());
+
+        Rent rent = new Rent(RentID,Type,Qty,Description, QtyOnHand, UnitPrice);
 
         try {
             boolean isSaved = RentRepo.save(rent);
-            new Alert(Alert.AlertType.CONFIRMATION,"Rent saved successfully!").show();
+            if (isSaved){
+                new Alert(Alert.AlertType.CONFIRMATION,"Rent saved successfully!").show();
+                loadRentTable();
+            }
+
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-            loadRentTable();
         }
 
     }
@@ -160,11 +185,16 @@ public class RentFormController implements Initializable {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         String RentID = txtRentId.getText();
+        String Type = txtType.getText();
         int Qty = Integer.parseInt(txtQty.getText());
-        String description = txtDescription.getText();
-        String type = txtType.getText();
+        String Description = txtDescription.getText();
+        String QtyOnHand = txtQtyOnHand.getText();
+        double UnitPrice = Double.parseDouble(txtUnitPrice.getText());
 
-        Rent rent = new Rent(RentID, Qty, description, type);
+
+        Rent rent = new Rent(RentID,Type,Qty,Description, QtyOnHand, UnitPrice);
+
+
 
         try {
             boolean isUpdate = RentRepo.update(rent);

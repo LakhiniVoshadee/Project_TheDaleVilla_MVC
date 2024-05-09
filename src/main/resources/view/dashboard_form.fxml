@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="880.0" prefWidth="1506.0" style="-fx-background-color: #f7f1e3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.DashBoardFormController">
    <children>
@@ -91,7 +92,25 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </JFXButton>
-      <Pane fx:id="pagingPane" layoutX="264.0" layoutY="-2.0" prefHeight="890.0" prefWidth="1242.0" style="-fx-background-color: black;" />
+      <Pane fx:id="pagingPane" layoutX="264.0" layoutY="-2.0" prefHeight="890.0" prefWidth="1242.0" style="-fx-background-color: black;">
+         <children>
+            <Text layoutX="147.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our villa! Our place is like a peaceful paradise surrounded by beautiful scenery. You can relax and enjoy luxury here. We have cozy rooms, amazing facilities, and friendly service. Whether you want a quiet break, a family holiday, or a special event, our villa has everything you need for a wonderful stay. Come and experience the comfort and beauty of our villa!" textAlignment="JUSTIFY" wrappingWidth="510.85546875">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#006863" height="92.0" layoutX="-8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1250.0" />
+            <Text fill="WHITE" layoutX="67.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="151.13671875">
+               <font>
+                  <Font name="Cambria Bold" size="30.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="51.0" fitWidth="57.0" layoutX="245.0" layoutY="30.0">
+               <image>
+                  <Image url="@../assets/icons/user.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
       <Pane layoutX="30.0" layoutY="583.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
          <children>
             <JFXButton fx:id="btnRoom" buttonType="RAISED" layoutY="-2.0" onAction="#btnRoomOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Room" textFill="WHITE">

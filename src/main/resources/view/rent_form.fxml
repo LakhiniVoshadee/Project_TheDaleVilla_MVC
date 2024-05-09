@@ -27,8 +27,8 @@
       </Text>
       <Line endX="1065.0" endY="20.0" layoutX="111.0" layoutY="99.0" startX="-111.0" startY="20.0" stroke="#079992" strokeWidth="2.0" />
       <TextField fx:id="txtRentId" layoutX="56.0" layoutY="280.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30; -fx-background-color: white;" />
-      <TextField fx:id="txtDescription" layoutX="650.0" layoutY="387.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtQty" layoutX="56.0" layoutY="395.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtDescription" layoutX="645.0" layoutY="334.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtQty" layoutX="56.0" layoutY="375.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <Text fill="#fffefe" layoutX="76.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ID" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
@@ -39,12 +39,12 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Text fill="#fffefe" layoutX="650.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="120.13671875">
+      <Text fill="#fffefe" layoutX="662.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Text fill="#fffefe" layoutX="662.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="120.13671875">
+      <Text fill="#fffefe" layoutX="650.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -97,14 +97,28 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TextField fx:id="txtType" layoutX="644.0" layoutY="287.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TableView fx:id="tblRent" layoutX="196.0" layoutY="605.0" prefHeight="246.0" prefWidth="739.0">
+      <TextField fx:id="txtType" layoutX="650.0" layoutY="221.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TableView fx:id="tblRent" layoutX="80.0" layoutY="607.0" prefHeight="246.0" prefWidth="1017.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="140.0" text="ID" />
           <TableColumn fx:id="colType" prefWidth="137.0" text="Type" />
-            <TableColumn fx:id="colQty" prefWidth="166.0" text="Qty" />
-            <TableColumn fx:id="colDescription" prefWidth="324.0" text="Description" />
+            <TableColumn fx:id="colQty" prefWidth="137.0" text="Qty" />
+            <TableColumn fx:id="colDescription" prefWidth="217.0" text="Description" />
+            <TableColumn fx:id="colQtyOnHand" prefWidth="193.0" text="Qty On Hand" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="193.0" text="Unit Price" />
         </columns>
       </TableView>
+      <Text fill="#fffefe" layoutX="71.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty On Hand" wrappingWidth="120.13671875">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="#fffefe" layoutX="650.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" wrappingWidth="120.13671875">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtQtyOnHand" layoutX="56.0" layoutY="470.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtUnitPrice" layoutX="645.0" layoutY="445.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
    </children>
 </Pane>

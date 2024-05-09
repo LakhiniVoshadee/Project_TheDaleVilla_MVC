@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1242.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.RentBookingFormController">
+<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.RentBookingFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="890.0" stroke="BLACK" strokeType="INSIDE" width="1250.0" />
       <Text fill="WHITE" layoutX="66.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
@@ -26,7 +26,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TableView layoutX="20.0" layoutY="545.0" prefHeight="239.0" prefWidth="1136.0">
+      <TableView fx:id="tblRentBookingCart" layoutX="20.0" layoutY="545.0" prefHeight="239.0" prefWidth="1136.0">
          <columns>
             <TableColumn fx:id="colRentId" prefWidth="166.0" text="Rent ID" />
             <TableColumn fx:id="colDesc" prefWidth="175.0" text="Description" />
@@ -54,7 +54,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="cmbCId" layoutX="195.0" layoutY="252.0" prefHeight="37.0" prefWidth="202.0" />
+      <JFXComboBox fx:id="cmbCId" layoutX="195.0" layoutY="252.0" onAction="#cmbCusOnAction" prefHeight="37.0" prefWidth="202.0" />
       <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="426.0" layoutY="262.0" prefHeight="37.0" prefWidth="74.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="+ New" textFill="WHITE">
          <font>
             <Font size="17.0" />
@@ -71,7 +71,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="cmbRentId" layoutX="195.0" layoutY="318.0" prefHeight="37.0" prefWidth="202.0" />
+      <JFXComboBox fx:id="cmbRentId" layoutX="195.0" layoutY="318.0" onAction="#cmbRentOnAction" prefHeight="37.0" prefWidth="202.0" />
       <Text fill="#fffefe" layoutX="564.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />

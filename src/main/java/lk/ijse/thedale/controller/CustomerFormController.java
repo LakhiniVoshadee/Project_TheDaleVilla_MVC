@@ -10,16 +10,21 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Customer;
 import lk.ijse.thedale.repository.CustomerRepo;
 import lk.ijse.thedale.tm.CustomerTm;
+import lk.ijse.thedale.util.Validation;
+
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class CustomerFormController implements Initializable {
 
@@ -69,6 +74,8 @@ public class CustomerFormController implements Initializable {
 
     private static CustomerFormController controller;
 
+    LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
+
     public CustomerFormController (){
         controller = this;
     }
@@ -80,6 +87,8 @@ public class CustomerFormController implements Initializable {
     CustomerRepo customerRepo = new CustomerRepo();
 
     private List<Customer> customerList = new ArrayList<>();
+
+       // LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
@@ -122,6 +131,21 @@ public class CustomerFormController implements Initializable {
         this.customerList=getAllCustomer();
         setCellValueFactory();
         loadCustomerTable();
+
+        Pattern patternId = Pattern.compile("^([A-Z0-9])$");
+        Pattern patternName = Pattern.compile("^[A-z|\\\\s]{3,}$");
+        Pattern patternSex = Pattern.compile("^(male|female|non-binary|genderqueer|genderfluid|transgender|agender|bigender|gender nonconforming|gender questioning|gender variant|genderqueer|intersex|neutrois|pangender|third gender)$");
+        Pattern patternNIC = Pattern.compile("^[0-9 a-z]{10}$");
+        Pattern patternContact = Pattern.compile("^([+]94{1,3}|[0])([1-9]{2})([0-9]){7}$");
+        Pattern patternEmail = Pattern.compile("^([A-z])([A-z0-9.]){1,}[@]([A-z0-9]){1,10}[.]([A-z]){2,5}$");
+
+        map.put(txtCusId, patternId);
+        map.put(txtCusName, patternName);
+        map.put(txtSex, patternSex);
+        map.put(txtNic, patternNIC);
+        map.put(txtContact, patternContact);
+        map.put(txtEmail, patternEmail);
+
     }
 
     private void loadCustomerTable() {
@@ -215,4 +239,10 @@ public class CustomerFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
+
+    @FXML
+    void txtOnKeyRelease(KeyEvent event) {
+     Validation.validate(map);
+    }
+
 }

@@ -42,27 +42,56 @@ public class RentRepo {
     }
 
     public static boolean save(Rent rent) throws SQLException {
-        String sql = "INSERT INTO rent VALUES(?,?,?,?)";
+        String sql = "INSERT INTO rent VALUES(?,?,?,?,?,?)";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1,rent.getRentID());
         pstm.setObject(2,rent.getQty());
         pstm.setObject(3,rent.getDescription());
         pstm.setObject(4,rent.getType());
+        pstm.setObject(5,rent.getQtyOnHand());
+        pstm.setObject(6,rent.getUnitPrice());
 
         return pstm.executeUpdate() > 0;
     }
 
     public static boolean update(Rent rent) throws SQLException {
-        String sql = "Update rent set Type = ?, Qty = ?, Description = ? where RentID = ?";
+        String sql = "Update rent set Type = ?, Qty = ?, Description = ? ,QtyOnHand = ?, UnitPrice = ? where RentID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1,rent.getType());
         pstm.setObject(2,rent.getQty());
         pstm.setObject(3,rent.getDescription());
-        pstm.setObject(4,rent.getRentID());
+        pstm.setObject(4,rent.getQtyOnHand());
+        pstm.setObject(5,rent.getUnitPrice());
+        pstm.setObject(6,rent.getRentID());
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public static Rent searchRent(String rentId) throws SQLException {
+        String sql = "select * from rent where RentID = ?";
+
+        PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+
+
+        pstm.setObject(1,rentId);
+        ResultSet resultSet = pstm.executeQuery();
+        Rent rent = null;
+
+        if (resultSet.next()){
+            String id = resultSet.getString(1);
+            int qty = Integer.parseInt(resultSet.getString(2));
+            String description = resultSet.getString(3);
+            String type = resultSet.getString(4);
+            String qtyOnHand = resultSet.getString(5);
+            double unitPrice = resultSet.getDouble(6);
+
+            rent = new Rent(id,type,qty,description,qtyOnHand,unitPrice);
+
+        }
+        return rent;
+
     }
 
     public List<Rent> getRent() throws SQLException {
@@ -70,12 +99,16 @@ public class RentRepo {
         ResultSet resultSet = Dbconnection.getInstance().getConnection().prepareStatement(sql).executeQuery();
         List<Rent> rentList = new ArrayList<>();
         while (resultSet.next()){
-            rentList.add(new Rent(
-                    resultSet.getString(1),
-                    resultSet.getInt(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4)
-            ));
+            String id = resultSet.getString(1);
+            int qty = Integer.parseInt(resultSet.getString(2));
+            String description = resultSet.getString(3);
+            String type = resultSet.getString(4);
+            String qtyOnHand = resultSet.getString(5);
+            double unitPrice = resultSet.getDouble(6);
+
+            Rent rent = new Rent(id,type,qty,description,qtyOnHand,unitPrice);
+            rentList.add(rent);
+
         }
         return rentList;
     }

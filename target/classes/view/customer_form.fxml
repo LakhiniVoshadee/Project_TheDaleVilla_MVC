@@ -30,7 +30,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtCusId" layoutX="66.0" layoutY="251.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtCusId" layoutX="66.0" layoutY="251.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <Text fill="#fffefe" layoutX="619.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="135.13671875">
          <font>
             <Font name="Arial Bold" size="17.0" />
@@ -108,11 +108,11 @@
             <Image url="@../assets/icons/save.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtNic" layoutX="620.0" layoutY="339.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtCusName" layoutX="620.0" layoutY="251.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtContact" layoutX="66.0" layoutY="420.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtSex" layoutX="66.0" layoutY="339.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtEmail" layoutX="620.0" layoutY="420.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtNic" layoutX="620.0" layoutY="339.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtCusName" layoutX="620.0" layoutY="251.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtContact" layoutX="66.0" layoutY="420.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtSex" layoutX="66.0" layoutY="339.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtEmail" layoutX="620.0" layoutY="420.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <Line endX="1075.0" endY="14.0" layoutX="101.0" layoutY="89.0" startX="-102.0" startY="14.0" stroke="#079992" strokeWidth="2.0" />
    </children>
 </Pane>

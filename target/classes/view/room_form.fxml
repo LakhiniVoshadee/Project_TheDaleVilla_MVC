@@ -9,7 +9,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -17,17 +16,11 @@
 <Pane fx:id="pageInPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1242.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.RoomFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="903.0" layoutX="-7.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="1251.0" />
-      <Text fill="WHITE" layoutX="56.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
-         <font>
-            <Font name="Arial Bold" size="33.0" />
-         </font>
-      </Text>
       <Text fill="#fff9f9" layoutX="56.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Manage">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Line endX="1065.0" endY="20.0" layoutX="111.0" layoutY="99.0" startX="-111.0" startY="20.0" stroke="#079992" strokeWidth="2.0" />
       <TextField fx:id="txtRoomId" layoutX="56.0" layoutY="280.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30; -fx-background-color: white;" />
       <Text fill="#fffefe" layoutX="76.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ID" wrappingWidth="120.13671875">
          <font>
@@ -129,5 +122,6 @@
          </font>
       </Text>
       <TextField fx:id="txtQty" layoutX="627.0" layoutY="447.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#006863" height="92.0" layoutX="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1250.0" />
    </children>
 </Pane>

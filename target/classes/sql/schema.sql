@@ -76,12 +76,23 @@ create table RoomBooking(
 
 );
 
+create table RentBooking(
+      RentBookingID varchar(20)primary key ,
+      CusID varchar(20) not null ,
+      date date not null ,
+     foreign key (CusID)references customer(CusID)on update cascade on delete cascade
+
+);
+
 
 create table Rent(
                      RentID varchar(20)primary key,
                      Qty int(20)not null,
                      Description varchar(30),
-                     Type varchar(30)
+                     Type varchar(30),
+                     QtyOnHand int not null ,
+                     UnitPrice decimal(10,2)
+
 );
 
 

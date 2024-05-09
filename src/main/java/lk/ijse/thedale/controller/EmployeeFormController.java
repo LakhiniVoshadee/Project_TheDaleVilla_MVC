@@ -7,16 +7,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Employee;
 import lk.ijse.thedale.repository.EmployeeRepo;
 import lk.ijse.thedale.tm.EmployeeTm;
+import lk.ijse.thedale.util.Validation;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 
 public class EmployeeFormController implements Initializable {
@@ -57,6 +61,8 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     private TextField txtType;
+
+    LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
 
     EmployeeRepo employeeRepo = new EmployeeRepo();
 
@@ -100,6 +106,15 @@ public class EmployeeFormController implements Initializable {
        this.employeeList =getAllEmployee();
         setCellValueFactory();
         loadEmployeeTable();
+
+        Pattern patternId = Pattern.compile("^([A-Z0-9])$");
+        Pattern patternName = Pattern.compile("^[A-z|\\\\s]{3,}$");
+        //Pattern patternType = Pattern.compile("^[A-z|\\\\s]{5,}$");
+        Pattern patternEmail = Pattern.compile("^([A-z])([A-z0-9.]){1,}[@]([A-z0-9]){1,10}[.]([A-z]){2,5}$");
+
+        map.put(txtEmpId, patternId);
+        map.put(txtEmpName, patternName);
+        map.put(txtEmail, patternEmail);
 
     }
 
@@ -187,5 +202,10 @@ public class EmployeeFormController implements Initializable {
             colEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
             colDob.setCellValueFactory(new PropertyValueFactory<>("DOB"));
         }
+    @FXML
+    void txtKeyOnRele(KeyEvent event) {
+        Validation.validate(map);
     }
+
+}
 
