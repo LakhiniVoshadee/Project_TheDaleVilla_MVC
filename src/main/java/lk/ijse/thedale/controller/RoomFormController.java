@@ -7,18 +7,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Room;
 import lk.ijse.thedale.repository.CustomerRepo;
 import lk.ijse.thedale.repository.RoomRepo;
 import lk.ijse.thedale.tm.RoomTm;
+import lk.ijse.thedale.util.Validation;
 import lombok.SneakyThrows;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.regex.Pattern;
 
 public class RoomFormController implements Initializable {
 
@@ -72,6 +77,7 @@ public class RoomFormController implements Initializable {
     private TextField txtQty;
 
 
+    LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
 
 
 
@@ -193,6 +199,13 @@ public class RoomFormController implements Initializable {
         setCellValueFactory();
         loadRoomTable();
         getCustomerId();
+
+
+        Pattern patternId = Pattern.compile("^([A-Z0-9])$");
+        Pattern patternUnitPrice = Pattern.compile("^\\d+(\\.\\d{1,2})?$\n");
+
+        map.put(txtRoomId, patternId);
+        map.put(txtUnitPrice, patternUnitPrice);
     }
 
     private void getCustomerId() throws SQLException {
@@ -226,4 +239,32 @@ public class RoomFormController implements Initializable {
         }
         return roomList;
     }
+
+    @FXML
+    void btnPrintOnAction(ActionEvent event) {
+
+        HashMap hashMap = new HashMap<>();
+        hashMap.put("ID", txtRoomId.getText());
+        hashMap.put("Type", txtType.getText());
+        hashMap.put("Qty", txtQty.getText());
+        hashMap.put("UnitPrice", txtUnitPrice.getText());
+       // hashMap.put("Total",lblN);
+        hashMap.put("CustomerID", cmbId.getValue());
+
+        try {
+            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/view/report/RoomBill.jrxml"));
+            JasperReport jasperReport = JasperCompileManager.compileReport(load);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hashMap, new JREmptyDataSource());
+            JasperViewer.viewReport(jasperPrint,false);
+        } catch (JRException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void txtKeyOnRele(KeyEvent event) {
+        Validation.validate(map);
+
+    }
+
 }

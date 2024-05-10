@@ -31,8 +31,8 @@ public class HomeFormController implements Initializable {
 //            throw new RuntimeException(e);
 //        }
 
-        try {
-            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/view/report/piyumal.jrxml"));
+       /* try {
+            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/view/report/room_bill.jrxml"));
             JasperReport compileReport = JasperCompileManager.compileReport(load);
 
             //JasperReport compileReport=(JasperReport) JRLoader.loadObject(this.getClass().getResource("/views/reports/TrainScheduleReport.jasper"));
@@ -43,10 +43,9 @@ public class HomeFormController implements Initializable {
             e.printStackTrace();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        }*/
 
     }
-
     @FXML
     private Pane pagingPane;
 

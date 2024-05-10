@@ -21,7 +21,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="txtRoomId" layoutX="56.0" layoutY="280.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30; -fx-background-color: white;" />
+      <TextField fx:id="txtRoomId" layoutX="56.0" layoutY="280.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30; -fx-background-color: white;" />
       <Text fill="#fffefe" layoutX="76.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ID" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
@@ -49,7 +49,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="590.0" layoutY="499.0" onAction="#btnDeleteOnAction" prefHeight="61.0" prefWidth="109.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Delete" textFill="#fffbfb">
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="547.0" layoutY="509.0" onAction="#btnDeleteOnAction" prefHeight="61.0" prefWidth="109.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Delete" textFill="#fffbfb">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -61,7 +61,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="762.0" layoutY="499.0" onAction="#btnUpdateOnAction" prefHeight="61.0" prefWidth="120.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="699.0" layoutY="509.0" onAction="#btnUpdateOnAction" prefHeight="61.0" prefWidth="120.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -73,7 +73,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="952.0" layoutY="499.0" onAction="#btnSaveOnAction" prefHeight="61.0" prefWidth="109.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="847.0" layoutY="509.0" onAction="#btnSaveOnAction" prefHeight="61.0" prefWidth="109.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -115,7 +115,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtUnitPrice" layoutX="621.0" layoutY="369.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtUnitPrice" layoutX="621.0" layoutY="369.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <Text fill="#fffefe" layoutX="627.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
@@ -123,5 +123,10 @@
       </Text>
       <TextField fx:id="txtQty" layoutX="627.0" layoutY="447.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#006863" height="92.0" layoutX="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1250.0" />
+      <JFXButton buttonType="RAISED" layoutX="1103.0" layoutY="509.0" onAction="#btnPrintOnAction" prefHeight="61.0" prefWidth="109.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Print Bill" textFill="#fffbfb">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </Pane>

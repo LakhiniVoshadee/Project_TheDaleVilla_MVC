@@ -10,16 +10,20 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Food;
 import lk.ijse.thedale.repository.FoodRepo;
 import lk.ijse.thedale.tm.FoodTm;
+import lk.ijse.thedale.util.Validation;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class FoodFormController implements Initializable {
 
@@ -41,6 +45,8 @@ public class FoodFormController implements Initializable {
 
     @FXML
     private TextField txtFoodId;
+
+    LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
 
     FoodRepo foodRepo = new FoodRepo();
 
@@ -150,5 +156,15 @@ public class FoodFormController implements Initializable {
         this.foodList = getAllFood();
         setCellValueFactory();
         loadFoodTable();
+
+        Pattern patternId = Pattern.compile("([A-Z0-9])$");
+
+        map.put(txtFoodId, patternId);
+    }
+
+    @FXML
+    void txtOnKeyRele(KeyEvent event) {
+        Validation.validate(map);
+
     }
 }

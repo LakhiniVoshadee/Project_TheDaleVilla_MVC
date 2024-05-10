@@ -70,7 +70,7 @@
       </Label>
       <ImageView fitHeight="145.0" fitWidth="160.0" layoutX="842.0" layoutY="77.0">
          <image>
-            <Image url="@../assets/images/the-dale-villa-high-resolution-logo-black-transparent.png" />
+            <Image url="@../assets/the-dale-villa-high-resolution-logo-black-transparent.png" />
          </image>
       </ImageView>
    </children>
