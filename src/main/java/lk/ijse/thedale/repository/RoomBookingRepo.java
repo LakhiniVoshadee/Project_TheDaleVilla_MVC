@@ -1,6 +1,8 @@
 package lk.ijse.thedale.repository;
 
 import lk.ijse.thedale.db.Dbconnection;
+import lk.ijse.thedale.model.PlacedRoomBooking;
+import lk.ijse.thedale.model.RoomBooking;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoomBookingRepo {
+public  class RoomBookingRepo {
 
     public static List<String> getCusId() throws SQLException {
 
@@ -62,5 +64,22 @@ public class RoomBookingRepo {
         return "0 1";
 
     }
+
+    public static boolean saveOrder(RoomBooking roomBooking) throws SQLException {
+        String sql = "Insert into room values(?,?,?)";
+        PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+
+        pstm.setString(1,roomBooking.getRoomBookingID());
+        pstm.setString(2, String.valueOf(roomBooking.getDate()));
+        pstm.setString(3,roomBooking.getCusID());
+
+        return pstm.executeUpdate() > 0;
+    }
+
+
+
+
+
+
 
 }

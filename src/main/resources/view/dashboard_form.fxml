@@ -17,7 +17,7 @@
             <Image url="@../assets/the-dale-villa-high-resolution-logo-black-transparent.png" />
          </image>
       </ImageView>
-      <Pane layoutX="30.0" layoutY="232.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
+      <Pane layoutX="50.0" layoutY="232.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
          <children>
             <JFXButton fx:id="btnHome" buttonType="RAISED" onAction="#btnHomeOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Home" textFill="WHITE">
                <font>
@@ -31,7 +31,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="30.0" layoutY="294.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
+      <Pane layoutX="50.0" layoutY="293.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
          <children>
             <JFXButton fx:id="btnEmployee" buttonType="RAISED" onAction="#btnEmployeeOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Employee" textFill="WHITE">
                <font>
@@ -45,7 +45,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="30.0" layoutY="363.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
+      <Pane layoutX="45.0" layoutY="363.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
          <children>
             <JFXButton fx:id="btnCustomer" buttonType="RAISED" onAction="#btnCustomerOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Customer" textFill="WHITE">
                <font>
@@ -59,7 +59,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="30.0" layoutY="435.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
+      <Pane layoutX="50.0" layoutY="433.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
          <children>
             <JFXButton fx:id="btnFood" buttonType="RAISED" onAction="#btnFoodOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Food" textFill="WHITE">
                <font>
@@ -73,7 +73,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="24.0" layoutY="511.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
+      <Pane layoutX="45.0" layoutY="509.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="12.0">
                <image>
@@ -111,7 +111,7 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Pane layoutX="30.0" layoutY="583.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
+      <Pane layoutX="50.0" layoutY="579.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
          <children>
             <JFXButton fx:id="btnRoom" buttonType="RAISED" layoutY="-2.0" onAction="#btnRoomOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Room" textFill="WHITE">
                <font>
@@ -125,33 +125,34 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="30.0" layoutY="654.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
+      <Pane layoutX="50.0" layoutY="653.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
          <children>
             <JFXButton fx:id="btnBooking" buttonType="RAISED" layoutY="-2.0" onAction="#btnBookingOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Booking" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </JFXButton>
-            <ImageView fitHeight="34.0" fitWidth="25.0" layoutX="14.0" layoutY="8.0">
+            <ImageView fitHeight="34.0" fitWidth="25.0" layoutX="14.0" layoutY="9.0">
                <image>
-                  <Image url="@../assets/icons/bed.png" />
+                  <Image url="@../assets/icons/online-booking.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="30.0" layoutY="724.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
+      <Pane layoutX="50.0" layoutY="720.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #006863; -fx-background-radius: 30;">
          <children>
             <JFXButton fx:id="btnRenting" buttonType="RAISED" layoutY="-2.0" onAction="#btnRentingOnAction" prefHeight="49.0" prefWidth="166.0" style="-fx-background-radius: 30;" text="Renting" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </JFXButton>
-            <ImageView fitHeight="34.0" fitWidth="25.0" layoutX="14.0" layoutY="8.0">
+            <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="14.0" layoutY="8.0">
                <image>
-                  <Image url="@../assets/icons/bed.png" />
+                  <Image url="@../assets/icons/bike.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
+      <Pane layoutX="239.0" layoutY="60.0" prefHeight="829.0" prefWidth="25.0" style="-fx-background-color: #b2bec3;" />
    </children>
 </AnchorPane>

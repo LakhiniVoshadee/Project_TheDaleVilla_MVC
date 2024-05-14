@@ -11,19 +11,15 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
-import lk.ijse.thedale.model.Customer;
-import lk.ijse.thedale.model.Room;
-import lk.ijse.thedale.repository.CustomerRepo;
-import lk.ijse.thedale.repository.RoomBookingRepo;
-import lk.ijse.thedale.repository.RoomRepo;
+import lk.ijse.thedale.model.*;
+import lk.ijse.thedale.repository.*;
 import lk.ijse.thedale.tm.RoomBookingTm;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class RoomBookingFormController implements Initializable {
 
@@ -153,6 +149,45 @@ public class RoomBookingFormController implements Initializable {
 
     }
 
+
+    @FXML
+    void btnPlaceOrderOnAction(ActionEvent event) {
+        String RoomBookingId = lblBId.getText();
+        Date date = Date.valueOf(LocalDate.now());
+        String CustomerId = cmbCId.getValue();
+
+        double bookingAmount = 0;
+        RoomBooking roomBooking = new RoomBooking(RoomBookingId,CustomerId,date);
+        List<RoomDetails>roombookingList = new ArrayList<>();
+
+        for (int i=0; i<tblRmBookingCart.getItems().size(); i++){
+            RoomBookingTm roomBookingTm = cartList.get(i);
+
+            RoomDetails roomDetails = new RoomDetails(
+                    RoomBookingId,
+                    roomBookingTm.getRoomID(),
+                    roomBookingTm.getQty(),
+                    roomBookingTm.getUnitPrice(),
+                    roomBookingTm.getType()
+            );
+            roombookingList.add(roomDetails);
+        }
+        PlacedRoomBooking placedRoomBooking = new PlacedRoomBooking(roomBooking,roombookingList);
+
+        try {
+            boolean isOrderPlaced = PlaceRoomRepo.orderPlaced(placedRoomBooking);
+            if (isOrderPlaced){
+                new Alert(Alert.AlertType.CONFIRMATION,"Order Placed Successfully").show();
+            }else {
+                new Alert(Alert.AlertType.WARNING,"Order Placed Failed").show();
+            }
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+
+
+
+    }
     @FXML
     void cmbCusOnAction(ActionEvent event) {
         String CId = cmbCId.getValue();

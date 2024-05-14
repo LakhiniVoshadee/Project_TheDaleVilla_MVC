@@ -1,3 +1,4 @@
+
 package lk.ijse.thedale.util;
 
 
@@ -25,3 +26,4 @@ public class Validation {
         key.setStyle("-fx-border-color: red;");
     }
 }
+

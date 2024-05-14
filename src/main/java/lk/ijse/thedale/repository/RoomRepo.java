@@ -2,6 +2,7 @@ package lk.ijse.thedale.repository;
 
 import lk.ijse.thedale.db.Dbconnection;
 import lk.ijse.thedale.model.Room;
+import lk.ijse.thedale.model.RoomDetails;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -96,6 +97,15 @@ public class RoomRepo {
 
         }
         return room;
+    }
+
+    public static boolean updateRoomQty(List<RoomDetails> roomDetails) throws SQLException {
+        for (RoomDetails roomDetail : roomDetails) {
+            if (!updateRoomQty((List<RoomDetails>) roomDetail)){
+                return false;
+            }
+        }
+        return true;
     }
 
     public List<Room> getRoom() throws SQLException {

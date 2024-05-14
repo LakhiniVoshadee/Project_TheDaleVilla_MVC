@@ -1,18 +1,18 @@
 .txtforgot{
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 
 }
 
 .txtsignup{
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
 .txtUserName{
     -fx-text-fill: black;
-    -fx-prompt-text-fill: #485255;
+    -fx-prompt-text-fill: white;
 
 }
 
 .txtPassword{
-    -fx-prompt-text-fill: #485255;
+    -fx-prompt-text-fill: white;
 }

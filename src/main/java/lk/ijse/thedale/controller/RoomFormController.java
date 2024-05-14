@@ -13,6 +13,7 @@ import lk.ijse.thedale.model.Room;
 import lk.ijse.thedale.repository.CustomerRepo;
 import lk.ijse.thedale.repository.RoomRepo;
 import lk.ijse.thedale.tm.RoomTm;
+//import lk.ijse.thedale.util.Validation;
 import lk.ijse.thedale.util.Validation;
 import lombok.SneakyThrows;
 import net.sf.jasperreports.engine.*;
@@ -201,11 +202,13 @@ public class RoomFormController implements Initializable {
         getCustomerId();
 
 
-        Pattern patternId = Pattern.compile("^([A-Z0-9])$");
+     /*   Pattern patternId = Pattern.compile("^([A-Z0-9])$");
         Pattern patternUnitPrice = Pattern.compile("^\\d+(\\.\\d{1,2})?$\n");
 
         map.put(txtRoomId, patternId);
         map.put(txtUnitPrice, patternUnitPrice);
+
+      */
     }
 
     private void getCustomerId() throws SQLException {
@@ -266,5 +269,7 @@ public class RoomFormController implements Initializable {
         Validation.validate(map);
 
     }
+
+
 
 }

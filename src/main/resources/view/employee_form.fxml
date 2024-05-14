@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -14,7 +15,7 @@
 
 <Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1242.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.EmployeeFormController">
    <children>
-      <Rectangle fx:id="txtDob" arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="890.0" layoutX="-1.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1250.0" />
+      <Rectangle fx:id="txtDob" fill="#84aeaa" height="890.0" layoutX="-1.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1250.0" />
       <Text fill="WHITE" layoutX="46.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Manage" wrappingWidth="217.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -25,7 +26,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtEmpId" layoutX="51.0" layoutY="241.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30; -fx-background-color: #a0c7cc;" />
+      <TextField fx:id="txtEmpId" layoutX="51.0" layoutY="241.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white;" />
       <TableView fx:id="tblEmployee" layoutX="57.0" layoutY="556.0" prefHeight="246.0" prefWidth="948.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="119.0" text="ID" />
@@ -55,7 +56,7 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Text>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="954.0" layoutY="131.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="1005.0" layoutY="194.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -95,9 +96,14 @@
             <Image url="@../assets/icons/broom.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtEmail" layoutX="600.0" layoutY="337.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30; -fx-background-color: #a0c7cc;" />
-      <TextField fx:id="txtType" layoutX="57.0" layoutY="337.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30; -fx-background-color: #a0c7cc;" />
-      <TextField fx:id="txtEmpName" layoutX="600.0" layoutY="241.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30; -fx-background-color: #a0c7cc;" />
-      <DatePicker fx:id="pickerDate" layoutX="69.0" layoutY="437.0" prefHeight="32.0" prefWidth="288.0" style="-fx-background-color: #a0c7cc; -fx-background-radius: 30;" />
+      <TextField fx:id="txtEmail" layoutX="600.0" layoutY="337.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white;" />
+      <TextField fx:id="txtType" layoutX="57.0" layoutY="337.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white;" />
+      <TextField fx:id="txtEmpName" layoutX="600.0" layoutY="241.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white;" />
+      <DatePicker fx:id="pickerDate" layoutX="57.0" layoutY="437.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-color: #a0c7cc; -fx-background-radius: 30;" />
+      <Label fx:id="lblType" layoutX="70.0" layoutY="374.0" prefHeight="19.0" prefWidth="274.0" textFill="RED" />
+      <Label fx:id="lblEmail" layoutX="613.0" layoutY="374.0" prefHeight="19.0" prefWidth="274.0" textFill="RED" />
+      <Label fx:id="lblEmployeeName" layoutX="613.0" layoutY="278.0" prefHeight="19.0" prefWidth="274.0" textFill="RED" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#006863" height="91.0" layoutX="-6.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1256.0" />
+      <Pane layoutX="-3.0" layoutY="60.0" prefHeight="30.0" prefWidth="1250.0" style="-fx-background-color: #b2bec3;" />
    </children>
 </Pane>

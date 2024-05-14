@@ -16,6 +16,7 @@ import lk.ijse.thedale.model.Customer;
 import lk.ijse.thedale.repository.CustomerRepo;
 import lk.ijse.thedale.tm.CustomerTm;
 import lk.ijse.thedale.util.Validation;
+//import lk.ijse.thedale.util.Validation;
 
 
 import java.net.URL;
@@ -74,7 +75,7 @@ public class CustomerFormController implements Initializable {
 
     private static CustomerFormController controller;
 
-    LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
+   LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
 
     public CustomerFormController (){
         controller = this;
@@ -132,7 +133,7 @@ public class CustomerFormController implements Initializable {
         setCellValueFactory();
         loadCustomerTable();
 
-        Pattern patternId = Pattern.compile("^([A-Z0-9])$");
+       /* Pattern patternId = Pattern.compile("^([A-Z0-9])$");
         Pattern patternName = Pattern.compile("^[A-z|\\\\s]{3,}$");
         Pattern patternSex = Pattern.compile("^(male|female|non-binary|genderqueer|genderfluid|transgender|agender|bigender|gender nonconforming|gender questioning|gender variant|genderqueer|intersex|neutrois|pangender|third gender)$");
         Pattern patternNIC = Pattern.compile("^[0-9 a-z]{10}$");
@@ -145,6 +146,8 @@ public class CustomerFormController implements Initializable {
         map.put(txtNic, patternNIC);
         map.put(txtContact, patternContact);
         map.put(txtEmail, patternEmail);
+
+        */
 
     }
 
@@ -243,6 +246,10 @@ public class CustomerFormController implements Initializable {
     @FXML
     void txtOnKeyRelease(KeyEvent event) {
      Validation.validate(map);
+
+
     }
+
+
 
 }

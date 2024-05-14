@@ -12,7 +12,9 @@ import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Employee;
 import lk.ijse.thedale.repository.EmployeeRepo;
 import lk.ijse.thedale.tm.EmployeeTm;
+import lk.ijse.thedale.util.DataValidateController;
 import lk.ijse.thedale.util.Validation;
+//import lk.ijse.thedale.util.Validation;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -62,7 +64,17 @@ public class EmployeeFormController implements Initializable {
     @FXML
     private TextField txtType;
 
-    LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
+    @FXML
+    private Label lblEmail;
+
+    @FXML
+    private Label lblEmployeeName;
+
+    @FXML
+    private Label lblType;
+
+
+   LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
 
     EmployeeRepo employeeRepo = new EmployeeRepo();
 
@@ -107,7 +119,7 @@ public class EmployeeFormController implements Initializable {
         setCellValueFactory();
         loadEmployeeTable();
 
-        Pattern patternId = Pattern.compile("^([A-Z0-9])$");
+       /* Pattern patternId = Pattern.compile("^([A-Z0-9])$");
         Pattern patternName = Pattern.compile("^[A-z|\\\\s]{3,}$");
         //Pattern patternType = Pattern.compile("^[A-z|\\\\s]{5,}$");
         Pattern patternEmail = Pattern.compile("^([A-z])([A-z0-9.]){1,}[@]([A-z0-9]){1,10}[.]([A-z]){2,5}$");
@@ -115,6 +127,8 @@ public class EmployeeFormController implements Initializable {
         map.put(txtEmpId, patternId);
         map.put(txtEmpName, patternName);
         map.put(txtEmail, patternEmail);
+
+        */
 
     }
 
@@ -139,13 +153,32 @@ public class EmployeeFormController implements Initializable {
        String userId = LoginFormController.getInstance().userId;
 
        Employee employee = new Employee(id,name,type,email,dob,userId);
+       if (DataValidateController.validateEmail(txtEmail.getText())) {
+           lblEmail.setText("");
 
-       try {
-           boolean isSaved = EmployeeRepo.save(employee);
-           new Alert(Alert.AlertType.CONFIRMATION,"Employee has been saved successfully").show();
-       }catch (SQLException e){
-           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-           loadEmployeeTable();
+           if (DataValidateController.validateEmpType(txtType.getText())) {
+               lblType.setText("");
+
+               if (DataValidateController.validateEmpName(txtEmpName.getText())) {
+                   lblEmployeeName.setText("");
+
+
+                   try {
+                       boolean isSaved = EmployeeRepo.save(employee);
+                       new Alert(Alert.AlertType.CONFIRMATION, "Employee has been saved successfully").show();
+                       loadEmployeeTable();
+                   } catch (SQLException e) {
+                       new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+
+                   }
+               } else {
+                   lblEmployeeName.setText("Invalid Name");
+               }
+           } else {
+               lblType.setText("Invalid Type");
+           }
+       }else {
+           lblEmail.setText("Invalid Email");
        }
     }
 
@@ -202,7 +235,7 @@ public class EmployeeFormController implements Initializable {
             colEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
             colDob.setCellValueFactory(new PropertyValueFactory<>("DOB"));
         }
-    @FXML
+   @FXML
     void txtKeyOnRele(KeyEvent event) {
         Validation.validate(map);
     }

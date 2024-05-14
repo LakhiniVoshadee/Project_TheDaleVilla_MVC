@@ -16,6 +16,7 @@ import lk.ijse.thedale.model.Food;
 import lk.ijse.thedale.repository.FoodRepo;
 import lk.ijse.thedale.tm.FoodTm;
 import lk.ijse.thedale.util.Validation;
+//import lk.ijse.thedale.util.Validation;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -157,14 +158,20 @@ public class FoodFormController implements Initializable {
         setCellValueFactory();
         loadFoodTable();
 
-        Pattern patternId = Pattern.compile("([A-Z0-9])$");
+      /*  Pattern patternId = Pattern.compile("([A-Z0-9])$");
 
         map.put(txtFoodId, patternId);
+
+       */
     }
 
     @FXML
     void txtOnKeyRele(KeyEvent event) {
         Validation.validate(map);
 
+
+
     }
+
+
 }
