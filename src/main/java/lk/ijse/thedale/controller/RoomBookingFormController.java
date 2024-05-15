@@ -14,7 +14,10 @@ import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.*;
 import lk.ijse.thedale.repository.*;
 import lk.ijse.thedale.tm.RoomBookingTm;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -176,9 +179,24 @@ public class RoomBookingFormController implements Initializable {
         try {
             boolean isOrderPlaced = PlaceRoomRepo.orderPlaced(placedRoomBooking);
             if (isOrderPlaced){
-                new Alert(Alert.AlertType.CONFIRMATION,"Order Placed Successfully").show();
-            }else {
-                new Alert(Alert.AlertType.WARNING,"Order Placed Failed").show();
+               // new Alert(Alert.AlertType.CONFIRMATION,"Order Placed Successfully").show();
+                ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+                Optional<ButtonType>result = new Alert(Alert.AlertType.CONFIRMATION,"Order Successfully.. Do you want print a bill ?",yes,no).showAndWait();
+
+                if (result.orElse(no) == yes) {
+                    Map<String, Object> parameters = new HashMap<>();
+                    InputStream resource = this.getClass().getResourceAsStream("/view/report/RoomBill.jrxml");
+                    try {
+                        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
+                        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, new JREmptyDataSource());
+                        JasperViewer.viewReport(jasperPrint, false);
+                    } catch (JRException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }else{
+                new Alert(Alert.AlertType.WARNING, "Order Placed Failed").show();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();

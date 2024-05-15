@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Food;
 import lk.ijse.thedale.repository.FoodRepo;
@@ -68,11 +69,13 @@ public class FoodFormController implements Initializable {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         String id = txtFoodId.getText();
+        FoodRepo foodRepo = new FoodRepo();
 
         try {
-            boolean isDeleted = FoodRepo.delete(id);
+            boolean isDeleted = foodRepo.delete(id);
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Deleted Successfully").show();
+                loadFoodTable();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -120,21 +123,22 @@ public class FoodFormController implements Initializable {
         String des = txtDesId.getText();
 
         Food food = new  Food(id, des);
+
         if (DataValidateController.validateDescription(txtDesId.getText())) {
             lblFoodDesc.setText("");
 
-
             try {
                 boolean isSaved = FoodRepo.save(food);
-                new Alert(Alert.AlertType.CONFIRMATION, "Food saved successfully.").show();
+                if (isSaved){
+                    new Alert(Alert.AlertType.CONFIRMATION, "Food saved successfully.").show();
+                    loadFoodTable();
+                }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-                loadFoodTable();
             }
         }else {
             lblFoodDesc.setText("Invalid Description");
         }
-
     }
 
     @FXML
@@ -172,6 +176,17 @@ public class FoodFormController implements Initializable {
         map.put(txtFoodId, patternId);
 
        */
+    }
+
+    @FXML
+    void foodTableClick(MouseEvent event) {
+        TablePosition pos = tblFood.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        ObservableList<TableColumn<FoodTm,?>> columns = tblFood.getColumns();
+
+        txtFoodId.setText(columns.get(0).getCellData(row).toString());
+        txtDesId.setText(columns.get(1).getCellData(row).toString());
+
     }
 
     @FXML

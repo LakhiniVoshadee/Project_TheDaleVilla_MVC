@@ -1,5 +1,6 @@
 package lk.ijse.thedale.controller;
 
+import com.mysql.cj.xdevapi.Table;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Customer;
 import lk.ijse.thedale.repository.CustomerRepo;
@@ -125,9 +127,10 @@ public class CustomerFormController implements Initializable {
         CustomerRepo customerRepo = new CustomerRepo();
 
         try {
-            boolean isDeleted = CustomerRepo.delete(id);
+            boolean isDeleted = customerRepo.delete(id);
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer deleted successfully").show();
+                loadCustomerTable();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -161,6 +164,20 @@ public class CustomerFormController implements Initializable {
         map.put(txtEmail, patternEmail);
 
         */
+
+    }
+    @FXML
+    void customerTableClick(MouseEvent event) {
+        TablePosition pos = tblCustomer.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        ObservableList<TableColumn<CustomerTm,?>> columns = tblCustomer.getColumns();
+
+        txtCusId.setText(columns.get(0).getCellData(row).toString());
+        txtCusName.setText(columns.get(1).getCellData(row).toString());
+        txtSex.setText(columns.get(2).getCellData(row).toString());
+        txtContact.setText(columns.get(3).getCellData(row).toString());
+        txtNic.setText(columns.get(4).getCellData(row).toString());
+        txtEmail.setText(columns.get(5).getCellData(row).toString());
 
     }
 

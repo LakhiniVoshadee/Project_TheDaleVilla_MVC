@@ -13,7 +13,7 @@ import java.util.List;
 
 public class FoodRepo {
     public static boolean save(Food food) throws SQLException {
-        String sql = "INSERT INTO food VALUES(?,?)";
+        String sql = "INSERT INTO Food VALUES(?,?)";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
         
         pstm.setObject(1,food.getFoodID());
@@ -23,7 +23,7 @@ public class FoodRepo {
     }
 
     public static boolean update(Food food) throws SQLException {
-        String sql = "UPDATE food SET Description = ? WHERE FoodID = ?";
+        String sql = "UPDATE Food SET Description = ? WHERE FoodID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
         
         pstm.setObject(1,food.getDescription());
@@ -33,14 +33,15 @@ public class FoodRepo {
     }
 
     public static boolean delete(String id) throws SQLException {
-        String sql = "DELETE FROM food WHERE FoodID = ?";
+        String sql = "DELETE FROM Food WHERE FoodID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+        pstm.setObject(1,id);
         
         return pstm.executeUpdate() >0;
     }
 
     public static String generateNextId() throws SQLException {
-        String sql = "Select FoodId from food order by foodID desc limit 1";
+        String sql = "Select FoodId from Food order by foodID desc limit 1";
         Connection connection = Dbconnection.getInstance().getConnection();
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 
@@ -64,7 +65,7 @@ public class FoodRepo {
     }
 
     public List<Food> getFood() throws SQLException {
-        String sql = "SELECT * FROM food";
+        String sql = "SELECT * FROM Food";
         ResultSet resultSet = Dbconnection.getInstance().getConnection().prepareStatement(sql).executeQuery();
         List<Food> foodList = new ArrayList<Food>();
         while (resultSet.next()){

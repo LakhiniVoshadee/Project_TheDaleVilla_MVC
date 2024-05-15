@@ -98,7 +98,7 @@ public class EmployeeFormController implements Initializable {
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent eventt) {
+    void btnDeleteOnAction(ActionEvent event) {
         String id = txtEmpId.getText();
         EmployeeRepo employeeRepo = new EmployeeRepo();
 
