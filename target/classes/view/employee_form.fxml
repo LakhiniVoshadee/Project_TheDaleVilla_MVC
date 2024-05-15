@@ -26,8 +26,9 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtEmpId" layoutX="51.0" layoutY="241.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white;" />
-      <TableView fx:id="tblEmployee" layoutX="57.0" layoutY="556.0" prefHeight="246.0" prefWidth="948.0">
+      <TextField fx:id="txtEmpId" layoutX="51.0" layoutY="241.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white; -fx-border-width: 2; -fx-border-color: #079992;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#079992" height="311.0" layoutX="92.0" layoutY="559.0" opacity="0.35" stroke="BLACK" strokeType="INSIDE" width="1019.0" />
+      <TableView fx:id="tblEmployee" layoutX="126.0" layoutY="594.0" prefHeight="246.0" prefWidth="948.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="119.0" text="ID" />
           <TableColumn fx:id="colName" prefWidth="186.0" text="Name" />
@@ -56,54 +57,63 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Text>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="1005.0" layoutY="194.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="1079.0" layoutY="118.0" onAction="#btnClearOnAction" prefHeight="51.0" prefWidth="120.0" style="-fx-background-color: #079992; -fx-background-radius: 1;" text="Refresh" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="543.0" layoutY="478.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="113.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Delete" textFill="#ffe9e9">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="1079.0" layoutY="194.0" onAction="#btnDeleteOnAction" prefHeight="51.0" prefWidth="120.0" style="-fx-background-color: #079992; -fx-background-radius: 1;" text="Delete" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="675.0" layoutY="477.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="679.0" layoutY="457.0" onAction="#btnUpdateOnAction" prefHeight="51.0" prefWidth="113.0" style="-fx-background-color: #079992; -fx-background-radius: 1;" text="Update" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="842.0" layoutY="478.0" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="842.0" layoutY="457.0" onAction="#btnSaveOnAction" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: #079992; -fx-background-radius: 1;" text="Save" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="23.0" fitWidth="21.0" layoutX="900.0" layoutY="481.0">
+      <ImageView fitHeight="23.0" fitWidth="21.0" layoutX="862.0" layoutY="471.0">
          <image>
             <Image url="@../assets/icons/save.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="23.0" fitWidth="38.0" layoutX="743.0" layoutY="481.0">
+      <ImageView fitHeight="23.0" fitWidth="38.0" layoutX="686.0" layoutY="471.0">
          <image>
             <Image url="@../assets/icons/update.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="608.0" layoutY="477.0">
+      <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="1092.0" layoutY="204.0">
          <image>
             <Image url="@../assets/icons/trash.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="19.0" fitWidth="38.0" layoutX="1006.0" layoutY="137.0">
-         <image>
-            <Image url="@../assets/icons/broom.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="txtEmail" layoutX="600.0" layoutY="337.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white;" />
-      <TextField fx:id="txtType" layoutX="57.0" layoutY="337.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white;" />
-      <TextField fx:id="txtEmpName" layoutX="600.0" layoutY="241.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white;" />
-      <DatePicker fx:id="pickerDate" layoutX="57.0" layoutY="437.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-color: #a0c7cc; -fx-background-radius: 30;" />
-      <Label fx:id="lblType" layoutX="70.0" layoutY="374.0" prefHeight="19.0" prefWidth="274.0" textFill="RED" />
-      <Label fx:id="lblEmail" layoutX="613.0" layoutY="374.0" prefHeight="19.0" prefWidth="274.0" textFill="RED" />
-      <Label fx:id="lblEmployeeName" layoutX="613.0" layoutY="278.0" prefHeight="19.0" prefWidth="274.0" textFill="RED" />
+      <TextField fx:id="txtEmail" layoutX="600.0" layoutY="337.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white; -fx-border-width: 2; -fx-border-color: #079992;" />
+      <TextField fx:id="txtType" layoutX="51.0" layoutY="337.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white; -fx-border-width: 2; -fx-border-color: #079992;" />
+      <TextField fx:id="txtEmpName" layoutX="600.0" layoutY="241.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white; -fx-border-color: #079992; -fx-border-width: 2;" />
+      <DatePicker fx:id="pickerDate" layoutX="51.0" layoutY="440.0" prefHeight="37.0" prefWidth="300.0" style="-fx-background-color: #a0c7cc; -fx-background-radius: 30; -fx-border-width: 2; -fx-border-color: #079992;" />
+      <Label fx:id="lblType" layoutX="64.0" layoutY="374.0" prefHeight="19.0" prefWidth="274.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="lblEmail" layoutX="598.0" layoutY="374.0" prefHeight="19.0" prefWidth="274.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="lblEmployeeName" layoutX="598.0" layoutY="278.0" prefHeight="19.0" prefWidth="274.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#006863" height="91.0" layoutX="-6.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1256.0" />
       <Pane layoutX="-3.0" layoutY="60.0" prefHeight="30.0" prefWidth="1250.0" style="-fx-background-color: #b2bec3;" />
+      <ImageView fitHeight="23.0" fitWidth="28.0" layoutX="1092.0" layoutY="132.0">
+         <image>
+            <Image url="@../assets/icons/refresh.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

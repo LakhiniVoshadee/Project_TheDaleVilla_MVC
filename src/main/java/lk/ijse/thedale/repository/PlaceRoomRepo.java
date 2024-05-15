@@ -15,13 +15,13 @@ public class PlaceRoomRepo {
         try {
             boolean isOrderSaved = RoomBookingRepo.saveOrder(placedRoomBooking.getRoomBooking());
             if (isOrderSaved) {
-
+                System.out.println("order saved");
                 boolean isOrderDetailSaved = RoomDetailsRepo.saveOrderDetails(placedRoomBooking.getRoomDetails());
                 if(isOrderDetailSaved) {
-
+                    System.out.println("orderdetailssaved");
                     boolean isRoomUpdated = RoomRepo.updateRoomQty(placedRoomBooking.getRoomDetails());
                     if(isRoomUpdated) {
-
+                        System.out.println("room update");
                         connection.commit();
                         return true;
                     }

@@ -42,7 +42,7 @@ public  class RoomBookingRepo {
     }
 
     public static String generateNextId() throws SQLException {
-        String sql =  "Select RoomBookingID from Roombooking order by RoomBookingID desc limit 1";
+        String sql =  "Select RoomBookingID from RoomBooking order by RoomBookingID desc limit 1";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
 
@@ -66,20 +66,13 @@ public  class RoomBookingRepo {
     }
 
     public static boolean saveOrder(RoomBooking roomBooking) throws SQLException {
-        String sql = "Insert into room values(?,?,?)";
+        String sql = "Insert into RoomBooking values(?,?,?)";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setString(1,roomBooking.getRoomBookingID());
-        pstm.setString(2, String.valueOf(roomBooking.getDate()));
-        pstm.setString(3,roomBooking.getCusID());
+        pstm.setString(2,roomBooking.getCusID());
+        pstm.setString(3, String.valueOf(roomBooking.getDate()));
 
         return pstm.executeUpdate() > 0;
     }
-
-
-
-
-
-
-
 }

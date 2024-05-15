@@ -21,32 +21,32 @@ public class RoomRepo {
     }
 
     public static boolean save(Room room) throws SQLException {
-        String sql = "Insert into room values(?,?,?,?,?,?,?)";
+        String sql = "Insert into room values(?,?,?,?,?,?)";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1, room.getRoomID());
         pstm.setObject(2, room.getType());
         pstm.setObject(3, room.getDate());
-        pstm.setObject(4, room.getQtyOnHand());
-        pstm.setObject(5, room.getUnitPrice());
-        pstm.setObject(6, room.getQty());
-        pstm.setObject(7,room.getCusID());
+        //pstm.setObject(4, room.getQtyOnHand());
+        pstm.setObject(4, room.getUnitPrice());
+        pstm.setObject(5, room.getQty());
+        pstm.setObject(6,room.getCusID());
 
         return pstm.executeUpdate() > 0;
     }
 
     public static boolean update(Room room) throws SQLException {
 
-        String sql = "Update room Set Type = ?, Date = ? , QtyOnHand = ? , UnitPrice = ?, Qty = ? , CusID = ? where RoomID = ?";
+        String sql = "Update room Set Type = ?, Date = ?  , UnitPrice = ?, Qty = ? , CusID = ? where RoomID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1, room.getType());
         pstm.setObject(2, room.getDate());
-        pstm.setObject(3, room.getQtyOnHand());
-        pstm.setObject(4, room.getUnitPrice());
-        pstm.setObject(5, room.getQty());
-        pstm.setObject(6, room.getCusID());
-        pstm.setObject(7, room.getRoomID());
+       // pstm.setObject(3, room.getQtyOnHand());
+        pstm.setObject(3, room.getUnitPrice());
+        pstm.setObject(4, room.getQty());
+        pstm.setObject(5, room.getCusID());
+        pstm.setObject(6, room.getRoomID());
 
 
         return pstm.executeUpdate() > 0;
@@ -88,12 +88,12 @@ public class RoomRepo {
             String id = resultSet.getString(1);
             String type = resultSet.getString(2);
             String date = resultSet.getString(3);
-            String qtyOnHand = resultSet.getString(4);
-            double unitPrice = resultSet.getDouble(5);
-            String qty = resultSet.getString(6);
-            String cusID = resultSet.getString(7);
+           // String qtyOnHand = resultSet.getString(4);
+            double unitPrice = resultSet.getDouble(4);
+            String qty = resultSet.getString(5);
+            String cusID = resultSet.getString(6);
 
-            room = new Room(id, type, date, qtyOnHand, unitPrice, qty, cusID);
+            room = new Room(id, type, date, unitPrice, qty, cusID);
 
         }
         return room;
@@ -101,11 +101,22 @@ public class RoomRepo {
 
     public static boolean updateRoomQty(List<RoomDetails> roomDetails) throws SQLException {
         for (RoomDetails roomDetail : roomDetails) {
-            if (!updateRoomQty((List<RoomDetails>) roomDetail)){
+            if (!updateRoomQty(roomDetail)){
                 return false;
             }
         }
         return true;
+    }
+
+    public static boolean updateRoomQty(RoomDetails roomDetails) throws SQLException {
+        String sql = "update Room set Qty = Qty - ? where RoomID = ?";
+        PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+
+        pstm.setInt(1, roomDetails.getQty());
+        pstm.setString(2, roomDetails.getRoomID());
+
+        return pstm.executeUpdate() > 0;
+
     }
 
     public List<Room> getRoom() throws SQLException {
@@ -118,12 +129,12 @@ public class RoomRepo {
             String id = resultSet.getString(1);
             String type = resultSet.getString(2);
             String date = resultSet.getString(3);
-            String qtyOnHand = resultSet.getString(4);
-            double unitPrice = resultSet.getDouble(5);
-            String qty = resultSet.getString(6);
-            String cusID = resultSet.getString(7);
+           // String qtyOnHand = resultSet.getString(4);
+            double unitPrice = resultSet.getDouble(4);
+            String qty = resultSet.getString(5);
+            String cusID = resultSet.getString(6);
 
-            Room room = new Room(id,type,date, qtyOnHand, unitPrice, qty,cusID);
+            Room room = new Room(id,type,date, unitPrice, qty,cusID);
             roomList.add(room);
 
     }

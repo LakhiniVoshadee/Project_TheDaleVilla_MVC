@@ -13,7 +13,7 @@ public class Room {
     private String RoomID;
     private String Type;
     private String Date;
-    private String QtyOnHand;
+  //  private String QtyOnHand;
     private double UnitPrice;
     private String Qty;
     private String CusID;

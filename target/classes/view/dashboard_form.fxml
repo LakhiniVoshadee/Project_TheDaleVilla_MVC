@@ -153,6 +153,6 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="239.0" layoutY="60.0" prefHeight="829.0" prefWidth="25.0" style="-fx-background-color: #b2bec3;" />
+      <Pane layoutX="239.0" layoutY="55.0" prefHeight="834.0" prefWidth="25.0" style="-fx-background-color: #b2bec3;" />
    </children>
 </AnchorPane>

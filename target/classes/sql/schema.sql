@@ -61,7 +61,6 @@ create table Room(
                      RoomID varchar(20)primary key,
                      Type varchar(30)not null,
                      Date date,
-                     QtyOnHand int not null ,
                      UnitPrice decimal(10,2),
                      Qty int not null ,
                      CusID varchar(20)not null,

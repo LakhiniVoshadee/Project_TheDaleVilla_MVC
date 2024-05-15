@@ -120,7 +120,6 @@ public class RoomBookingFormController implements Initializable {
 
                 tblRmBookingCart.refresh();
                 calculateNetTotal();
-
             }
         });
 
@@ -209,8 +208,8 @@ public class RoomBookingFormController implements Initializable {
             if (room != null){
                 lblType.setText(room.getType());
                 lblUnitPrice.setText(String.valueOf(room.getUnitPrice()));
-                txtQty.setText(room.getQty());
-                lblQtyOHand.setText(String.valueOf(room.getQtyOnHand()));
+                lblQtyOHand.setText(room.getQty());
+               // lblQtyOHand.setText(String.valueOf(room.getQtyOnHand()));
 
             }
         } catch (SQLException e){

@@ -13,7 +13,7 @@ public class RoomTm {
     private String Type;
     private String Date;
     private String customerId;
-    private String QtyOnHand;
+   // private String QtyOnHand;
     private double UnitPrice;
     private String Qty;
 }

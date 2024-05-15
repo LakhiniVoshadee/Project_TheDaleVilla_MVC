@@ -40,8 +40,10 @@ public class RoomFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> colQty;
 
-    @FXML
+   /* @FXML
     private TableColumn<?, ?> colQtyOnHand;
+
+    */
 
     @FXML
     private TableColumn<?, ?> colUnitPrice;
@@ -68,8 +70,10 @@ public class RoomFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> colCusId;
 
-    @FXML
+   /* @FXML
     private TextField txtQtyOnHand;
+
+    */
 
     @FXML
     private TextField txtUnitPrice;
@@ -97,7 +101,7 @@ public class RoomFormController implements Initializable {
         txtRoomId.setText("");
         txtType.setText("");
         txtDate.setValue(null);
-        txtQtyOnHand.setText("");
+       // txtQtyOnHand.setText("");
         txtUnitPrice.setText("");
         txtQty.setText("");
 
@@ -124,12 +128,12 @@ public class RoomFormController implements Initializable {
         String id = txtRoomId.getText();
         String type = txtType.getText();
         String date = String.valueOf(txtDate.getValue());
-        String qtyOnHand = txtQtyOnHand.getText();
+       // String qtyOnHand = txtQtyOnHand.getText();
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
         String qty = txtQty.getText();
         String cusID = cmbId.getValue();
 
-        Room room = new Room(id,type,date,qtyOnHand, unitPrice, qty, cusID);
+        Room room = new Room(id,type,date, unitPrice, qty, cusID);
 
         try{
             boolean isSaved = RoomRepo.save(room);
@@ -147,12 +151,12 @@ public class RoomFormController implements Initializable {
         String id = txtRoomId.getText();
         String type = txtType.getText();
         String date = txtDate.getValue().toString();
-        String qtyOnHand = txtQtyOnHand.getText();
+       // String qtyOnHand = txtQtyOnHand.getText();
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
         String qty = txtQty.getText();
         String cusID = cmbId.getValue();
 
-        Room room = new Room(id,type,date,qtyOnHand, unitPrice,qty, cusID);
+        Room room = new Room(id,type,date, unitPrice,qty, cusID);
 
         try{
             boolean isUpdated = RoomRepo.update(room);
@@ -176,7 +180,6 @@ public class RoomFormController implements Initializable {
                         room.getType(),
                         room.getDate(),
                         room.getCusID(),
-                        room.getQtyOnHand(),
                         room.getUnitPrice(),
                         room.getQty()
                 );
@@ -228,7 +231,7 @@ public class RoomFormController implements Initializable {
         colType.setCellValueFactory(new PropertyValueFactory<>("Type"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
         colCusId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
+      //  colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("UnitPrice"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
     }
