@@ -28,7 +28,7 @@
       </Text>
       <TextField fx:id="txtEmpId" layoutX="51.0" layoutY="241.0" onKeyReleased="#txtKeyOnRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 1; -fx-background-color: white; -fx-border-width: 2; -fx-border-color: #079992;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#079992" height="311.0" layoutX="92.0" layoutY="559.0" opacity="0.35" stroke="BLACK" strokeType="INSIDE" width="1019.0" />
-      <TableView fx:id="tblEmployee" layoutX="126.0" layoutY="594.0" prefHeight="246.0" prefWidth="948.0">
+      <TableView fx:id="tblEmployee" layoutX="126.0" layoutY="594.0" onMouseClicked="#employeeTableClick" prefHeight="246.0" prefWidth="948.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="119.0" text="ID" />
           <TableColumn fx:id="colName" prefWidth="186.0" text="Name" />

@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -121,5 +122,8 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </JFXButton>
+      <Label fx:id="lblRoomType" layoutX="642.0" layoutY="220.0" prefHeight="17.0" prefWidth="284.0" textFill="RED" />
+      <Label fx:id="lblRoomUp" layoutX="630.0" layoutY="404.0" prefHeight="17.0" prefWidth="300.0" textFill="RED" />
+      <Label fx:id="lblRoomQty" layoutX="83.0" layoutY="531.0" prefHeight="17.0" prefWidth="276.0" textFill="RED" />
    </children>
 </Pane>

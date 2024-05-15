@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Employee;
 import lk.ijse.thedale.repository.EmployeeRepo;
@@ -18,6 +19,7 @@ import lk.ijse.thedale.util.Validation;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -90,18 +92,21 @@ public class EmployeeFormController implements Initializable {
         txtEmpId.setText("");
         txtEmpName.setText("");
         txtType.setText("");
+        txtEmail.setText("");
         pickerDate.setValue(null);
 
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnDeleteOnAction(ActionEvent eventt) {
         String id = txtEmpId.getText();
+        EmployeeRepo employeeRepo = new EmployeeRepo();
 
         try {
-            boolean isDeleted = EmployeeRepo.delete(id);
+            boolean isDeleted = employeeRepo.delete(id);
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "employee deleted successfully").show();
+                loadEmployeeTable();
             }
         } catch(SQLException e){
                 new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -129,7 +134,19 @@ public class EmployeeFormController implements Initializable {
         map.put(txtEmail, patternEmail);
 
         */
+    }
 
+    @FXML
+    void employeeTableClick(MouseEvent event) {
+        TablePosition pos = tblEmployee.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        ObservableList<TableColumn<EmployeeTm,?>> columns = tblEmployee.getColumns();
+
+        txtEmpId.setText(columns.get(0).getCellData(row).toString());
+        txtEmpName.setText(columns.get(1).getCellData(row).toString());
+        txtType.setText(columns.get(2).getCellData(row).toString());
+        txtEmail.setText(columns.get(3).getCellData(row).toString());
+        pickerDate.setValue(LocalDate.parse(columns.get(4).getCellData(row).toString()));
     }
 
     private List<Employee>  getAllEmployee() {

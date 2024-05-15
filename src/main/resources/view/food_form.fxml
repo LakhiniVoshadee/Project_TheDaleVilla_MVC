@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -84,5 +85,6 @@
          </image>
       </ImageView>
       <Line endX="1072.0" endY="4.0" layoutX="103.0" layoutY="93.0" startX="-102.0" startY="4.0" stroke="#079992" strokeWidth="2.0" />
+      <Label fx:id="lblFoodDesc" layoutX="541.0" layoutY="314.0" prefHeight="17.0" prefWidth="261.0" textFill="RED" />
    </children>
 </Pane>

@@ -14,6 +14,7 @@ import lk.ijse.thedale.repository.CustomerRepo;
 import lk.ijse.thedale.repository.RoomRepo;
 import lk.ijse.thedale.tm.RoomTm;
 //import lk.ijse.thedale.util.Validation;
+import lk.ijse.thedale.util.DataValidateController;
 import lk.ijse.thedale.util.Validation;
 import lombok.SneakyThrows;
 import net.sf.jasperreports.engine.*;
@@ -81,6 +82,16 @@ public class RoomFormController implements Initializable {
     @FXML
     private TextField txtQty;
 
+    @FXML
+    private Label lblRoomType;
+
+    @FXML
+    private Label lblRoomQty;
+
+    @FXML
+    private Label lblRoomUp;
+
+
 
     LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
 
@@ -128,22 +139,41 @@ public class RoomFormController implements Initializable {
         String id = txtRoomId.getText();
         String type = txtType.getText();
         String date = String.valueOf(txtDate.getValue());
-       // String qtyOnHand = txtQtyOnHand.getText();
+        // String qtyOnHand = txtQtyOnHand.getText();
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
         String qty = txtQty.getText();
         String cusID = cmbId.getValue();
 
-        Room room = new Room(id,type,date, unitPrice, qty, cusID);
+        Room room = new Room(id, type, date, unitPrice, qty, cusID);
+        if (DataValidateController.validateUp(txtUnitPrice.getText())) {
+            lblRoomUp.setText("");
 
-        try{
-            boolean isSaved = RoomRepo.save(room);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Room Saved").show();
-                loadRoomTable();
+            if (DataValidateController.validateQty(txtQty.getText())) {
+                lblRoomQty.setText("");
+
+                if (DataValidateController.validateRoomType(txtType.getText())) {
+                    lblRoomType.setText("");
+
+
+                    try {
+                        boolean isSaved = RoomRepo.save(room);
+                        if (isSaved) {
+                            new Alert(Alert.AlertType.CONFIRMATION, "Room Saved").show();
+                            loadRoomTable();
+                        }
+                    } catch (SQLException e) {
+                        new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                    }
+                } else {
+                    lblRoomType.setText("Invalid Room Type");
+                }
+            } else {
+                lblRoomQty.setText("Invalid Room Qty");
             }
-        }catch (SQLException e){
-           new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }else {
+            lblRoomUp.setText("Invalid Room Unitprice");
         }
+
     }
 
     @FXML

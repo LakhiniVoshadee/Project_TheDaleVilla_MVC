@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -31,17 +32,17 @@
          </font>
       </Text>
       <TextField fx:id="txtCusId" layoutX="66.0" layoutY="251.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <Text fill="#fffefe" layoutX="619.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="135.13671875">
+      <Text fill="#fffefe" layoutX="619.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="135.13671875">
          <font>
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Text>
-      <Text fill="#fffefe" layoutX="66.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEX" wrappingWidth="120.13671875">
+      <Text fill="#fffefe" layoutX="66.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEX" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Text fill="#fffefe" layoutX="617.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC" wrappingWidth="120.13671875">
+      <Text fill="#fffefe" layoutX="617.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -108,11 +109,36 @@
             <Image url="@../assets/icons/save.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtNic" layoutX="620.0" layoutY="339.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtCusName" layoutX="620.0" layoutY="251.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtNic" layoutX="610.0" layoutY="321.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtCusName" layoutX="617.0" layoutY="233.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <TextField fx:id="txtContact" layoutX="66.0" layoutY="420.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtSex" layoutX="66.0" layoutY="339.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtEmail" layoutX="620.0" layoutY="420.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtSex" layoutX="66.0" layoutY="321.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtEmail" layoutX="617.0" layoutY="407.0" onKeyReleased="#txtOnKeyRelease" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <Line endX="1075.0" endY="14.0" layoutX="101.0" layoutY="89.0" startX="-102.0" startY="14.0" stroke="#079992" strokeWidth="2.0" />
+      <Label fx:id="lblCustomerName" layoutX="632.0" layoutY="270.0" prefHeight="17.0" prefWidth="288.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCustomerSex" layoutX="83.0" layoutY="358.0" prefHeight="17.0" prefWidth="280.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCusNic" layoutX="629.0" layoutY="360.0" prefHeight="17.0" prefWidth="280.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCusContact" layoutX="82.0" layoutY="457.0" prefHeight="17.0" prefWidth="288.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCusEmail" layoutX="632.0" layoutY="449.0" prefHeight="17.0" prefWidth="280.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

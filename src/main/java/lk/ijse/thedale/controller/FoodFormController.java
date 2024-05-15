@@ -5,16 +5,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Food;
 import lk.ijse.thedale.repository.FoodRepo;
 import lk.ijse.thedale.tm.FoodTm;
+import lk.ijse.thedale.util.DataValidateController;
 import lk.ijse.thedale.util.Validation;
 //import lk.ijse.thedale.util.Validation;
 
@@ -46,6 +44,11 @@ public class FoodFormController implements Initializable {
 
     @FXML
     private TextField txtFoodId;
+
+
+    @FXML
+    private Label lblFoodDesc;
+
 
     LinkedHashMap<TextField, Pattern> map =new LinkedHashMap();
 
@@ -117,13 +120,19 @@ public class FoodFormController implements Initializable {
         String des = txtDesId.getText();
 
         Food food = new  Food(id, des);
+        if (DataValidateController.validateDescription(txtDesId.getText())) {
+            lblFoodDesc.setText("");
 
-        try {
-            boolean isSaved = FoodRepo.save(food);
-               new Alert(Alert.AlertType.CONFIRMATION,"Food saved successfully.").show();
-        }catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-            loadFoodTable();
+
+            try {
+                boolean isSaved = FoodRepo.save(food);
+                new Alert(Alert.AlertType.CONFIRMATION, "Food saved successfully.").show();
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                loadFoodTable();
+            }
+        }else {
+            lblFoodDesc.setText("Invalid Description");
         }
 
     }

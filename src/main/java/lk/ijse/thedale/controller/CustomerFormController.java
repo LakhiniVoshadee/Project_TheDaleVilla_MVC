@@ -5,16 +5,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Customer;
 import lk.ijse.thedale.repository.CustomerRepo;
 import lk.ijse.thedale.tm.CustomerTm;
+import lk.ijse.thedale.util.DataValidateController;
 import lk.ijse.thedale.util.Validation;
 //import lk.ijse.thedale.util.Validation;
 
@@ -70,6 +68,21 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     private TextField txtSex;
+
+    @FXML
+    private Label lblCusContact;
+
+    @FXML
+    private Label lblCusEmail;
+
+    @FXML
+    private Label lblCusNic;
+
+    @FXML
+    private Label lblCustomerName;
+
+    @FXML
+    private Label lblCustomerSex;
 
     public String cusID;
 
@@ -198,26 +211,55 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-       String id = txtCusId.getText();
-       String name = txtCusName.getText();
-       String sex = txtSex.getText();
-       String nic = txtNic.getText();
-       String contact = txtContact.getText();
-       String email = txtEmail.getText();
-       LoginFormController userId = LoginFormController.getInstance();
+        String id = txtCusId.getText();
+        String name = txtCusName.getText();
+        String sex = txtSex.getText();
+        String nic = txtNic.getText();
+        String contact = txtContact.getText();
+        String email = txtEmail.getText();
+        LoginFormController userId = LoginFormController.getInstance();
 
-       Customer customer = new Customer(id,name,sex,nic,contact,email,userId.userId);
+        Customer customer = new Customer(id, name, sex, nic, contact, email, userId.userId);
+        if (DataValidateController.validateCusNIC(txtNic.getText())) {
+            lblCusNic.setText("");
 
-       try {
-           System.out.println(customer);
-           boolean isSaved = CustomerRepo.save(customer);
-           if (isSaved){
-               new Alert(Alert.AlertType.CONFIRMATION, "Customer saved successfully").show();
-               loadCustomerTable();
-           }
-       }catch (SQLException e){
-           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-       }
+            if (DataValidateController.validateCusContact(txtContact.getText())) {
+                lblCusContact.setText("");
+
+                if (DataValidateController.validateCusSex(txtSex.getText())) {
+                    lblCustomerSex.setText("");
+
+                    if(DataValidateController.vaidateCusName(txtCusName.getText())) {
+                        lblCustomerName.setText("");
+
+                        if (DataValidateController.validateCusEmail1(txtEmail.getText())) {
+                            lblCusEmail.setText("");
+
+                            try {
+                                System.out.println(customer);
+                                boolean isSaved = CustomerRepo.save(customer);
+                                if (isSaved) {
+                                    new Alert(Alert.AlertType.CONFIRMATION, "Customer saved successfully").show();
+                                    loadCustomerTable();
+                                }
+                            } catch (SQLException e) {
+                                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                            }
+                        } else {
+                            lblCusEmail.setText("Invalid Email");
+                        }
+                    } else {
+                        lblCustomerName.setText("Invalid Name");
+                    }
+                } else {
+                    lblCustomerSex.setText("Invalid Sex");
+                }
+            } else {
+                lblCusContact.setText("Invalid Contact");
+            }
+        }else {
+            lblCusNic.setText("Invalid NIC");
+        }
     }
 
     @FXML

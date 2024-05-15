@@ -270,6 +270,12 @@ public class RoomBookingFormController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    void btnPrintBillOnAction(ActionEvent event) {
+
+
+    }
+
 
     private void setCellValueFactory() {
        colRmId.setCellValueFactory(new PropertyValueFactory<>("RoomID"));

@@ -64,8 +64,9 @@ public class EmployeeRepo {
     }
 
     public static boolean delete(String id) throws SQLException {
-        String sql = "DELETE FROM employee WHERE EmpId = ?";
+        String sql = "DELETE FROM employee WHERE EmpID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+        pstm.setObject(1,id);
 
         return pstm.executeUpdate() > 0;
     }
