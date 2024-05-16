@@ -13,7 +13,7 @@ public class Rent {
     private String Type;
     private int Qty;
     private String Description;
-    private String QtyOnHand;
+  //  private String QtyOnHand;
     private double UnitPrice;
 
 }

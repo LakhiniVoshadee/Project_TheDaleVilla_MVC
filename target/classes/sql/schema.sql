@@ -89,7 +89,6 @@ create table Rent(
                      Qty int(20)not null,
                      Description varchar(30),
                      Type varchar(30),
-                     QtyOnHand int not null ,
                      UnitPrice decimal(10,2)
 
 );

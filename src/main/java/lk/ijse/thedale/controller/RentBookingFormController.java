@@ -174,7 +174,7 @@ public class RentBookingFormController implements Initializable {
             if (rent != null){
                 lblDescription.setText(rent.getDescription());
                 lblUnitPrice.setText(String.valueOf(rent.getUnitPrice()));
-                lblQtyOHand.setText(rent.getQtyOnHand());
+              //  lblQtyOHand.setText(rent.getQtyOnHand());
                 txtQty.setText(String.valueOf(rent.getQty()));
             }
         }catch (SQLException e){

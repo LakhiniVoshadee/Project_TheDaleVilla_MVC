@@ -5,11 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Rent;
 import lk.ijse.thedale.repository.RentRepo;
@@ -80,7 +78,7 @@ public class RentFormController implements Initializable {
         txtType.setText("");
         txtQty.setText("");
         txtDescription.setText("");
-        txtQtyOnHand.setText("");
+        //txtQtyOnHand.setText("");
         txtUnitPrice.setText("");
 
     }
@@ -96,6 +94,20 @@ public class RentFormController implements Initializable {
         setCellValueFactory();
         loadRentTable();
 
+    }
+
+    @FXML
+    void rentTableClick(MouseEvent event) {
+        TablePosition pos = tblRent.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        ObservableList<TableColumn<RentTm,?>> columns = tblRent.getColumns();
+
+        txtRentId.setText(columns.get(0).getCellData(row).toString());
+        txtType.setText(columns.get(1).getCellData(row).toString());
+        txtQty.setText(columns.get(2).getCellData(row).toString());
+        txtDescription.setText(columns.get(3).getCellData(row).toString());
+        txtUnitPrice.setText(columns.get(4).getCellData(row).toString());
+
 
     }
 
@@ -110,7 +122,7 @@ public class RentFormController implements Initializable {
                         rent.getType(),
                         rent.getQty(),
                         rent.getDescription(),
-                        rent.getQtyOnHand(),
+                       // rent.getQtyOnHand(),
                         rent.getUnitPrice()
                 );
                 tmList.add(rentTm);
@@ -127,7 +139,7 @@ public class RentFormController implements Initializable {
         colType.setCellValueFactory(new PropertyValueFactory<>("Type"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
-        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
+      //  colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("UnitPrice"));
 
     }
@@ -145,11 +157,13 @@ public class RentFormController implements Initializable {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
        String id = txtRentId.getText();
+       RentRepo rentRepo = new RentRepo();
 
        try {
-           boolean isDeleted = RentRepo.delete(id);
+           boolean isDeleted = rentRepo.delete(id);
            if(isDeleted){
                new Alert(Alert.AlertType.CONFIRMATION,"Rent deleted successfully!").show();
+               loadRentTable();
            }
        }catch (SQLException e){
            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -164,10 +178,10 @@ public class RentFormController implements Initializable {
         String Type = txtType.getText();
         int Qty = Integer.parseInt(txtQty.getText());
         String Description = txtDescription.getText();
-        String QtyOnHand = txtQtyOnHand.getText();
+       // String QtyOnHand = txtQtyOnHand.getText();
         double UnitPrice = Double.parseDouble(txtUnitPrice.getText());
 
-        Rent rent = new Rent(RentID,Type,Qty,Description, QtyOnHand, UnitPrice);
+        Rent rent = new Rent(RentID,Type,Qty,Description, UnitPrice);
 
         try {
             boolean isSaved = RentRepo.save(rent);
@@ -188,11 +202,11 @@ public class RentFormController implements Initializable {
         String Type = txtType.getText();
         int Qty = Integer.parseInt(txtQty.getText());
         String Description = txtDescription.getText();
-        String QtyOnHand = txtQtyOnHand.getText();
+       // String QtyOnHand = txtQtyOnHand.getText();
         double UnitPrice = Double.parseDouble(txtUnitPrice.getText());
 
 
-        Rent rent = new Rent(RentID,Type,Qty,Description, QtyOnHand, UnitPrice);
+        Rent rent = new Rent(RentID,Type,Qty,Description, UnitPrice);
 
 
 

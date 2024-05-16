@@ -98,27 +98,20 @@
          </graphic>
       </JFXButton>
       <TextField fx:id="txtType" layoutX="650.0" layoutY="221.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TableView fx:id="tblRent" layoutX="80.0" layoutY="607.0" prefHeight="246.0" prefWidth="1017.0">
+      <TableView fx:id="tblRent" layoutX="80.0" layoutY="607.0" onMouseClicked="#rentTableClick" prefHeight="246.0" prefWidth="822.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="140.0" text="ID" />
           <TableColumn fx:id="colType" prefWidth="137.0" text="Type" />
             <TableColumn fx:id="colQty" prefWidth="137.0" text="Qty" />
             <TableColumn fx:id="colDescription" prefWidth="217.0" text="Description" />
-            <TableColumn fx:id="colQtyOnHand" prefWidth="193.0" text="Qty On Hand" />
             <TableColumn fx:id="colUnitPrice" prefWidth="193.0" text="Unit Price" />
         </columns>
       </TableView>
-      <Text fill="#fffefe" layoutX="71.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty On Hand" wrappingWidth="120.13671875">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Text>
       <Text fill="#fffefe" layoutX="650.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtQtyOnHand" layoutX="56.0" layoutY="470.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
       <TextField fx:id="txtUnitPrice" layoutX="645.0" layoutY="445.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
    </children>
 </Pane>

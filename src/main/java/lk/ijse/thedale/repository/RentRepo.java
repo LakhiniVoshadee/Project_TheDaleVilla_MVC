@@ -12,7 +12,7 @@ import java.util.List;
 
 public class RentRepo {
     public static String generateNextId() throws SQLException {
-        String sql = "SELECT RentID FROM rent order by RentID desc LIMIT 1";
+        String sql = "SELECT RentID FROM Rent order by RentID desc LIMIT 1";
         Connection connection = Dbconnection.getInstance().getConnection();
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 
@@ -35,42 +35,43 @@ public class RentRepo {
     }
 
     public static boolean delete(String id) throws SQLException {
-        String sql = "DELETE FROM rent WHERE RentID = ?";
+        String sql = "DELETE FROM Rent WHERE RentID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+        pstm.setObject(1,id);
 
         return pstm.executeUpdate() >0;
     }
 
     public static boolean save(Rent rent) throws SQLException {
-        String sql = "INSERT INTO rent VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO Rent VALUES(?,?,?,?,?)";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1,rent.getRentID());
         pstm.setObject(2,rent.getQty());
         pstm.setObject(3,rent.getDescription());
         pstm.setObject(4,rent.getType());
-        pstm.setObject(5,rent.getQtyOnHand());
-        pstm.setObject(6,rent.getUnitPrice());
+      //  pstm.setObject(5,rent.getQtyOnHand());
+        pstm.setObject(5,rent.getUnitPrice());
 
         return pstm.executeUpdate() > 0;
     }
 
     public static boolean update(Rent rent) throws SQLException {
-        String sql = "Update rent set Type = ?, Qty = ?, Description = ? ,QtyOnHand = ?, UnitPrice = ? where RentID = ?";
+        String sql = "Update Rent set Type = ?, Qty = ?, Description = ? , UnitPrice = ? where RentID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
         pstm.setObject(1,rent.getType());
         pstm.setObject(2,rent.getQty());
         pstm.setObject(3,rent.getDescription());
-        pstm.setObject(4,rent.getQtyOnHand());
-        pstm.setObject(5,rent.getUnitPrice());
-        pstm.setObject(6,rent.getRentID());
+       // pstm.setObject(4,rent.getQtyOnHand());
+        pstm.setObject(4,rent.getUnitPrice());
+        pstm.setObject(5,rent.getRentID());
 
         return pstm.executeUpdate() > 0;
     }
 
     public static Rent searchRent(String rentId) throws SQLException {
-        String sql = "select * from rent where RentID = ?";
+        String sql = "select * from Rent where RentID = ?";
 
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
 
@@ -84,10 +85,10 @@ public class RentRepo {
             int qty = Integer.parseInt(resultSet.getString(2));
             String description = resultSet.getString(3);
             String type = resultSet.getString(4);
-            String qtyOnHand = resultSet.getString(5);
+           // String qtyOnHand = resultSet.getString(5);
             double unitPrice = resultSet.getDouble(6);
 
-            rent = new Rent(id,type,qty,description,qtyOnHand,unitPrice);
+            rent = new Rent(id,type,qty,description,unitPrice);
 
         }
         return rent;
@@ -95,7 +96,7 @@ public class RentRepo {
     }
 
     public List<Rent> getRent() throws SQLException {
-        String sql = "SELECT * FROM rent";
+        String sql = "SELECT * FROM Rent";
         ResultSet resultSet = Dbconnection.getInstance().getConnection().prepareStatement(sql).executeQuery();
         List<Rent> rentList = new ArrayList<>();
         while (resultSet.next()){
@@ -103,10 +104,10 @@ public class RentRepo {
             int qty = Integer.parseInt(resultSet.getString(2));
             String description = resultSet.getString(3);
             String type = resultSet.getString(4);
-            String qtyOnHand = resultSet.getString(5);
-            double unitPrice = resultSet.getDouble(6);
+           // String qtyOnHand = resultSet.getString(5);
+            double unitPrice = resultSet.getDouble(5);
 
-            Rent rent = new Rent(id,type,qty,description,qtyOnHand,unitPrice);
+            Rent rent = new Rent(id,type,qty,description,unitPrice);
             rentList.add(rent);
 
         }
