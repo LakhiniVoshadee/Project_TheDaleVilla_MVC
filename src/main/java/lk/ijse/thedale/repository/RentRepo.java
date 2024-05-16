@@ -113,4 +113,18 @@ public class RentRepo {
         }
         return rentList;
     }
+
+    public int countRent() throws SQLException {
+        Connection connection = Dbconnection.getInstance().getConnection();
+        String sql = "select count(RentID) as rent_count rent)";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        if (resultSet.next()){
+            int rentCount = Integer.parseInt(resultSet.getString("rent_count"));
+            return rentCount;
+        }
+        return Integer.parseInt(null);
+    }
 }

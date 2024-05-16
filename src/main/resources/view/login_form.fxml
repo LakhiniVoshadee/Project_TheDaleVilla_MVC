@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="896.0" prefWidth="1208.0" style="-fx-background-color: #006863;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="896.0" prefWidth="1208.0" style="-fx-background-color: #373D20;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.LoginFormController">
    <children>
-      <Pane layoutX="102.0" layoutY="94.0" prefHeight="699.0" prefWidth="1023.0" style="-fx-background-color: #a0c7cc; -fx-background-radius: 0;">
+      <Pane layoutX="102.0" layoutY="94.0" prefHeight="699.0" prefWidth="1023.0" style="-fx-background-color: #717744; -fx-background-radius: 0;">
          <children>
             <ImageView fitHeight="585.0" fitWidth="464.0" layoutX="559.0" layoutY="114.0">
                <image>
@@ -26,9 +26,9 @@
                   <Image url="@../assets/images/istockphoto-1158627001-1024x1024-transformed.jpeg" />
                </image>
             </ImageView>
-            <Pane layoutX="230.0" layoutY="114.0" prefHeight="495.0" prefWidth="567.0" style="-fx-background-color: #006863;">
+            <Pane layoutX="230.0" layoutY="114.0" prefHeight="495.0" prefWidth="567.0" style="-fx-background-color: #373D20;">
                <children>
-                  <TextField id="txtUserName" fx:id="txtUserId" layoutX="141.0" layoutY="157.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="54.0" prefWidth="274.0" promptText="Enter Username" style="-fx-background-radius: 30; -fx-border-width: 1; -fx-border-color: white; -fx-background-color: #006863;" styleClass="txtUserName" stylesheets="@../values/style.css">
+                  <TextField id="txtUserName" fx:id="txtUserId" layoutX="141.0" layoutY="157.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="54.0" prefWidth="274.0" promptText="Enter Username" style="-fx-background-radius: 30; -fx-border-width: 1; -fx-border-color: white; -fx-background-color: #373D20;" styleClass="txtUserName" stylesheets="@../values/style.css">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -36,7 +36,7 @@
                         <Insets />
                      </opaqueInsets>
                   </TextField>
-                  <PasswordField id="txtPassword" fx:id="txtPassword" layoutX="141.0" layoutY="230.0" prefHeight="54.0" prefWidth="274.0" promptText="Enter Password" style="-fx-background-color: #006863; -fx-background-radius: 30; -fx-border-width: 1; -fx-border-color: white;" styleClass="txtPassword" stylesheets="@../values/style.css">
+                  <PasswordField id="txtPassword" fx:id="txtPassword" layoutX="141.0" layoutY="230.0" prefHeight="54.0" prefWidth="274.0" promptText="Enter Password" style="-fx-background-color: #373D20; -fx-background-radius: 30; -fx-border-width: 1; -fx-border-color: white;" styleClass="txtPassword" stylesheets="@../values/style.css">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -63,8 +63,8 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="293.0" prefHeight="47.0" prefWidth="730.0" style="-fx-background-color: #b2bec3;" />
-            <Pane layoutY="653.0" prefHeight="47.0" prefWidth="559.0" style="-fx-background-color: #b2bec3;" />
+            <Pane layoutX="293.0" prefHeight="47.0" prefWidth="730.0" style="-fx-background-color: #BCBD8B;" />
+            <Pane layoutY="653.0" prefHeight="47.0" prefWidth="559.0" style="-fx-background-color: #BCBD8B;" />
             <ImageView fitHeight="148.0" fitWidth="160.0" layoutX="32.0" layoutY="24.0">
                <image>
                   <Image url="@../assets/the-dale-villa-high-resolution-logo-black-transparent.png" />

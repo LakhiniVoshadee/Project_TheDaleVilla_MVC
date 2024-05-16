@@ -117,27 +117,27 @@
       <Line endX="1075.0" endY="14.0" layoutX="101.0" layoutY="89.0" startX="-102.0" startY="14.0" stroke="#079992" strokeWidth="2.0" />
       <Label fx:id="lblCustomerName" layoutX="632.0" layoutY="270.0" prefHeight="17.0" prefWidth="288.0" textFill="RED">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="lblCustomerSex" layoutX="83.0" layoutY="358.0" prefHeight="17.0" prefWidth="280.0" textFill="RED">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="lblCusNic" layoutX="629.0" layoutY="360.0" prefHeight="17.0" prefWidth="280.0" textFill="RED">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="lblCusContact" layoutX="82.0" layoutY="457.0" prefHeight="17.0" prefWidth="288.0" textFill="RED">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="lblCusEmail" layoutX="632.0" layoutY="449.0" prefHeight="17.0" prefWidth="280.0" textFill="RED">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font>
       </Label>
    </children>

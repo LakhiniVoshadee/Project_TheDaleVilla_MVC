@@ -19,6 +19,7 @@ public class RoomRepo {
 
         String sql = "DELETE FROM room WHERE RoomID = ?";
         PreparedStatement pstm = Dbconnection.getInstance().getConnection().prepareStatement(sql);
+        pstm.setString(1, id);
 
         return pstm.executeUpdate() > 0;
     }
