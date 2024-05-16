@@ -1,5 +1,8 @@
 package lk.ijse.thedale.repository;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 import lk.ijse.thedale.db.Dbconnection;
 import lk.ijse.thedale.model.Room;
 import lk.ijse.thedale.model.RoomDetails;
@@ -30,7 +33,7 @@ public class RoomRepo {
         //pstm.setObject(4, room.getQtyOnHand());
         pstm.setObject(4, room.getUnitPrice());
         pstm.setObject(5, room.getQty());
-        pstm.setObject(6,room.getCusID());
+        pstm.setObject(6, room.getCusID());
 
         return pstm.executeUpdate() > 0;
     }
@@ -42,7 +45,7 @@ public class RoomRepo {
 
         pstm.setObject(1, room.getType());
         pstm.setObject(2, room.getDate());
-       // pstm.setObject(3, room.getQtyOnHand());
+        // pstm.setObject(3, room.getQtyOnHand());
         pstm.setObject(3, room.getUnitPrice());
         pstm.setObject(4, room.getQty());
         pstm.setObject(5, room.getCusID());
@@ -88,7 +91,7 @@ public class RoomRepo {
             String id = resultSet.getString(1);
             String type = resultSet.getString(2);
             String date = resultSet.getString(3);
-           // String qtyOnHand = resultSet.getString(4);
+            // String qtyOnHand = resultSet.getString(4);
             double unitPrice = resultSet.getDouble(4);
             String qty = resultSet.getString(5);
             String cusID = resultSet.getString(6);
@@ -101,7 +104,7 @@ public class RoomRepo {
 
     public static boolean updateRoomQty(List<RoomDetails> roomDetails) throws SQLException {
         for (RoomDetails roomDetail : roomDetails) {
-            if (!updateRoomQty(roomDetail)){
+            if (!updateRoomQty(roomDetail)) {
                 return false;
             }
         }
@@ -118,6 +121,29 @@ public class RoomRepo {
         return pstm.executeUpdate() > 0;
 
     }
+
+    public static ObservableList<XYChart.Series<String, Integer>> getDataToBarChart() throws SQLException {
+        Connection connection = Dbconnection.getInstance().getConnection();
+        String sql = "select Type,Qty from room";
+
+        ObservableList<XYChart.Series<String, Integer>> datalist = FXCollections.observableArrayList();
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
+
+        while (resultSet.next()) {
+            String roomType = resultSet.getString("Type");
+            Integer roomQty = resultSet.getInt("Qty");
+            series.getData().add(new XYChart.Data<>(roomType, roomQty));
+        }
+        datalist.add(series);
+        return datalist;
+    }
+
+
+
 
     public List<Room> getRoom() throws SQLException {
         String sql = "SELECT * FROM room";
@@ -139,5 +165,19 @@ public class RoomRepo {
 
     }
         return roomList;
+    }
+
+    public int countRoom() throws SQLException {
+        Connection connection = Dbconnection.getInstance().getConnection();
+        String sql = "select count(RoomID) as room_count from room";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        if (resultSet.next()){
+            int roomCount = Integer.parseInt(resultSet.getString("room_count"));
+            return roomCount;
+        }
+        return Integer.parseInt(null);
     }
 }

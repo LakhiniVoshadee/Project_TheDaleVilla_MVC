@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Room;
 import lk.ijse.thedale.repository.CustomerRepo;
@@ -24,6 +25,7 @@ import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -242,6 +244,20 @@ public class RoomFormController implements Initializable {
         map.put(txtUnitPrice, patternUnitPrice);
 
       */
+    }
+
+    @FXML
+    void roomTableClick(MouseEvent event) {
+        TablePosition pos = tblRoom.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        ObservableList<TableColumn<RoomTm,?>> columns = tblRoom.getColumns();
+
+        txtRoomId.setText(columns.get(0).getCellData(row).toString());
+        txtType.setText(columns.get(1).getCellData(row).toString());
+        txtDate.setValue(LocalDate.parse(columns.get(2).getCellData(row).toString()));
+        txtUnitPrice.setText(columns.get(3).getCellData(row).toString());
+        txtQty.setText(columns.get(4).getCellData(row).toString());
+
     }
 
     private void getCustomerId() throws SQLException {

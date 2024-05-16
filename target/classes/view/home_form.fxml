@@ -33,7 +33,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblCusCount" alignment="CENTER" layoutX="123.0" layoutY="52.0" prefHeight="37.0" prefWidth="94.0">
+            <Label fx:id="lblCusCount" alignment="CENTER" layoutX="123.0" layoutY="39.0" prefHeight="37.0" prefWidth="94.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

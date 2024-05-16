@@ -87,7 +87,7 @@
          </graphic>
       </JFXButton>
       <TextField fx:id="txtType" layoutX="621.0" layoutY="181.0" prefHeight="37.0" prefWidth="318.0" style="-fx-background-radius: 30;" />
-      <TableView fx:id="tblRoom" layoutX="46.0" layoutY="591.0" prefHeight="271.0" prefWidth="964.0">
+      <TableView fx:id="tblRoom" layoutX="46.0" layoutY="591.0" onMouseClicked="#roomTableClick" prefHeight="271.0" prefWidth="964.0">
          <columns>
             <TableColumn fx:id="colId" prefWidth="149.0" text="Room ID" />
             <TableColumn fx:id="colType" prefWidth="189.0" text="Type" />

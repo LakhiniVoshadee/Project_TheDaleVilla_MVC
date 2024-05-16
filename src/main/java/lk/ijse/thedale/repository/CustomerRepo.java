@@ -141,4 +141,18 @@ public class CustomerRepo {
         }
         return customerList;
     }
+
+    public int countCustomer() throws SQLException {
+        Connection connection = Dbconnection.getInstance().getConnection();
+        String sql = "select count(CusID) as customer_count from customer";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        if (resultSet.next()){
+            int customerCount = Integer.parseInt(resultSet.getString("customer_count"));
+            return customerCount;
+        }
+        return Integer.parseInt(null);
+    }
 }
