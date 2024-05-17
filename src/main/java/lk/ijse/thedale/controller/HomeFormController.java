@@ -139,7 +139,7 @@ public class HomeFormController implements Initializable {
                 obList.add(datum);
             }
             pieChart.getData().addAll(obList);
-            pieChart.setTitle("Most Trending Products");
+            pieChart.setTitle("Most Trending Rooms");
             pieChart.setStartAngle(180);
 
         } catch (SQLException throwables) {

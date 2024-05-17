@@ -16,7 +16,9 @@ public class PlaceRoomRepo {
             boolean isOrderSaved = RoomBookingRepo.saveOrder(placedRoomBooking.getRoomBooking());
             if (isOrderSaved) {
                 System.out.println("order saved");
+                System.out.println(isOrderSaved);
                 boolean isOrderDetailSaved = RoomDetailsRepo.saveOrderDetails(placedRoomBooking.getRoomDetails());
+                System.out.println(isOrderDetailSaved);
                 if(isOrderDetailSaved) {
                     System.out.println("orderdetailssaved");
                     boolean isRoomUpdated = RoomRepo.updateRoomQty(placedRoomBooking.getRoomDetails());

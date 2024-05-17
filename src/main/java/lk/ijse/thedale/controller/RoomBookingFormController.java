@@ -11,10 +11,14 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import lk.ijse.thedale.db.Dbconnection;
 import lk.ijse.thedale.model.*;
 import lk.ijse.thedale.repository.*;
 import lk.ijse.thedale.tm.RoomBookingTm;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.InputStream;
@@ -178,14 +182,33 @@ public class RoomBookingFormController implements Initializable {
 
         try {
             boolean isOrderPlaced = PlaceRoomRepo.orderPlaced(placedRoomBooking);
+            System.out.println(isOrderPlaced);
             if (isOrderPlaced){
-               // new Alert(Alert.AlertType.CONFIRMATION,"Order Placed Successfully").show();
+                // new Alert(Alert.AlertType.CONFIRMATION,"Order Placed Successfully").show();
                 ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
                 ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
                 Optional<ButtonType>result = new Alert(Alert.AlertType.CONFIRMATION,"Order Successfully.. Do you want print a bill ?",yes,no).showAndWait();
 
                 if (result.orElse(no) == yes) {
-                    Map<String, Object> parameters = new HashMap<>();
+                    JasperDesign jasperDesign =
+                            JRXmlLoader.load("src/main/resources/view/report/RoomBill.jrxml");
+
+                    JRDesignQuery jrDesignQuery = new JRDesignQuery();
+                    jrDesignQuery.setText("SELECT * FROM RoomDetails ORDER BY RoomID desc LIMIT 1");
+
+                    jasperDesign.setQuery(jrDesignQuery);
+
+                    JasperReport jasperReport =
+                            JasperCompileManager.compileReport(jasperDesign);
+
+                    JasperPrint jasperPrint =
+                            JasperFillManager.fillReport(
+                                    jasperReport,
+                                    null,
+                                    Dbconnection.getInstance().getConnection());
+
+                    JasperViewer.viewReport(jasperPrint,false);
+                    /*Map<String, Object> parameters = new HashMap<>();
                     InputStream resource = this.getClass().getResourceAsStream("/view/report/RoomBill.jrxml");
                     try {
                         JasperReport jasperReport = JasperCompileManager.compileReport(resource);
@@ -193,15 +216,16 @@ public class RoomBookingFormController implements Initializable {
                         JasperViewer.viewReport(jasperPrint, false);
                     } catch (JRException e) {
                         throw new RuntimeException(e);
-                    }
+                    }*/
                 }
             }else{
                 new Alert(Alert.AlertType.WARNING, "Order Placed Failed").show();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        } catch (JRException e) {
+            throw new RuntimeException(e);
         }
-
 
 
     }
