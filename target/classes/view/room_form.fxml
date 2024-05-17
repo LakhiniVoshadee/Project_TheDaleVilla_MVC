@@ -94,8 +94,8 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lblRoomType" layoutX="642.0" layoutY="220.0" prefHeight="17.0" prefWidth="284.0" textFill="RED" />
-      <Label fx:id="lblRoomUp" layoutX="609.0" layoutY="471.0" prefHeight="17.0" prefWidth="300.0" textFill="RED" />
+      <Label fx:id="lblRoomType" layoutX="629.0" layoutY="234.0" prefHeight="17.0" prefWidth="284.0" textFill="RED" />
+      <Label fx:id="lblRoomUp" layoutX="621.0" layoutY="471.0" prefHeight="17.0" prefWidth="300.0" textFill="RED" />
       <Label fx:id="lblRoomQty" layoutX="74.0" layoutY="487.0" prefHeight="17.0" prefWidth="276.0" textFill="RED" />
       <ImageView fitHeight="23.0" fitWidth="31.0" layoutX="1029.0" layoutY="242.0">
          <image>

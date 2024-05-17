@@ -8,11 +8,21 @@
 }
 
 .txtUserName{
-    -fx-text-fill: black;
-    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
 
 }
 
 .txtPassword{
-    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+}
+.txtUserNme{
+    -fx-text-fill: white;
+}
+
+.txtEmail{
+    -fx-text-fill: white;
+}
+
+.txtPassword{
+    -fx-text-fill: white;
 }

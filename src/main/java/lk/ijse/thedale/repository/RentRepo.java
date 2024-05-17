@@ -116,7 +116,7 @@ public class RentRepo {
 
     public int countRent() throws SQLException {
         Connection connection = Dbconnection.getInstance().getConnection();
-        String sql = "select count(RentID) as rent_count Rent)";
+        String sql = "select count(RentID) as rent_count from Rent";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
