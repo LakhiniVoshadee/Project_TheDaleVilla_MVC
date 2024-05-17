@@ -52,7 +52,7 @@
             </Label>
             <Label fx:id="lblRentalCount" alignment="CENTER" layoutX="137.0" layoutY="39.0" prefHeight="45.0" prefWidth="94.0">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
          </children></Pane>

@@ -106,7 +106,7 @@
          </font></Label>
       <Label fx:id="lblEmployeeName" layoutX="613.0" layoutY="285.0" prefHeight="19.0" prefWidth="274.0" textFill="RED">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="15.0" />
          </font></Label>
       <ImageView fitHeight="23.0" fitWidth="28.0" layoutX="1092.0" layoutY="132.0">
          <image>

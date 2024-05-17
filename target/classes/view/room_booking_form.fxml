@@ -14,7 +14,7 @@
 
 <Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1242.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.RoomBookingFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="902.0" layoutX="-7.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1256.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#717744" height="902.0" layoutX="-7.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1256.0" />
       <Text fill="WHITE" layoutX="66.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
          <font>
             <Font name="Arial Bold" size="33.0" />
@@ -48,14 +48,17 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Label fx:id="lblBDate" layoutX="725.0" layoutY="194.0" prefHeight="37.0" prefWidth="223.0" />
+      <Label fx:id="lblBDate" layoutX="725.0" layoutY="194.0" prefHeight="37.0" prefWidth="223.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Text fill="#fffefe" layoutX="45.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID:" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
       <JFXComboBox fx:id="cmbCId" layoutX="195.0" layoutY="252.0" onAction="#cmbCusOnAction" prefHeight="37.0" prefWidth="202.0" />
-      <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="426.0" layoutY="262.0" prefHeight="37.0" prefWidth="74.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="+ New" textFill="WHITE">
+      <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="426.0" layoutY="262.0" prefHeight="37.0" prefWidth="74.0" style="-fx-background-color: #373D20; -fx-background-radius: 10;" text="+ New" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
@@ -65,7 +68,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Label fx:id="lblCName" layoutX="736.0" layoutY="262.0" prefHeight="37.0" prefWidth="223.0" />
+      <Label fx:id="lblCName" layoutX="736.0" layoutY="262.0" prefHeight="37.0" prefWidth="223.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Text fill="#fffefe" layoutX="45.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID:" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
@@ -77,26 +83,35 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Label fx:id="lblType" layoutX="751.0" layoutY="337.0" prefHeight="37.0" prefWidth="223.0" />
+      <Label fx:id="lblType" layoutX="751.0" layoutY="337.0" prefHeight="37.0" prefWidth="223.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Text fill="#fffefe" layoutX="45.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price:" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Label fx:id="lblUnitPrice" layoutX="185.0" layoutY="405.0" prefHeight="37.0" prefWidth="223.0" />
+      <Label fx:id="lblUnitPrice" layoutX="185.0" layoutY="405.0" prefHeight="37.0" prefWidth="223.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Text fill="#fffefe" layoutX="564.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty On Hand:" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Label fx:id="lblQtyOHand" layoutX="760.0" layoutY="405.0" prefHeight="37.0" prefWidth="223.0" />
+      <Label fx:id="lblQtyOHand" layoutX="760.0" layoutY="405.0" prefHeight="37.0" prefWidth="223.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Text fill="#fffefe" layoutX="45.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty:" wrappingWidth="120.13671875">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
       <TextField fx:id="txtQty" layoutX="185.0" layoutY="477.0" prefHeight="37.0" prefWidth="149.0" />
-      <JFXButton fx:id="btnAdToCart" buttonType="RAISED" layoutX="948.0" layoutY="467.0" onAction="#addToCartOnAction" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="Add To Cart" textFill="WHITE">
+      <JFXButton fx:id="btnAdToCart" buttonType="RAISED" layoutX="948.0" layoutY="467.0" onAction="#addToCartOnAction" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #373D20; -fx-background-radius: 10;" text="Add To Cart" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -106,13 +121,16 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnPlaceOrder" buttonType="RAISED" layoutX="768.0" layoutY="811.0" onAction="#btnPlaceOrderOnAction" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="Place Order" textFill="WHITE">
+      <JFXButton fx:id="btnPlaceOrder" buttonType="RAISED" layoutX="768.0" layoutY="811.0" onAction="#btnPlaceOrderOnAction" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #373D20; -fx-background-radius: 10;" text="Place Order" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lblNetTotal" layoutX="148.0" layoutY="822.0" prefHeight="37.0" prefWidth="223.0" />
-      <JFXButton fx:id="btnPrintBill" buttonType="RAISED" layoutX="983.0" layoutY="811.0" onAction="#btnPrintBillOnAction" prefHeight="48.0" prefWidth="110.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="Print Bill" textFill="WHITE">
+      <Label fx:id="lblNetTotal" layoutX="148.0" layoutY="822.0" prefHeight="37.0" prefWidth="223.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <JFXButton fx:id="btnPrintBill" buttonType="RAISED" layoutX="983.0" layoutY="811.0" onAction="#btnPrintBillOnAction" prefHeight="48.0" prefWidth="110.0" style="-fx-background-color: #373D20; -fx-background-radius: 10;" text="Print Bill" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

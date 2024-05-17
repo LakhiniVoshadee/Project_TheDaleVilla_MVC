@@ -8,83 +8,77 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1242.0" style="-fx-background-color: #079992;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.FoodFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="899.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="1253.0" />
-      <Text fill="WHITE" layoutX="51.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="162.13671875">
-         <font>
-            <Font name="Arial Bold" size="33.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="51.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Manage">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#717744" height="899.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="1253.0" />
+      <Text fill="WHITE" layoutX="58.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Manage">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="txtFoodId" layoutX="51.0" layoutY="277.0" onKeyReleased="#txtOnKeyRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtDesId" layoutX="528.0" layoutY="277.0" onKeyReleased="#txtOnKeyRele" prefHeight="37.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
-      <Text fill="WHITE" layoutX="73.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food ID">
+      <TextField fx:id="txtFoodId" layoutX="51.0" layoutY="226.0" onKeyReleased="#txtOnKeyRele" prefHeight="51.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtDesId" layoutX="524.0" layoutY="226.0" onKeyReleased="#txtOnKeyRele" prefHeight="51.0" prefWidth="300.0" style="-fx-background-radius: 30;" />
+      <Text fill="WHITE" layoutX="58.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food ID">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tblFood" layoutX="103.0" layoutY="475.0" onMouseClicked="#foodTableClick" prefHeight="366.0" prefWidth="876.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbd8b" height="394.0" layoutX="117.0" layoutY="481.0" opacity="0.34" stroke="BLACK" strokeType="INSIDE" width="903.0" />
+      <TableView fx:id="tblFood" layoutX="164.0" layoutY="516.0" onMouseClicked="#foodTableClick" prefHeight="325.0" prefWidth="815.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="267.0" text="Food ID" />
           <TableColumn fx:id="colDes" prefWidth="608.0" text="Description" />
         </columns>
       </TableView>
-      <Text fill="WHITE" layoutX="542.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+      <Text fill="WHITE" layoutX="536.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="382.0" layoutY="415.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="979.0" layoutY="89.0" onAction="#btnClearOnAction" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: #373D20; -fx-background-radius: 30;" text="Clear" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="509.0" layoutY="415.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="113.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Delete" textFill="#ffe9e9">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="979.0" layoutY="166.0" onAction="#btnDeleteOnAction" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: #373D20; -fx-background-radius: 20;" text="Delete" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="644.0" layoutY="415.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Update" textFill="#ffe9e9">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="644.0" layoutY="415.0" onAction="#btnUpdateOnAction" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: #373D20; -fx-background-radius: 20;" text="Update" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="787.0" layoutY="415.0" onAction="#btnSaveOnACtion" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: #079992; -fx-background-radius: 30;" text="Save" textFill="#ffe9e9">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="787.0" layoutY="415.0" onAction="#btnSaveOnACtion" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: #373D20; -fx-background-radius: 20;" text="Save" textFill="#ffe9e9">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="437.0" layoutY="417.0">
+      <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="987.0" layoutY="101.0">
          <image>
             <Image url="@../assets/icons/broom.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="573.0" layoutY="417.0">
+      <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="987.0" layoutY="177.0">
          <image>
             <Image url="@../assets/icons/trash.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="23.0" fitWidth="33.0" layoutX="715.0" layoutY="417.0">
+      <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="651.0" layoutY="429.0">
          <image>
             <Image url="@../assets/icons/update.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="850.0" layoutY="417.0">
+      <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="805.0" layoutY="429.0">
          <image>
             <Image url="@../assets/icons/save.png" />
          </image>
       </ImageView>
-      <Line endX="1072.0" endY="4.0" layoutX="103.0" layoutY="93.0" startX="-102.0" startY="4.0" stroke="#079992" strokeWidth="2.0" />
-      <Label fx:id="lblFoodDesc" layoutX="541.0" layoutY="314.0" prefHeight="17.0" prefWidth="261.0" textFill="RED" />
+      <Label fx:id="lblFoodDesc" layoutX="544.0" layoutY="277.0" prefHeight="17.0" prefWidth="261.0" textFill="RED" />
    </children>
 </Pane>

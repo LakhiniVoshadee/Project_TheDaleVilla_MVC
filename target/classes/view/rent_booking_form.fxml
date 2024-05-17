@@ -14,7 +14,7 @@
 
 <Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thedale.controller.RentBookingFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84aeaa" height="890.0" stroke="BLACK" strokeType="INSIDE" width="1250.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#717744" height="890.0" stroke="BLACK" strokeType="INSIDE" width="1250.0" />
       <Text fill="WHITE" layoutX="66.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
          <font>
             <Font name="Arial Bold" size="33.0" />
@@ -55,7 +55,7 @@
          </font>
       </Text>
       <JFXComboBox fx:id="cmbCId" layoutX="195.0" layoutY="252.0" onAction="#cmbCusOnAction" prefHeight="37.0" prefWidth="202.0" />
-      <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="426.0" layoutY="262.0" prefHeight="37.0" prefWidth="74.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="+ New" textFill="WHITE">
+      <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="426.0" layoutY="262.0" prefHeight="37.0" prefWidth="74.0" style="-fx-background-color: #373D20; -fx-background-radius: 10;" text="+ New" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
@@ -96,7 +96,7 @@
          </font>
       </Text>
       <TextField fx:id="txtQty" layoutX="185.0" layoutY="477.0" prefHeight="37.0" prefWidth="149.0" />
-      <JFXButton fx:id="btnAdToCart" buttonType="RAISED" layoutX="948.0" layoutY="467.0" onAction="#addToCartOnAction" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="Add To Cart" textFill="WHITE">
+      <JFXButton fx:id="btnAdToCart" buttonType="RAISED" layoutX="948.0" layoutY="467.0" onAction="#addToCartOnAction" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #373D20; -fx-background-radius: 10;" text="Add To Cart" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -106,12 +106,12 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnPlaceOrder" buttonType="RAISED" layoutX="932.0" layoutY="811.0" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="Place Order" textFill="WHITE">
+      <JFXButton fx:id="btnPlaceOrder" buttonType="RAISED" layoutX="932.0" layoutY="811.0" prefHeight="48.0" prefWidth="160.0" style="-fx-background-color: #373D20; -fx-background-radius: 10;" text="Place Order" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="698.0" layoutY="811.0" prefHeight="48.0" prefWidth="133.0" style="-fx-background-color: #079992; -fx-background-radius: 10;" text="Back" textFill="WHITE">
+      <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="698.0" layoutY="811.0" prefHeight="48.0" prefWidth="133.0" style="-fx-background-color: #373D20; -fx-background-radius: 10;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

@@ -102,7 +102,33 @@ public class DataValidateController {
 
 
     //Rent Form
+    public static boolean validateRentType(String rentType){
+        String typeRegex = "^[A-z|\\\\s]{3,}$";
+        Pattern pattern = Pattern.compile(typeRegex);
+        Matcher matcher = pattern.matcher(rentType);
+        return matcher.matches();
+    }
 
+    public static boolean validateRentQty(String rentQty){
+        String qtyRegex = "^\\d+$";
+        Pattern pattern = Pattern.compile(qtyRegex);
+        Matcher matcher = pattern.matcher(rentQty);
+        return matcher.matches();
+    }
 
+    public static boolean validateRentDescription(String rentDescription){
+        String rentDescriptionRegex = "^[A-z|\\\\s]{3,}$";
+        Pattern pattern = Pattern.compile(rentDescriptionRegex);
+        Matcher matcher = pattern.matcher(rentDescription);
+        return matcher.matches();
+
+    }
+
+    public static boolean validateRentUnitPrice(String rentUnitPrice){
+        String upRegex = "^([0-9]){1,}[.]([0-9]){1,}$";
+        Pattern pattern = Pattern.compile(upRegex);
+        Matcher matcher = pattern.matcher(rentUnitPrice);
+        return matcher.matches();
+    }
 
 }

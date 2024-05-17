@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 import lk.ijse.thedale.model.Rent;
 import lk.ijse.thedale.repository.RentRepo;
 import lk.ijse.thedale.tm.RentTm;
+import lk.ijse.thedale.util.DataValidateController;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -65,6 +66,19 @@ public class RentFormController implements Initializable {
 
     @FXML
     private TextField txtUnitPrice;
+
+    @FXML
+    private Label lblDescription;
+
+    @FXML
+    private Label lblQty;
+
+    @FXML
+    private Label lblType;
+
+    @FXML
+    private Label lblUnitPrice;
+
 
     RentRepo rentRepo = new RentRepo();
 
@@ -178,23 +192,47 @@ public class RentFormController implements Initializable {
         String Type = txtType.getText();
         int Qty = Integer.parseInt(txtQty.getText());
         String Description = txtDescription.getText();
-       // String QtyOnHand = txtQtyOnHand.getText();
+        // String QtyOnHand = txtQtyOnHand.getText();
         double UnitPrice = Double.parseDouble(txtUnitPrice.getText());
 
-        Rent rent = new Rent(RentID,Type,Qty,Description, UnitPrice);
+        Rent rent = new Rent(RentID, Type, Qty, Description, UnitPrice);
+        if (DataValidateController.validateRentUnitPrice(txtUnitPrice.getText())) {
+            lblUnitPrice.setText("");
+        }
+        if (DataValidateController.validateRentDescription(txtDescription.getText())) {
+            lblDescription.setText("");
 
-        try {
-            boolean isSaved = RentRepo.save(rent);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Rent saved successfully!").show();
-                loadRentTable();
+
+            if (DataValidateController.validateRentQty(txtQty.getText())) {
+                lblQty.setText("");
+
+                if (DataValidateController.validateRentType(txtType.getText())) {
+                    lblType.setText("");
+
+
+                    try {
+                        boolean isSaved = RentRepo.save(rent);
+                        if (isSaved) {
+                            new Alert(Alert.AlertType.CONFIRMATION, "Rent saved successfully!").show();
+                            loadRentTable();
+                        }
+
+                    } catch (SQLException e) {
+                        new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                    }
+                } else {
+                    lblType.setText("Invalid Type");
+                }
+            } else {
+                lblQty.setText("Invalid Qty");
             }
-
-        }catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        } else {
+            lblDescription.setText("Invalid Description");
+        }
+ //   }else{
+            lblUnitPrice.setText("Invalid UnitPrice");
         }
 
-    }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
